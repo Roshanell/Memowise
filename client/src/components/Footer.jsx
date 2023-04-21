@@ -3,12 +3,10 @@ const Footer = () => {
 		<footer>
 			<div class="footer-top">
 				<div class="container">
-					<div class="footer-day-time"></div>
 					<div class="row">
 						<div class="col-lg-4">
 							<h4>About us</h4>
 						</div>
-
 						<div class="col-md-4">
 							<h4>Information</h4>
 							<ul class="address1">
