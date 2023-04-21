@@ -1,6 +1,6 @@
 .App {
 	min-height: 100vh;
-	background-color: rgb(238, 232, 232);
+	/* background-color: rgb(238, 232, 232); */
 	margin: 5px;
 }
 
@@ -26,8 +26,15 @@ a.navbar-brand {
 }
 
 .nav-bar {
-	background-color: #16abac;
 	color: white;
+	/* background: url("https://i.imgur.com/B8jfeMY.png"); */
+	font-weight: 700;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	background-color: rgb(22, 171, 172);
+	border-top: 2px solid black;
+	border-bottom: 4px solid black;
+	padding: 2rem !important;
 }
 
 /* list students */
