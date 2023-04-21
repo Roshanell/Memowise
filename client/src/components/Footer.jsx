@@ -53,7 +53,7 @@ const Footer = () => {
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-5">
-							<p class="copyright text-uppercase">Copyright © 2018</p>
+							<p class="copyright text-uppercase">© 2023|</p>
 						</div>
 						<div class="col-sm-7">
 							<ul>
