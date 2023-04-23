@@ -1,10 +1,10 @@
 const Footer = () => {
 	return (
 		<footer>
-			<div class="footer-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-4">
+			<div className="footer-top">
+				<div className="container">
+					<div className="row">
+						<div className="col-lg-4">
 							<h4>About us</h4>
 							<ul>
 								<li className="footer-link">
@@ -21,22 +21,22 @@ const Footer = () => {
 								</li>
 							</ul>
 						</div>
-						<div class="col-md-4">
+						<div className="col-md-4">
 							<h4>Connect</h4>
-							<ul class="social-icon">
+							<ul className="social-icon">
 								<li>
 									<a href="#">
-										<i class="fa fa-facebook" aria-hidden="true"></i>
+										<i className="fa fa-facebook" aria-hidden="true"></i>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<i class="fa fa-instagram" aria-hidden="true"></i>
+										<i className="fa fa-instagram" aria-hidden="true"></i>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<i class="fa fa-twitter" aria-hidden="true"></i>
+										<i className="fa fa-twitter" aria-hidden="true"></i>
 									</a>
 								</li>
 							</ul>
@@ -44,12 +44,12 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-			<div class="footer-bottom">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-5">
-							<p class="copyright">
-								© 2023 | Made with <i class="fa-solid fa-heart"> </i> By
+			<div className="footer-bottom">
+				<div className="container">
+					<div className="row">
+						<div className="col-sm-5">
+							<p className="copyright">
+								© 2023 | Made with <i className="fa-solid fa-heart"> </i> By
 								Roshanell Fracisco
 							</p>
 						</div>

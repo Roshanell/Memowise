@@ -251,6 +251,8 @@ footer .social-icon li i:hover {
 	font-size: 18px;
 }
 
-.footer-link {
-	color: white !important;
+.footer-link a {
+	color: white;
+	text-decoration: none;
+
 }
