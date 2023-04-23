@@ -6,21 +6,18 @@ const Footer = () => {
 					<div class="row">
 						<div class="col-lg-4">
 							<h4>About us</h4>
-						</div>
-						<div class="col-md-4">
-							<h4>Information</h4>
-							<ul class="address1">
-								<li>
-									<i class="fa fa-map-marker"></i>Lorem Ipsum 132 xyz Lorem
-									Ipsum
+							<ul>
+								<li className="footer-link">
+									<a href="#">Home</a>
 								</li>
-								<li>
-									<i class="fa fa-envelope"></i>
-									<a href="mailto:#">info@test.com</a>
+								<li className="footer-link">
+									<a href="#">About Us</a>
 								</li>
-								<li>
-									<i class="fa fa-mobile" aria-hidden="true"></i>{" "}
-									<a href="tel:12 34 56 78 90">12 34 56 78 90</a>
+								<li className="footer-link">
+									<a href="#">Our services</a>
+								</li>
+								<li className="footer-link">
+									<a href="#">Contact Us</a>
 								</li>
 							</ul>
 						</div>
@@ -51,23 +48,10 @@ const Footer = () => {
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-5">
-							<p class="copyright text-uppercase">© 2023|</p>
-						</div>
-						<div class="col-sm-7">
-							<ul>
-								<li>
-									<a href="#">Home</a>
-								</li>
-								<li>
-									<a href="#">About Us</a>
-								</li>
-								<li>
-									<a href="#">Our services</a>
-								</li>
-								<li>
-									<a href="#">Contact Us</a>
-								</li>
-							</ul>
+							<p class="copyright">
+								© 2023 | Made with <i class="fa-solid fa-heart"> </i> By
+								Roshanell Fracisco
+							</p>
 						</div>
 					</div>
 				</div>

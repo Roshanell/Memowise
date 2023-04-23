@@ -250,3 +250,7 @@ footer .social-icon li i:hover {
 .copyright {
 	font-size: 18px;
 }
+
+.footer-link {
+	color: white !important;
+}
