@@ -107,6 +107,7 @@ ul {
 	padding: 0;
 	margin-bottom: 0px;
 	float: right;
+	padding-bottom: 3rem;
 }
 
 .social-icon li {
@@ -230,6 +231,7 @@ footer .social-icon li i:hover {
 	bottom: 0;
 	width: 100vw;
 	border-bottom: 4px solid black;
+	display: flex;
 }
 .footer-bottom ul li {
 	display: inline;
@@ -254,5 +256,4 @@ footer .social-icon li i:hover {
 .footer-link a {
 	color: white;
 	text-decoration: none;
-
 }

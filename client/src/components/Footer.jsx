@@ -55,6 +55,9 @@ const Footer = () => {
 						</div>
 					</div>
 				</div>
+			<div>
+				<p>Logo goes here</p>
+			</div>
 			</div>
 		</footer>
 	);
