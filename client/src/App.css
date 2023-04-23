@@ -257,3 +257,10 @@ footer .social-icon li i:hover {
 	color: white;
 	text-decoration: none;
 }
+
+
+/* banner*/
+
+.banner-container{
+	display: flex;
+}
