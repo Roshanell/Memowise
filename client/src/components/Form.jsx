@@ -156,7 +156,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 					id="add-parent-email"
 					placeholder="Parent Email"
 					required
-					value={student.parentEmail}
+					value={student.parentemail}
 					onChange={handleParentEmailChange}
 				/>
 			</Form.Group>
