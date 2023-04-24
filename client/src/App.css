@@ -3,7 +3,7 @@
 	background: white;
 	margin-left: 15%;
 	margin-right: 15%;
-	border: 2px solid black;
+	border: 2px solid green;
 	overflow: scroll;
 }
 
@@ -166,7 +166,7 @@ ul {
 	border: 0 5px solid black;
 	border-top: 5px solid black;
 	border-bottom: 5px solid black;
-	position: fixed;
+	/* position: fixed; */
 	bottom: 0;
 	width: 70vw;
 	margin-right: 10% !important;
