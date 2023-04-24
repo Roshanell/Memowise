@@ -11,7 +11,6 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 			parentfirstname: "",
 			parentlastname: "",
 			parentemail: "",
-			totalpoints: 0,
 		}
 	);
 
@@ -54,7 +53,6 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 			parentfirstname: "",
 			parentlastname: "",
 			parentemail: "",
-			totalpoints: 0,
 		});
 	};
 
@@ -127,7 +125,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 					value={student.lastname}
 					onChange={handleLastnameChange}
 				/>
-				{/* parent, email student name, email , points,  recieved */}
+				{/* parent, email student name, email ,  recieved */}
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Parent First Name</Form.Label>

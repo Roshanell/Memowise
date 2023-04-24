@@ -29,10 +29,13 @@ app.get('/api/students', async (req, res) => {
 app.post('/api/students', async (req, res) => {
     try {
         const newStudent = {
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            iscurrent: req.body.iscurrent
-        };
+					firstname: req.body.firstname,
+					lastname: req.body.lastname,
+					iscurrent: req.body.iscurrent,
+					parentfirstname: req.body.parentfirstname,
+					parentlastname: req.body.parentlastname,
+					parentemail: req.body.parentemail,
+				};
         //console.log([newStudent.firstname, newStudent.lastname, newStudent.iscurrent]);
         const result = await db.query(
             'INSERT INTO students(firstname, lastname, is_current) VALUES($1, $2, $3) RETURNING *',
