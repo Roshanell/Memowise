@@ -1,13 +1,17 @@
 .App {
-	min-height: 100vh;
-	/* background-color: rgb(238, 232, 232); */
-	margin: 5px;
+	font-family: Inter, sans-serif;
+	background: white;
+	margin-left: 15%;
+	margin-right: 15%;
+	/* border: 2px solid black; */
+	overflow: scroll;
 }
 
 .mybody {
 	display: flex;
 	gap: 3em;
 	padding: 1em;
+	background-color: #f7f7f7;
 }
 
 /* navBar */
@@ -92,9 +96,6 @@ button.btn.btn-primary {
 
 /* footer */
 
-footer {
-	color: #fff;
-}
 ul {
 	padding: 0px;
 }
@@ -165,14 +166,16 @@ ul {
 	border: 0 5px solid black;
 	border-top: 5px solid black;
 	border-bottom: 5px solid black;
-	position: fixed;
+	/* position: fixed; */
 	bottom: 0;
-	width: 100vw;
+	width: 70vw;
+	margin-right: 10% !important;
 }
 .footer-top h4 {
 	font-size: 19px;
 	text-transform: uppercase;
 	margin-bottom: 30px;
+	color: white;
 }
 .footer-top p {
 	font-size: 13px;
@@ -229,7 +232,7 @@ footer .social-icon li i:hover {
 	padding: 10px 0px;
 	position: fixed;
 	bottom: 0;
-	width: 100vw;
+	width: 70vw;
 	border-bottom: 4px solid black;
 	display: flex;
 }
@@ -251,9 +254,38 @@ footer .social-icon li i:hover {
 }
 .copyright {
 	font-size: 18px;
+	color: white;
 }
 
 .footer-link a {
 	color: white;
 	text-decoration: none;
+}
+
+/* banner*/
+
+.banner-container {
+	display: flex;
+	height: 3rem;
+	height: 10rem;
+	border-top: 1px solid black;
+	border-bottom: 4px solid black;
+}
+
+.banner-box-one {
+	border: solid 1px orange;
+	background-color: #fca020;
+	width: 20%;
+	border-right: solid 4px black;
+	/* width: 50%;
+	height: 50%;
+	padding-top: 100%;
+	background-color: #ccc;
+	position: relative; */
+}
+
+.banner-box-two {
+	border: solid 1px red;
+	background-color: #ef3e38;
+	width: 80%;
 }
