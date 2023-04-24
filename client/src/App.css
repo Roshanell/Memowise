@@ -166,7 +166,7 @@ ul {
 	border: 0 5px solid black;
 	border-top: 5px solid black;
 	border-bottom: 5px solid black;
-	position: fixed;
+	/* position: fixed; */
 	bottom: 0;
 	width: 70vw;
 	margin-right: 10% !important;
