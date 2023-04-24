@@ -6,30 +6,30 @@ import Logo from "../assets/BlueTechtonicaWord.png";
 function MyNavBar(props) {
 	return (
 		<>
-			<Navbar bg="dark" variant="dark" sticky="top">
+			<Navbar sticky="top" className="nav-bar">
 				<Container>
-					{/* <Navbar.Brand href="/">
-						<img
-							src={Logo}
-							height="30"
-							className="d-lg-inline-block"
-							alt="React Bootstrap logo"
-						/>
-					</Navbar.Brand> */}
 					<Nav.Link>
-						<a href="#Home">Home </a>
+						<a href="#Home" className="nav-link">
+							Home
+						</a>
 					</Nav.Link>
 					<Nav.Link>
-						{" "}
-						<a href="#Inventory">Inventory</a>
+						<a href="#Inventory" className="nav-link">
+							Inventory
+						</a>
 					</Nav.Link>
 					<Nav.Link>
-						<a href="#Roster">Roster </a>
+						<a href="#Roster" className="nav-link">
+							Roster
+						</a>
 					</Nav.Link>
+
 					<Navbar.Toggle />
 					<Navbar.Collapse className="justify-content-end">
 						<Navbar.Text>
-							Signed in as: <a href="#login">Teacher's Name</a>
+							<a href="#login" className="nav-link">
+								Login
+							</a>
 						</Navbar.Text>
 					</Navbar.Collapse>
 				</Container>
