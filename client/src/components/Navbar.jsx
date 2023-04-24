@@ -1,22 +1,12 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import Logo from "../assets/BlueTechtonicaWord.png";
 
 function MyNavBar(props) {
 	return (
 		<>
 			<Navbar sticky="top" className="nav-bar">
 				<Container>
-					{/* <Navbar.Brand href="/">
-						<img
-							src={Logo}
-							height="30"
-							className="d-lg-inline-block"
-							alt="React Bootstrap logo"
-						/>
-					</Navbar.Brand> */}
-
 					<Nav.Link>
 						<a href="#Home" className="nav-link">
 							Home

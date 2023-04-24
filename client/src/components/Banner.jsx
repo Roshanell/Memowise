@@ -1,4 +1,4 @@
-// this component is strictyle for css and styling 
+// this component is strictly for css and styling
 const Banner = () => {
 	return (
 		<div className="banner-container">
