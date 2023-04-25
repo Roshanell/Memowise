@@ -8,15 +8,6 @@ function MyNavBar(props) {
 		<>
 			<Navbar sticky="top" className="nav-bar">
 				<Container>
-					{/* <Navbar.Brand href="/">
-						<img
-							src={Logo}
-							height="30"
-							className="d-lg-inline-block"
-							alt="React Bootstrap logo"
-						/>
-					</Navbar.Brand> */}
-
 					<Nav.Link>
 						<a href="#Home" className="nav-link">
 							Home

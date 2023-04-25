@@ -3,7 +3,7 @@
 	background: white;
 	margin-left: 15%;
 	margin-right: 15%;
-	border: 2px solid green;
+	/* border: 2px solid black; */
 	overflow: scroll;
 }
 
@@ -267,14 +267,16 @@ footer .social-icon li i:hover {
 .banner-container {
 	display: flex;
 	height: 3rem;
-	border: solid 1px purple;
 	height: 10rem;
+	border-top: 1px solid black;
+	border-bottom: 4px solid black;
 }
 
 .banner-box-one {
 	border: solid 1px orange;
 	background-color: #fca020;
 	width: 20%;
+	border-right: solid 4px black;
 	/* width: 50%;
 	height: 50%;
 	padding-top: 100%;

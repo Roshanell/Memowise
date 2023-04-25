@@ -1,3 +1,7 @@
+// footer
+// TO DO: fix spacing for about us and connect so that it is centered
+//  put about us on the left and connect to the right
+//  change color for contact us icons to greysih
 const Footer = () => {
 	return (
 		<footer>
