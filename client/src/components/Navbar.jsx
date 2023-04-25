@@ -1,8 +1,9 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import Logo from "../assets/BlueTechtonicaWord.png";
 
+// This component is for navigating the site
+//TO DO - add backgorund overlay and other links for routing purposes
 function MyNavBar(props) {
 	return (
 		<>
