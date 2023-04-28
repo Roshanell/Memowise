@@ -4,6 +4,7 @@ import MyNavBar from "./components/Navbar";
 import ListStudents from "./components/ListStudents";
 import Footer from "./components/Footer";
 import Banner from "./Banner";
+import Button from "./components/Button";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 			<MyNavBar />
 			<Banner />
 			<ListStudents />
+			<Button />
 			<Footer />
 		</div>
 	);

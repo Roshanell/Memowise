@@ -15,8 +15,8 @@ function MyNavBar(props) {
 						</a>
 					</Nav.Link>
 					<Nav.Link>
-						<a href="#Inventory" className="nav-link">
-							Inventory
+						<a href="#Game" className="nav-link">
+							Game
 						</a>
 					</Nav.Link>
 					<Nav.Link>
