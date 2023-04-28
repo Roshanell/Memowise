@@ -3,8 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavBar from "./components/Navbar";
 import ListStudents from "./components/ListStudents";
 import Footer from "./components/Footer";
-import Banner from "./Banner";
-import Button from "./components/Button";
+import Banner from "./components/Banner";
+
+import Game from "./components/Game";
 
 function App() {
 	return (
@@ -12,7 +13,8 @@ function App() {
 			<MyNavBar />
 			<Banner />
 			<ListStudents />
-			<Button />
+			<Game />
+			
 			<Footer />
 		</div>
 	);
