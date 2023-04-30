@@ -1,3 +1,4 @@
+import Instructions from "./Instructions";
 import Button from "./Button";
 import MoreOptions from "./MoreOptions";
 import NextCardButton from "./NextCardButton";
@@ -23,7 +24,7 @@ const Game = () => {
 				<Button className="multiple-choice-button" />
 				<Button className="multiple-choice-button" />
 			</div>
-			
+			<Instructions />
 		</div>
 	);
 };
