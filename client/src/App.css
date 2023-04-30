@@ -370,7 +370,7 @@ footer .social-icon li i:hover {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	/* justify-content: center; */
 	margin-left: 5%;
 	margin-right: 5%;
 }
@@ -437,4 +437,10 @@ footer .social-icon li i:hover {
 
 .fa-ellipsis-vertical {
 	font-size: 20px;
+}
+
+.more-options-button{
+	position: relative;
+	left: 45%;
+	top: 4%
 }

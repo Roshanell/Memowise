@@ -5,6 +5,7 @@ import NextCardButton from "./NextCardButton";
 const Game = () => {
 	return (
 		<div id="game-section">
+			<MoreOptions />
 			<i class="fa fa-volume-up"></i>
 			<div className="image-container">
 				{/* NOTE : use webformat url when accessing image data from pixabay */}
@@ -22,7 +23,7 @@ const Game = () => {
 				<Button className="multiple-choice-button" />
 				<Button className="multiple-choice-button" />
 			</div>
-			<MoreOptions />
+			
 		</div>
 	);
 };
