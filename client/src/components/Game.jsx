@@ -7,8 +7,9 @@ const Game = () => {
 		<div id="game-section">
 			<i class="fa fa-volume-up"></i>
 			<div className="image-container">
+				{/* NOTE : use webformat url when accessing image data from pixabay */}
 				<img
-					src="https://pixabay.com/get/g0525b7442c45d2a930cae7f1ac719087d22aba7400ac293438569cf0f036b92079aa149bf6413d33154ffabc8752d8e3fbc2dbb6294d1e31ccf73bd97d3a81a4_1280.jpg"
+					src="https://pixabay.com/get/g47a88302bebf5a39824dfacce17796e7f9cd0b309576ccf81951fe019c15a505be3626d286a56c830f061521980ef0a7_640.png"
 					height="200px"
 				/>
 			</div>
