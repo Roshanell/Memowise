@@ -13,13 +13,15 @@ const Game = () => {
 					height="200px"
 				/>
 			</div>
+			<div>
+				<NextCardButton  />
+				<NextCardButton />
+			</div>
 			<div className="choices-container">
 				<Button className="multiple-choice-button" />
 				<Button className="multiple-choice-button" />
 				<Button className="multiple-choice-button" />
 			</div>
-			<NextCardButton />
-			<NextCardButton />
 			<MoreOptions />
 		</div>
 	);

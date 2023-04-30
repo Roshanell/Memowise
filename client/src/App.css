@@ -365,19 +365,39 @@ footer .social-icon li i:hover {
 /* game section */
 #game-section {
 	border: solid 3px black;
-	/* come back and alter width and height; make responsive */
 	height: 50vh;
-	width: 70vw;
+	width: 63vw;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .choices-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.fa-volume-up {
+	position: relative;
+	top: 0;
+	right: 45%;
+}
+
+/* TO DO - move the navigation button to the proper positions dynamically */
+/* .card-navigation{
+	display: flex;
+	align-items: center;
+} */
+
+
+
+.card-navigation-right{
+	position: relative;
+	left: 50%;
 }
 
 /* TO DO alter size of image and location of buttons */
