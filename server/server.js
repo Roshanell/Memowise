@@ -24,6 +24,36 @@ app.get("/api/students", async (req, res) => {
 	}
 });
 
+app.get("/api/image/", (req, res) => {
+	// const test = req.query;
+	// console.log(test);
+
+	var URL =
+		"https://pixabay.com/api/?key=" +
+		API_KEY +
+		"&q=" +
+		encodeURIComponent("red roses");
+	$.getJSON(URL, function (data) {
+		if (parseInt(data.totalHits) > 0)
+			$.each(data.hits, function (i, hit) {
+				console.log(hit.pageURL);
+			});
+		else console.log("No hits");
+	});
+
+	//const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+	console.log(URL);
+	fetch(URL)
+		.then((res) => res.json())
+		.then((data) => {
+			//console.log(data);
+			res.send({ data });
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+});
+
 // create the POST request
 app.post("/api/students", async (req, res) => {
 	try {
