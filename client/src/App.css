@@ -356,11 +356,11 @@ footer .social-icon li i:hover {
 	top: 5px;
 	left: 5px;
 	transition: 0.2s;
-	background-color: #5974FF;
+	background-color: #5974ff;
 }
 
-.fa-caret-right{
-	font-size: 45px
+.fa-caret-right {
+	font-size: 45px;
 }
 /* game section */
 #game-section {
@@ -381,3 +381,40 @@ footer .social-icon li i:hover {
 }
 
 /* TO DO alter size of image and location of buttons */
+
+/* More options button */
+.css-button-retro--yellow {
+	min-width: 30px;
+	height: 40px;
+	color: #fff;
+	padding: 5px 10px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	outline: none;
+	border: 1px solid #000;
+	color: #000;
+	background: transparent;
+	z-index: 0;
+}
+.css-button-retro--yellow:hover:after {
+	top: 0;
+	left: 0;
+}
+.css-button-retro--yellow:after {
+	content: "";
+	width: 100%;
+	z-index: -1;
+	position: absolute;
+	height: 100%;
+	top: 5px;
+	left: 5px;
+	transition: 0.2s;
+	background-color: #ffe566;
+}
+
+.fa-ellipsis-vertical {
+	font-size: 20px;
+}

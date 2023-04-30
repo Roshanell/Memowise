@@ -1,5 +1,7 @@
 import Button from "./Button";
+import MoreOptions from "./MoreOptions";
 import NextCardButton from "./NextCardButton";
+
 const Game = () => {
 	return (
 		<div id="game-section">
@@ -17,6 +19,7 @@ const Game = () => {
 			</div>
 			<NextCardButton />
 			<NextCardButton />
+			<MoreOptions />
 		</div>
 	);
 };
