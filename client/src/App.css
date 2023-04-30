@@ -373,12 +373,16 @@ footer .social-icon li i:hover {
 	/* justify-content: center; */
 	margin-left: 5%;
 	margin-right: 5%;
+	margin-bottom: 5%;
+	margin-top: 5%;
 }
 
 .choices-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
+	top: 24%;
 }
 
 .fa-volume-up {
@@ -393,9 +397,7 @@ footer .social-icon li i:hover {
 	align-items: center;
 } */
 
-
-
-.card-navigation-right{
+.card-navigation-right {
 	position: relative;
 	left: 50%;
 }
@@ -439,8 +441,8 @@ footer .social-icon li i:hover {
 	font-size: 20px;
 }
 
-.more-options-button{
+.more-options-button {
 	position: relative;
 	left: 45%;
-	top: 4%
+	top: 4%;
 }
