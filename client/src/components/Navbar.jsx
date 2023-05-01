@@ -2,35 +2,27 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
-// This component is for navigating the site
-//TO DO - add backgorund overlay and other links for routing purposes
 function MyNavBar(props) {
 	return (
 		<>
 			<Navbar sticky="top" className="nav-bar">
 				<Container>
-					<Nav.Link>
-						<a href="#Home" className="nav-link">
-							Home
-						</a>
+					<Nav.Link href="#Home" className="nav-link">
+						Home
 					</Nav.Link>
-					<Nav.Link>
-						<a href="#Game" className="nav-link">
-							Game
-						</a>
+					<Nav.Link href="#Game" className="nav-link">
+						Game
 					</Nav.Link>
-					<Nav.Link>
-						<a href="#Roster" className="nav-link">
-							Roster
-						</a>
+					<Nav.Link href="#Roster" className="nav-link">
+						Roster
 					</Nav.Link>
 
 					<Navbar.Toggle />
 					<Navbar.Collapse className="justify-content-end">
 						<Navbar.Text>
-							<a href="#login" className="nav-link">
+							<Nav.Link href="#login" className="nav-link">
 								Login
-							</a>
+							</Nav.Link>
 						</Navbar.Text>
 					</Navbar.Collapse>
 				</Container>
