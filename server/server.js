@@ -5,6 +5,7 @@ const path = require("path");
 const db = require("./db/db-connection.js");
 const { Configuration, OpenAIApi } = require("openai");
 const data = require("./mockFlashCardData.json");
+const imagesData = require("./mockPixabayImages.json");
 //const API_KEY = process.env.API_KEY;
 
 const app = express();
@@ -58,77 +59,50 @@ app.get("/api/openai", async (req, res) => {
 });
 
 app.get("/api/pixabay", (req, res) => {
-	const test = req.query;
-	// console.log(test, "hi");
-	const API_KEY = process.env.API_KEY;
-	console.log(API_KEY);
+	res.json(imagesData);
+	// const test = req.query;
+	// // console.log(test, "hi");
+	// const API_KEY = process.env.API_KEY;
+	// console.log(API_KEY);
 
-	const url =
-		"https://pixabay.com/api/?key=" +
-		API_KEY +
-		"&q=" +
-		encodeURIComponent("red roses");
-	console.log(url);
+	// const url =
+	// 	"https://pixabay.com/api/?key=" +
+	// 	API_KEY +
+	// 	"&q=" +
+	// 	encodeURIComponent("red roses");
+	// console.log(url);
 
-	fetch(url)
-		.then((response) => {
-			if (response.ok) {
-				return response.json();
-			} else {
-				throw new Error("Network response was not ok");
-			}
-		})
-		.then((data) => {
-			// define an empty arr called hits
-			let hits = [];
-			// if total its is more than 0
-			if (parseInt(data.totalHits) > 0) {
-				// map over each hit
-				data.hits.forEach((hit) => {
-					// define a single hit
-					const singleHit = hit.pageURL;
-					// push single shit in hits arr
-					hits.push(singleHit);
-					console.log(hit.pageURL);
-				});
-				// send hits to front end
-				res.send(hits);
-			} else {
-				console.log("No hits");
-			}
-		})
-		.catch((error) => {
-			console.error("There was a problem with the fetch operation:", error);
-		});
+	// fetch(url)
+	// 	.then((response) => {
+	// 		if (response.ok) {
+	// 			return response.json();
+	// 		} else {
+	// 			throw new Error("Network response was not ok");
+	// 		}
+	// 	})
+	// 	.then((data) => {
+	// 		// define an empty arr called hits
+	// 		let hits = [];
+	// 		// if total its is more than 0
+	// 		if (parseInt(data.totalHits) > 0) {
+	// 			// map over each hit
+	// 			data.hits.forEach((hit) => {
+	// 				// define a single hit
+	// 				const singleHit = hit.pageURL;
+	// 				// push single shit in hits arr
+	// 				hits.push(singleHit);
+	// 				console.log(hit.pageURL);
+	// 			});
+	// 			// send hits to front end
+	// 			res.send(hits);
+	// 		} else {
+	// 			console.log("No hits");
+	// 		}
+	// 	})
+	// 	.catch((error) => {
+	// 		console.error("There was a problem with the fetch operation:", error);
+	// 	});
 });
-
-// app.get("/api/pixabay", (req, res) => {
-// 	const test = req.query;
-// 	// console.log(test, "hi");
-
-// 	var url =
-// 		"https://pixabay.com/api/?key=" +
-// 		API_KEY +
-// 		"&q=" +
-// 		encodeURIComponent("red roses");
-// 	console.log(url);
-// 	$.getJSON(url, function (data) {
-// 		if (parseInt(data.totalHits) > 0)
-// 			$.each(data.hits, function (i, hit) {
-// 				console.log(hit.pageURL);
-// 			});
-// 		else console.log("No hits");
-// 	});
-
-//fetch(url)
-// 	.then((res) => res.json())
-// 	.then((data) => {
-// 		//console.log(data);
-// 		res.send({ data });
-// 	})
-// 	.catch((err) => {
-// 		console.log(err);
-// 	});
 
 // create the POST request
 app.post("/api/students", async (req, res) => {
