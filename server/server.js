@@ -3,12 +3,21 @@ const cors = require("cors");
 require("dotenv").config();
 const path = require("path");
 const db = require("./db/db-connection.js");
+const { Configuration, OpenAIApi } = require("openai");
+const data = require("./mockFlashCardData.json")
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
+const configuration = new Configuration({
+	organization: "org-J9MVBvQcfVGNwJp9ChXmJ0Fu",
+	apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+// org - J9MVBvQcfVGNwJp9ChXmJ0Fu;
 // creates an endpoint for the route "/""
 app.get("/", (req, res) => {
 	res.json({ message: "Hola, from My template ExpressJS with React-Vite" });
@@ -23,6 +32,30 @@ app.get("/api/students", async (req, res) => {
 		return res.status(400).json({ e });
 	}
 });
+
+app.get("/api/openai", async (req, res) => {
+	console.log("hiiii");
+	try {
+		// using mock data for now
+		res.json(data)
+		console.log(data)
+		// const response = await openai.createCompletion({
+		// 	model: "text-davinci-003",
+		// 	prompt:
+		// 		"Generate for me flash cards defining the elements of plot for fictional stories at a 5th grade level. Structure your response as a JSON array.  Each object in the array will have a key for the title of the card and the value will be the element you are defining. Each object also has a key for the content of the card and the value is the definition",
+		// 	max_tokens: 500,
+		// 	temperature: 1,
+		// });
+		// Response for data
+		//console.log(response.data.choices[0].text);
+		//console.log(JSON.parse(response.data.choices[0].text));
+		// res.send(students);
+	} catch (e) {
+		return res.status(400).json({ e });
+	}
+});
+
+
 
 // app.get("/api/image/", (req, res) => {
 // 	// const test = req.query;
