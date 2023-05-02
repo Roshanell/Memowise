@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
 export default function CreateCardModal() {
-	const [show, setShow] = useState(false);
+	const [isShowing, setIsShowing] = useState(false);
 	const [card, setCard] = useState({
 		concept: "",
 		correctAnswer: "",
@@ -14,33 +14,55 @@ export default function CreateCardModal() {
 		wrongAnswerTwo: "",
 	});
 
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
+	// const handleClose = () => setShow(false);
+	// const handleShow = () => setShow(true);
+	const [value, setValue] = useState("");
+	const handleChange = (event) => setValue(event.target.value);
 
 	const handleInputChange = (event) => {
+		// extracts the name and value props from the input elem that is triggered to change.
 		const { name, value } = event.target;
+		// uses set card function to update the state of the card obj
+		// takes func and update the properties that have changed
+		// new state val uses spread operator to get previous data ,
+		//then stores the value of the prop that matches the name extracted  to the new value
 		setCard((prevCard) => ({ ...prevCard, [name]: value }));
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		console.log(card);
-		handleClose();
+		setIsShowing((prevVal) => !prevVal);
+
 		console.log("modal submitted");
+	};
+	const handleShowModal = (event) => {
+		// console.log("clicked");
+		setIsShowing(true);
 	};
 
 	return (
 		<>
-			<Button variant="outline-primary" onClick={handleShow}>
+			<Button variant="outline-primary" onClick={handleShowModal}>
 				Create a Card
 			</Button>
-
-			<Modal show={show} onHide={handleClose}>
+			<Modal centered show={isShowing}>
 				<Modal.Header closeButton>
 					<Modal.Title>Create a Card</Modal.Title>
 				</Modal.Header>
-				<Form onSubmit={handleSubmit}>
-					<Modal.Body>
+
+				<Modal.Body>
+					<p>Please enter your Employee ID</p>
+					<Form onSubmit={handleSubmit}>
+						<Form.Group controlId="emploeeId">
+							<Form.Label>Employee ID:</Form.Label>
+							<Form.Control
+								type="text"
+								required
+								value={value}
+								onChange={handleChange}
+							/>
+						</Form.Group>
 						<Form.Group controlId="formConcept">
 							<Form.Label>Card Concept</Form.Label>
 							<Form.Control
@@ -95,16 +117,13 @@ export default function CreateCardModal() {
 								onChange={handleInputChange}
 							/>
 						</Form.Group>
-					</Modal.Body>
-					<Modal.Footer>
-						<Button variant="secondary" onClick={handleClose}>
-							Cancel
-						</Button>
-						<Button variant="primary" type="submit">
-							Create Card
-						</Button>
-					</Modal.Footer>
-				</Form>
+						<Form.Group>
+							<Modal.Footer>
+								<Button type="submit">Continue</Button>
+							</Modal.Footer>
+						</Form.Group>
+					</Form>
+				</Modal.Body>
 			</Modal>
 		</>
 	);

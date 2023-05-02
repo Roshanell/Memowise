@@ -5,19 +5,18 @@ import ListStudents from "./components/ListStudents";
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";
 
-
 import Game from "./components/Game";
 import CreateCardModal from "./components/CreateCardModal";
 
 function App() {
 	return (
 		<div className="App">
-			<MyNavBar />
-			<Banner />
+			{/* <MyNavBar />
+			<Banner /> */}
 			<ListStudents />
-			<Game />
-			<CreateCardModal /> 
-			<Footer />
+			{/* <Game /> */}
+			<CreateCardModal />
+			{/* <Footer /> */}
 		</div>
 	);
 }

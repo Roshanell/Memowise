@@ -54,7 +54,7 @@ const Footer = () => {
 						<div className="col-sm-5">
 							<p className="copyright">
 								© 2023 | Made with <i className="fa-solid fa-heart"> </i> By
-								Roshanell Fracisco
+								Roshanell Francisco
 							</p>
 						</div>
 					</div>

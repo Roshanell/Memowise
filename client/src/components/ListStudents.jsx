@@ -11,26 +11,40 @@ const ListStudents = () => {
 	const [editingStudent, setEditingStudent] = useState(null);
 
 	const loadStudents = () => {
-		// A function to fetch the list of students that will be load anytime that list change
 		fetch("http://localhost:8080/api/students")
 			.then((response) => response.json())
 			.then((students) => {
 				setStudents(students);
-			});
+				console.log(students, "list of students");
+			})
+			.catch((error) => console.error(error)); // add a catch block to log any errors
 	};
+
+	fetch("http://localhost:8080/api/openai")
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data, "hard-coded data");
+		})
+		.catch((error) => console.error(error)); // add a catch block to log any errors
+	fetch("http://localhost:8080/api/pixabay")
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data);
+		})
+		.catch((error) => console.error(error)); // add a catch block to log any errors
 
 	useEffect(() => {
 		loadStudents();
-	}, [students]);
+	}, []);
 
 	const onSaveStudent = (newStudent) => {
-		//console.log(newStudent, "From the parent - List of Students");
+		console.log(newStudent, "From the parent - List of Students");
 		setStudents((students) => [...students, newStudent]);
 	};
 
 	//A function to control the update in the parent (student component)
 	const updateStudent = (savedStudent) => {
-		// console.log("Line 29 savedStudent", savedStudent);
+		console.log("Line 29 savedStudent", savedStudent);
 		// This function should update the whole list of students -
 		loadStudents();
 	};
@@ -79,6 +93,8 @@ const ListStudents = () => {
 				editingStudent={editingStudent}
 				onUpdateStudent={updateStudent}
 			/>
+
+			{/* map over hits here since hits is an array of strings */}
 		</div>
 	);
 };

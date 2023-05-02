@@ -4,7 +4,8 @@ require("dotenv").config();
 const path = require("path");
 const db = require("./db/db-connection.js");
 const { Configuration, OpenAIApi } = require("openai");
-const data = require("./mockFlashCardData.json")
+const data = require("./mockFlashCardData.json");
+//const API_KEY = process.env.API_KEY;
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -33,12 +34,13 @@ app.get("/api/students", async (req, res) => {
 	}
 });
 
+//open ai req
 app.get("/api/openai", async (req, res) => {
-	console.log("hiiii");
+	console.log("connected to open ai on server.js");
 	try {
 		// using mock data for now
-		res.json(data)
-		console.log(data)
+		res.json(data);
+		//console.log(data);
 		// const response = await openai.createCompletion({
 		// 	model: "text-davinci-003",
 		// 	prompt:
@@ -55,18 +57,62 @@ app.get("/api/openai", async (req, res) => {
 	}
 });
 
+app.get("/api/pixabay", (req, res) => {
+	const test = req.query;
+	// console.log(test, "hi");
+	const API_KEY = process.env.API_KEY;
+	console.log(API_KEY);
 
+	const url =
+		"https://pixabay.com/api/?key=" +
+		API_KEY +
+		"&q=" +
+		encodeURIComponent("red roses");
+	console.log(url);
 
-// app.get("/api/image/", (req, res) => {
-// 	// const test = req.query;
-// 	// console.log(test);
+	fetch(url)
+		.then((response) => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				throw new Error("Network response was not ok");
+			}
+		})
+		.then((data) => {
+			// define an empty arr called hits
+			let hits = [];
+			// if total its is more than 0
+			if (parseInt(data.totalHits) > 0) {
+				// map over each hit
+				data.hits.forEach((hit) => {
+					// define a single hit
+					const singleHit = hit.pageURL;
+					// push single shit in hits arr
+					hits.push(singleHit);
+					console.log(hit.pageURL);
+				});
+				// send hits to front end
+				res.send(hits);
+			} else {
+				console.log("No hits");
+			}
+		})
+		.catch((error) => {
+			console.error("There was a problem with the fetch operation:", error);
+		});
+});
 
-// 	var URL =
+// app.get("/api/pixabay", (req, res) => {
+// 	const test = req.query;
+// 	// console.log(test, "hi");
+
+// 	var url =
 // 		"https://pixabay.com/api/?key=" +
 // 		API_KEY +
 // 		"&q=" +
 // 		encodeURIComponent("red roses");
-// 	$.getJSON(URL, function (data) {
+// 	console.log(url);
+// 	$.getJSON(url, function (data) {
 // 		if (parseInt(data.totalHits) > 0)
 // 			$.each(data.hits, function (i, hit) {
 // 				console.log(hit.pageURL);
@@ -74,18 +120,15 @@ app.get("/api/openai", async (req, res) => {
 // 		else console.log("No hits");
 // 	});
 
-// 	//const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-// 	console.log(URL);
-// 	fetch(URL)
-// 		.then((res) => res.json())
-// 		.then((data) => {
-// 			//console.log(data);
-// 			res.send({ data });
-// 		})
-// 		.catch((err) => {
-// 			console.log(err);
-// 		});
-// });
+//fetch(url)
+// 	.then((res) => res.json())
+// 	.then((data) => {
+// 		//console.log(data);
+// 		res.send({ data });
+// 	})
+// 	.catch((err) => {
+// 		console.log(err);
+// 	});
 
 // create the POST request
 app.post("/api/students", async (req, res) => {
