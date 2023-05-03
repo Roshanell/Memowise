@@ -29,7 +29,13 @@ const ListStudents = () => {
 	fetch("http://localhost:8080/api/pixabay")
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data);
+			console.log(data, "from pixabay");
+		})
+		.catch((error) => console.error(error)); // add a catch block to log any errors
+	fetch("http://localhost:8080/api/mw")
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data, "from mw");
 		})
 		.catch((error) => console.error(error)); // add a catch block to log any errors
 
