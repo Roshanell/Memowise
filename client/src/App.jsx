@@ -45,12 +45,13 @@ const router = createBrowserRouter(
 		// calls layout funct
 		<Route path="/" element={<Layout />}>
 			<Route path="/roster" element={<Roster />} />
-			<Route path="/home" element={<Home />} />
+			{/* <Route path="/home" element={<Home />} /> */}
 			<Route path="/create" element={<CreateCard />} />
 			<Route path="/card:id" element={<ViewCard />} />
 			<Route path="/game" element={<Game />} />
 			<Route path="/aboutMe" element={<AboutMe />} />
 			<Route path="/FAQs" element={<FAQs />} />
+			<Route path="/" element={<Home />} />
 		</Route>
 	)
 );

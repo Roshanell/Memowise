@@ -10,9 +10,8 @@ const Footer = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-4">
-							<h4>About us</h4>
 							<ul>
-								<Link className="nav-link" to="/home">
+								<Link className="nav-link" to="/">
 									Home
 								</Link>
 								<Link className="nav-link" to="/aboutMe">
@@ -27,18 +26,18 @@ const Footer = () => {
 							<h4>Connect</h4>
 							<ul className="social-icon">
 								<li>
-									<a href="#">
-										<i className="fa fa-facebook" aria-hidden="true"></i>
+									<a href="https://github.com/Roshanell">
+										<i class="fa-brands fa-github"></i>
 									</a>
 								</li>
 								<li>
-									<a href="#">
-										<i className="fa fa-instagram" aria-hidden="true"></i>
+									<a href="https://www.linkedin.com/in/roshanellfrancisco/">
+										<i class="fa-brands fa-linkedin-in"></i>
 									</a>
 								</li>
 								<li>
-									<a href="#">
-										<i className="fa fa-twitter" aria-hidden="true"></i>
+									<a href="https://roshanell.netlify.app/">
+										<i class="fa-solid fa-globe"></i>
 									</a>
 								</li>
 							</ul>

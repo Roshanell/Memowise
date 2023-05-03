@@ -8,7 +8,7 @@ function MyNavBar(props) {
 		<>
 			<Navbar sticky="top" className="nav-bar">
 				<Container>
-					<Link className="nav-link" to="/home">
+					<Link className="nav-link" to="/">
 						Home
 					</Link>
 					<Link className="nav-link" to="/game">
@@ -24,7 +24,7 @@ function MyNavBar(props) {
 					<Navbar.Collapse className="justify-content-end">
 						<Navbar.Text>
 							<Link className="nav-link" to="#">
-							Login
+								Login
 							</Link>
 						</Navbar.Text>
 					</Navbar.Collapse>
