@@ -59,12 +59,13 @@ app.get("/api/openai", async (req, res) => {
 });
 
 app.get("/api/pixabay", (req, res) => {
-	res.json(imagesData);
-	// const test = req.query;
-	// // console.log(test, "hi");
-	// const API_KEY = process.env.API_KEY;
-	// console.log(API_KEY);
+	//res.json(imagesData);
+	const test = req.query;
+	// console.log(test, "hi");
+	const API_KEY = process.env.API_KEY;
+	console.log(API_KEY);
 
+	let query = encodeURI("red roses");
 	// const url =
 	// 	"https://pixabay.com/api/?key=" +
 	// 	API_KEY +
@@ -72,36 +73,38 @@ app.get("/api/pixabay", (req, res) => {
 	// 	encodeURIComponent("red roses");
 	// console.log(url);
 
-	// fetch(url)
-	// 	.then((response) => {
-	// 		if (response.ok) {
-	// 			return response.json();
-	// 		} else {
-	// 			throw new Error("Network response was not ok");
-	// 		}
-	// 	})
-	// 	.then((data) => {
-	// 		// define an empty arr called hits
-	// 		let hits = [];
-	// 		// if total its is more than 0
-	// 		if (parseInt(data.totalHits) > 0) {
-	// 			// map over each hit
-	// 			data.hits.forEach((hit) => {
-	// 				// define a single hit
-	// 				const singleHit = hit.pageURL;
-	// 				// push single shit in hits arr
-	// 				hits.push(singleHit);
-	// 				console.log(hit.pageURL);
-	// 			});
-	// 			// send hits to front end
-	// 			res.send(hits);
-	// 		} else {
-	// 			console.log("No hits");
-	// 		}
-	// 	})
-	// 	.catch((error) => {
-	// 		console.error("There was a problem with the fetch operation:", error);
-	// 	});
+	const url = `https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=photo`;
+	console.log(url);
+	fetch(url)
+		.then((response) => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				throw new Error("Network response was not ok");
+			}
+		})
+		.then((data) => {
+			// define an empty arr called hits
+			let hits = [];
+			// if total its is more than 0
+			if (parseInt(data.totalHits) > 0) {
+				// map over each hit
+				data.hits.forEach((hit) => {
+					// define a single hit
+					const singleHit = hit.webformatURL;
+					// push single shit in hits arr
+					hits.push(singleHit);
+					console.log(hit.webformatURL);
+				});
+				// send hits to front end
+				res.send(hits);
+			} else {
+				console.log("No hits");
+			}
+		})
+		.catch((error) => {
+			console.error("There was a problem with the fetch operation:", error);
+		});
 });
 
 app.get("/api/mw", (req, res) => {

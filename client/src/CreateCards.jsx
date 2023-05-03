@@ -11,7 +11,7 @@ const CreateCard = () => {
 				<Carousel.Item>
 					<img
 						className="d-block w-100"
-						src="holder.js/800x400?text=First slide&bg=373940"
+						src="hhttps://pixabay.com/photos/rose-flower-petals-red-rose-320868/"
 						alt="First slide"
 					/>
 					<Carousel.Caption>
@@ -52,7 +52,7 @@ const CreateCard = () => {
 
 				<Form.Control aria-label="Dollar amount (with dot and two decimal places)" />
 			</InputGroup> */}
-			
+
 			{/* TO DO: render all images of with link; can I preview the link andimage at the same time? */}
 			{/* <InputGroup>
 				<Form.Control aria-label="Dollar amount (with dot and two decimal places)" />
