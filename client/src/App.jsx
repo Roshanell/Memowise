@@ -10,6 +10,8 @@ import Roster from "./Pages/Roster";
 import Home from "./Pages/Home";
 import ViewCard from "./Pages/ViewCard";
 import PlayGame from "./Pages/PlayGame";
+import AboutMe from "./Pages/AboutMe";
+import FAQs from "./Pages/FAQs";
 
 import {
 	createBrowserRouter,
@@ -18,6 +20,7 @@ import {
 	Outlet,
 	Route,
 } from "react-router-dom";
+
 // general structure of pages
 const Layout = () => {
 	return (
@@ -43,9 +46,11 @@ const router = createBrowserRouter(
 		<Route path="/" element={<Layout />}>
 			<Route path="/roster" element={<Roster />} />
 			<Route path="/home" element={<Home />} />
-			<Route path="create" element={<CreateCard />} />
-			<Route path="card/:id" element={<ViewCard />} />
-			<Route path="game" element={<Game />} />
+			<Route path="/create" element={<CreateCard />} />
+			<Route path="/card:id" element={<ViewCard />} />
+			<Route path="/game" element={<Game />} />
+			<Route path="/aboutMe" element={<AboutMe />} />
+			<Route path="/FAQs" element={<FAQs />} />
 		</Route>
 	)
 );
@@ -53,13 +58,6 @@ const router = createBrowserRouter(
 function App() {
 	return (
 		<div className="App">
-			{/* <MyNavBar />
-			<Banner /> */}
-			{/* <ListStudents /> */}
-			{/* <Game /> */}
-			{/* <CreateCard /> */}
-
-			{/* <Footer /> */}
 			<RouterProvider router={router} />
 		</div>
 	);

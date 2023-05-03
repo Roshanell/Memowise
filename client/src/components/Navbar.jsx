@@ -8,27 +8,24 @@ function MyNavBar(props) {
 		<>
 			<Navbar sticky="top" className="nav-bar">
 				<Container>
-					{/* <Nav.Link href="#Home" className="nav-link">
+					<Link className="nav-link" to="/home">
 						Home
-					</Nav.Link> */}
-					<Link className="nav-link" to="/"> 
 					</Link>
-					<Nav.Link href="#Game" className="nav-link">
+					<Link className="nav-link" to="/game">
 						Game
-					</Nav.Link>
-					{/* <Nav.Link href="#Roster" className="nav-link">
-						Roster
-					</Nav.Link> */}
+					</Link>
 					<Link className="nav-link" to="/roster">
 						Roster
 					</Link>
-
+					<Link className="nav-link" to="card:id">
+						View Cards
+					</Link>
 					<Navbar.Toggle />
 					<Navbar.Collapse className="justify-content-end">
 						<Navbar.Text>
-							<Nav.Link href="#login" className="nav-link">
-								Login
-							</Nav.Link>
+							<Link className="nav-link" to="#">
+							Login
+							</Link>
 						</Navbar.Text>
 					</Navbar.Collapse>
 				</Container>
