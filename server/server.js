@@ -104,6 +104,27 @@ app.get("/api/pixabay", (req, res) => {
 	// 	});
 });
 
+app.get("/api/mw", (req, res) => {
+	const mw_api_key = process.env.MW_API_KEY;
+	let query = "home";
+	// let query = input.target.value;
+	const url = `https://www.dictionaryapi.com/api/v3/references/sd2/json/${query}}?key=${mw_api_key}`;
+	console.log(url);
+	fetch(url)
+		.then((res) => res.json())
+		.then((data) => {
+			//console.log(data);
+			res.send({ data });
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+	try {
+	} catch (e) {
+		return res.status(400).json({ e });
+	}
+});
+
 // create the POST request
 app.post("/api/students", async (req, res) => {
 	try {
@@ -115,7 +136,6 @@ app.post("/api/students", async (req, res) => {
 			parentlastname: req.body.parentlastname,
 			parentemail: req.body.parentemail,
 		};
-		//console.log([newStudent.firstname, newStudent.lastname, newStudent.iscurrent]);
 		const result = await db.query(
 			"INSERT INTO students(firstname, lastname, is_current, parentfirstname, parentlastname, parentemail) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING *",
 			[
