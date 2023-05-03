@@ -11,12 +11,12 @@ import CreateCardModal from "./components/CreateCardModal";
 function App() {
 	return (
 		<div className="App">
-			{/* <MyNavBar />
-			<Banner /> */}
+			<MyNavBar />
+			<Banner />
 			<ListStudents />
-			{/* <Game /> */}
+			<Game />
 			<CreateCardModal />
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	);
 }
