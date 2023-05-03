@@ -6,7 +6,7 @@ const db = require("./db/db-connection.js");
 const { Configuration, OpenAIApi } = require("openai");
 const data = require("./mockFlashCardData.json");
 const imagesData = require("./mockPixabayImages.json");
-//const API_KEY = process.env.API_KEY;
+const dictionaryData = require("./mockDictonaryData.json");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -105,24 +105,25 @@ app.get("/api/pixabay", (req, res) => {
 });
 
 app.get("/api/mw", (req, res) => {
-	const mw_api_key = process.env.MW_API_KEY;
-	let query = "home";
-	// let query = input.target.value;
-	const url = `https://www.dictionaryapi.com/api/v3/references/sd2/json/${query}}?key=${mw_api_key}`;
-	console.log(url);
-	fetch(url)
-		.then((res) => res.json())
-		.then((data) => {
-			//console.log(data);
-			res.send({ data });
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-	try {
-	} catch (e) {
-		return res.status(400).json({ e });
-	}
+	res.json(dictionaryData);
+	// const mw_api_key = process.env.MW_API_KEY;
+	// let query = "home";
+	// // let query = input.target.value;
+	// const url = `https://www.dictionaryapi.com/api/v3/references/sd2/json/${query}}?key=${mw_api_key}`;
+	// console.log(url);
+	// fetch(url)
+	// 	.then((res) => res.json())
+	// 	.then((data) => {
+	// 		//console.log(data);
+	// 		res.send({ data });
+	// 	})
+	// 	.catch((err) => {
+	// 		console.log(err);
+	// 	});
+	// try {
+	// } catch (e) {
+	// 	return res.status(400).json({ e });
+	// }
 });
 
 // create the POST request

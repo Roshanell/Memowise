@@ -1,0 +1,1551 @@
+{
+  "data": [
+    {
+      "meta": {
+        "id": "home:1",
+        "uuid": "7ae544b4-7d8e-4dee-a098-80abbfb1df1d",
+        "sort": "0800538000",
+        "src": "sd2",
+        "section": "alpha",
+        "stems": [
+          "at home",
+          "home",
+          "homes"
+        ],
+        "offensive": false
+      },
+      "hom": 1,
+      "hwi": {
+        "hw": "home",
+        "prs": [
+          {
+            "mw": "ˈhōm",
+            "sound": {
+              "audio": "home0001"
+            }
+          }
+        ]
+      },
+      "fl": "noun",
+      "def": [
+        {
+          "sseq": [
+            [
+              [
+                "sense",
+                {
+                  "sn": "1",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}the house or apartment where a person lives"
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "2",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}the place where a person was born or grew up"
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "3",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}{sx|habitat||} "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "The Arctic is the {it}home{/it} of polar bears."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "4",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}a place for the care of people unable to care for themselves "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "an orphans' {it}home{/it}"
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "5",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}a family living together "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "She comes from a good {it}home{/it}."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "6",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}{sx|house:1||1} "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "There are new {it}homes{/it} for sale."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "7",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}the goal or point to be reached in some games"
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ]
+        }
+      ],
+      "dros": [
+        {
+          "drp": "at home",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}relaxed and comfortable "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "Make yourself {it}at home{/it}."
+                            }
+                          ]
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "shortdef": [
+        "the house or apartment where a person lives",
+        "the place where a person was born or grew up",
+        "habitat"
+      ]
+    },
+    {
+      "meta": {
+        "id": "home:2",
+        "uuid": "6c3cea9e-44f4-4ba1-ae8d-5f2f8d8756b2",
+        "sort": "0800539000",
+        "src": "sd2",
+        "section": "alpha",
+        "stems": [
+          "home",
+          "home free"
+        ],
+        "offensive": false
+      },
+      "hom": 2,
+      "hwi": {
+        "hw": "home"
+      },
+      "fl": "adverb",
+      "def": [
+        {
+          "sseq": [
+            [
+              [
+                "sense",
+                {
+                  "sn": "1",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to or at home "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "It feels good to be {it}home{/it}."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "2",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to the final place or limit "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "Use a hammer to drive the nail {it}home{/it}."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ]
+        }
+      ],
+      "shortdef": [
+        "to or at home",
+        "to the final place or limit"
+      ]
+    },
+    {
+      "meta": {
+        "id": "bring",
+        "uuid": "5707498e-ebc3-4498-ab6c-976385c0962a",
+        "sort": "0201013000",
+        "src": "sd2",
+        "section": "alpha",
+        "stems": [
+          "bring",
+          "bring about",
+          "bring back",
+          "bring forth",
+          "bring forward",
+          "bring home",
+          "bring on",
+          "bring out",
+          "bring to",
+          "bring to account",
+          "bring to bear",
+          "bring to book",
+          "bring to light",
+          "bring to mind",
+          "bring to terms",
+          "bring up",
+          "bring up the rear",
+          "bringer",
+          "bringers",
+          "bringing",
+          "brings",
+          "brought"
+        ],
+        "offensive": false
+      },
+      "hwi": {
+        "hw": "bring",
+        "prs": [
+          {
+            "mw": "ˈbriŋ",
+            "sound": {
+              "audio": "bring001"
+            }
+          }
+        ]
+      },
+      "fl": "verb",
+      "ins": [
+        {
+          "if": "brought",
+          "prs": [
+            {
+              "mw": "ˈbrȯt"
+            }
+          ]
+        },
+        {
+          "if": "bring*ing"
+        }
+      ],
+      "def": [
+        {
+          "sseq": [
+            [
+              [
+                "sense",
+                {
+                  "sn": "1",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to cause to come by carrying or leading {bc}take along "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "Students were told to {it}bring{/it} lunches."
+                        },
+                        {
+                          "t": "{it}Bring{/it} all your friends!"
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "2",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to cause to reach a certain state or take a certain action "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "{it}Bring{/it} the water to a boil."
+                        },
+                        {
+                          "t": "I couldn't {it}bring{/it} myself to say it."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "3",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to cause to arrive or exist "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "Their cries {it}brought{/it} help."
+                        },
+                        {
+                          "t": "The storm {it}brought{/it} snow and ice."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "4",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to sell for "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "The house {it}brought{/it} a high price."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ]
+        }
+      ],
+      "uros": [
+        {
+          "ure": "bring*er",
+          "fl": "noun"
+        }
+      ],
+      "dros": [
+        {
+          "drp": "bring about",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}to cause to happen"
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "drp": "bring back",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}to cause to return to a person's memory "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "Seeing him {it}brought{/it} it all {it}back{/it} to me."
+                            }
+                          ]
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "drp": "bring forth",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}to cause to happen or exist {bc}{sx|produce||} "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "Her statement {it}brought forth{/it} protest."
+                            }
+                          ]
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "drp": "bring on",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}to cause to happen to "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "You've {it}brought{/it} these problems {it}on{/it} yourself."
+                            }
+                          ]
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "drp": "bring out",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "sn": "1",
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}to produce and make available "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "The manufacturer {it}brought out{/it} a new model."
+                            }
+                          ]
+                        ]
+                      ]
+                    }
+                  ]
+                ],
+                [
+                  [
+                    "sense",
+                    {
+                      "sn": "2",
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}to cause to appear "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "His friends {it}bring out{/it} the best in him."
+                            }
+                          ]
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "drp": "bring to",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}to bring back from unconsciousness {bc}{sx|revive||}"
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "drp": "bring up",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "sn": "1",
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}to bring to maturity through care and education "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "{it}bring up{/it} a child"
+                            }
+                          ]
+                        ]
+                      ]
+                    }
+                  ]
+                ],
+                [
+                  [
+                    "sense",
+                    {
+                      "sn": "2",
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}to mention when talking "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "{it}bring up{/it} a subject"
+                            }
+                          ]
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "shortdef": [
+        "to cause to come by carrying or leading : take along",
+        "to cause to reach a certain state or take a certain action",
+        "to cause to arrive or exist"
+      ]
+    },
+    {
+      "meta": {
+        "id": "close:3",
+        "uuid": "70d9da9c-c19b-4b63-94cc-29bb5653e157",
+        "sort": "0300859000",
+        "src": "sd2",
+        "section": "alpha",
+        "stems": [
+          "close",
+          "close to home",
+          "close to the bone",
+          "close to the vest",
+          "closelier",
+          "closeliest",
+          "closely",
+          "closeness",
+          "closenesses",
+          "closer",
+          "closest"
+        ],
+        "offensive": false
+      },
+      "hom": 3,
+      "hwi": {
+        "hw": "close",
+        "prs": [
+          {
+            "mw": "ˈklōs",
+            "sound": {
+              "audio": "close002"
+            }
+          }
+        ]
+      },
+      "fl": "adjective",
+      "ins": [
+        {
+          "if": "clos*er"
+        },
+        {
+          "if": "clos*est"
+        }
+      ],
+      "def": [
+        {
+          "sseq": [
+            [
+              [
+                "sense",
+                {
+                  "sn": "1",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}not far apart in space, time, degree, or effect "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "I was {it}close{/it} to the aisle and in good position to scrutinize the feet of new arrivals.",
+                          "aq": {
+                            "auth": "Gail Carson Levine",
+                            "source": "{it}Ella Enchanted{/it}"
+                          }
+                        },
+                        {
+                          "t": "It's {it}close{/it} to nine o'clock."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "2",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}very similar "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "The material is a {it}close{/it} match with the curtains."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "3",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}almost reaching a particular condition "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "Illness brought her {it}close{/it} to death."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "4",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}having a strong liking each one for the other "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "{it}close{/it} friends"
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "5",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}strict and careful in attention to details "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "{it}close{/it} examination"
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "6",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}decided by a narrow margin "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "It was a {it}close{/it} election."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "7",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}{sx|short:1||1} "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "a {it}close{/it} haircut"
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "8",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}having little extra space "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "We all fit, but it was {it}close{/it}."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "9",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}kept secret or tending to keep secrets"
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "10",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}lacking fresh or moving air "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "a {it}close{/it} room"
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ]
+        }
+      ],
+      "uros": [
+        {
+          "ure": "close*ly",
+          "fl": "adverb"
+        },
+        {
+          "ure": "close*ness",
+          "fl": "noun"
+        }
+      ],
+      "shortdef": [
+        "not far apart in space, time, degree, or effect",
+        "very similar",
+        "almost reaching a particular condition"
+      ]
+    },
+    {
+      "meta": {
+        "id": "eat",
+        "uuid": "402a610d-6642-43ad-b343-74aa0d13a62d",
+        "sort": "0500048000",
+        "src": "sd2",
+        "section": "alpha",
+        "stems": [
+          "ate",
+          "eat",
+          "eat alive",
+          "eat one out of house and home",
+          "eat one's heart out",
+          "eat one's words",
+          "eat out of one's hand",
+          "eat someone's lunch",
+          "eaten",
+          "eater",
+          "eaters",
+          "eating",
+          "eats"
+        ],
+        "offensive": false
+      },
+      "hwi": {
+        "hw": "eat",
+        "prs": [
+          {
+            "mw": "ˈēt",
+            "sound": {
+              "audio": "eat00001"
+            }
+          }
+        ]
+      },
+      "fl": "verb",
+      "ins": [
+        {
+          "if": "ate",
+          "prs": [
+            {
+              "mw": "ˈāt"
+            }
+          ]
+        },
+        {
+          "if": "eat*en",
+          "prs": [
+            {
+              "mw": "ˈē-tᵊn"
+            }
+          ]
+        },
+        {
+          "if": "eat*ing"
+        }
+      ],
+      "def": [
+        {
+          "sseq": [
+            [
+              [
+                "sense",
+                {
+                  "sn": "1",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to chew and swallow food"
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "2",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to take a meal "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "Let's {it}eat{/it} at home."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "3",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to destroy as if by eating {bc}{sx|corrode||} "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "Acids {it}ate{/it} away the metal."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ]
+        }
+      ],
+      "uros": [
+        {
+          "ure": "eat*er",
+          "fl": "noun"
+        }
+      ],
+      "shortdef": [
+        "to chew and swallow food",
+        "to take a meal",
+        "to destroy as if by eating : corrode"
+      ]
+    },
+    {
+      "meta": {
+        "id": "fall:1",
+        "uuid": "181628c8-9304-4c1e-b6ae-61bc63c3c0ab",
+        "sort": "0600054000",
+        "src": "sd2",
+        "section": "alpha",
+        "stems": [
+          "fall",
+          "fall all over oneself",
+          "fall apart",
+          "fall back",
+          "fall behind",
+          "fall between two stools",
+          "fall flat",
+          "fall for",
+          "fall from grace",
+          "fall home",
+          "fall into line",
+          "fall on",
+          "fall on one's face",
+          "fall on one's sword",
+          "fall over backward",
+          "fall over oneself",
+          "fall short",
+          "fall upon",
+          "fallen",
+          "falling",
+          "falls",
+          "fell"
+        ],
+        "offensive": false
+      },
+      "hom": 1,
+      "hwi": {
+        "hw": "fall",
+        "prs": [
+          {
+            "mw": "ˈfȯl",
+            "sound": {
+              "audio": "fall0001"
+            }
+          }
+        ]
+      },
+      "fl": "verb",
+      "ins": [
+        {
+          "if": "fell",
+          "prs": [
+            {
+              "mw": "ˈfel"
+            }
+          ]
+        },
+        {
+          "if": "fall*en",
+          "prs": [
+            {
+              "mw": "ˈfȯ-lən"
+            }
+          ]
+        },
+        {
+          "if": "fall*ing"
+        }
+      ],
+      "def": [
+        {
+          "sseq": [
+            [
+              [
+                "sense",
+                {
+                  "sn": "1",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to come or go down freely by the force of gravity "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "An apple {it}fell{/it} from the tree."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "2",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to come as if by falling "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "Night {it}fell{/it} before we got home."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "3",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to become lower (as in degree or value) "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "The temperature {it}fell{/it} ten degrees."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "4",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to topple from an upright position "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "The tree {it}fell{/it}."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "5",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to collapse wounded or dead "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "Too many soldiers have {it}fallen{/it} in battle."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "6",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to become captured "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "The city {it}fell{/it} to the enemy."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "7",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to occur at a certain time "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "This year my birthday {it}falls{/it} on a Monday."
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                "sense",
+                {
+                  "sn": "8",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}to pass from one condition of body or mind to another "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "{it}fall{/it} asleep"
+                        },
+                        {
+                          "t": "{it}fall{/it} ill"
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ]
+        }
+      ],
+      "dros": [
+        {
+          "drp": "fall back",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}{sx|retreat:2||1} "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "{ldquo}… the Witch and her crew will … {it}fall back{/it} to her house and prepare for a siege.{rdquo}",
+                              "aq": {
+                                "auth": "C. S. Lewis",
+                                "source": "{it}The Lion, The Witch and The Wardrobe{/it}"
+                              }
+                            }
+                          ]
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "drp": "fall short",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "{bc}to fail to be as good or successful as expected "
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "The sequel to my favorite movie {it}fell short{/it}."
+                            }
+                          ]
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "shortdef": [
+        "to come or go down freely by the force of gravity",
+        "to come as if by falling",
+        "to become lower (as in degree or value)"
+      ]
+    },
+    {
+      "meta": {
+        "id": "home page",
+        "uuid": "728397d2-ffdd-4684-8765-37af1f5e6592",
+        "sort": "0800547000",
+        "src": "sd2",
+        "section": "alpha",
+        "stems": [
+          "home page"
+        ],
+        "offensive": false
+      },
+      "hwi": {
+        "hw": "home page"
+      },
+      "fl": "noun",
+      "def": [
+        {
+          "sseq": [
+            [
+              [
+                "sense",
+                {
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}the page of a World Wide Web site that is seen first and that usually contains links to the other pages of the site or to other sites"
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ]
+        }
+      ],
+      "shortdef": [
+        "the page of a World Wide Web site that is seen first and that usually contains links to the other pages of the site or to other sites"
+      ]
+    },
+    {
+      "meta": {
+        "id": "home plate",
+        "uuid": "d70a99c3-46b9-4d50-a9e1-44fbd3e8805d",
+        "sort": "0800548000",
+        "src": "sd2",
+        "section": "alpha",
+        "stems": [
+          "home plate"
+        ],
+        "offensive": false
+      },
+      "hwi": {
+        "hw": "home plate"
+      },
+      "fl": "noun",
+      "def": [
+        {
+          "sseq": [
+            [
+              [
+                "sense",
+                {
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}the base that a baseball runner must touch to score"
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ]
+        }
+      ],
+      "shortdef": [
+        "the base that a baseball runner must touch to score"
+      ]
+    },
+    {
+      "meta": {
+        "id": "home run",
+        "uuid": "48aeed85-08b4-4490-95be-d08893259edd",
+        "sort": "0800551000",
+        "src": "sd2",
+        "section": "alpha",
+        "stems": [
+          "home run"
+        ],
+        "offensive": false
+      },
+      "hwi": {
+        "hw": "home run"
+      },
+      "fl": "noun",
+      "def": [
+        {
+          "sseq": [
+            [
+              [
+                "sense",
+                {
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}a hit in baseball that enables the batter to go around all the bases and score"
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ]
+        }
+      ],
+      "shortdef": [
+        "a hit in baseball that enables the batter to go around all the bases and score"
+      ]
+    }
+  ]
+}
