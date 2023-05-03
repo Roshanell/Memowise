@@ -32,6 +32,7 @@ const ListStudents = () => {
 			console.log(data, "from pixabay");
 		})
 		.catch((error) => console.error(error)); // add a catch block to log any errors
+
 	fetch("http://localhost:8080/api/mw")
 		.then((response) => response.json())
 		.then((data) => {
@@ -99,8 +100,6 @@ const ListStudents = () => {
 				editingStudent={editingStudent}
 				onUpdateStudent={updateStudent}
 			/>
-
-			{/* map over hits here since hits is an array of strings */}
 		</div>
 	);
 };
