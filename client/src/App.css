@@ -460,3 +460,21 @@ footer .social-icon li i:hover {
 	letter-spacing: 0em;
 	text-align: center;
 }
+
+/* create card section */
+.create-card {
+	background-color: #d9d9d9;
+	height: 500px;
+}
+
+.list-of-links {
+	width: 50%;
+}
+
+.list-group {
+	margin-top: 10px;
+}
+
+.carousel{
+	top: 50%;
+}

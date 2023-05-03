@@ -4,9 +4,8 @@ import MyNavBar from "./components/Navbar";
 import ListStudents from "./components/ListStudents";
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";
-
+import CreateCard from "./CreateCards";
 import Game from "./components/Game";
-import CreateCardModal from "./components/CreateCardModal";
 
 function App() {
 	return (
@@ -15,7 +14,8 @@ function App() {
 			<Banner />
 			<ListStudents />
 			<Game />
-			<CreateCardModal />
+			<CreateCard />
+
 			<Footer />
 		</div>
 	);
