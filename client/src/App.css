@@ -518,3 +518,49 @@ footer .social-icon li i:hover {
 	position: relative;
 	margin-bottom: 10%;
 }
+
+/* Card */
+.card {
+	width: 200px!important;
+	height: 300px !important;
+	position: relative !important;
+	transition: transform 1s;
+	transform-style: preserve-3d;
+	perspective: 1000px;
+	border: solid 2px black !important;
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+.front,
+.back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.front {
+	background-color: #fff;
+	color: #333;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.back {
+	background-color: #333;
+	color: #fff;
+	transform: rotateY(180deg);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.flipped {
+	transform: rotateY(180deg);
+}

@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+import Card from "../components/Card";
+
 
 function ViewCard() {
-  return (
-    <div>Your Card will show here</div>
-  )
+	return <Card />;
 }
 
-export default ViewCard
+export default ViewCard;
