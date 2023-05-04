@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MyNavBar from "./components/Navbar";
+import MyNavBar from "./routes/Navbar";
 import ListStudents from "./components/ListStudents";
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";
@@ -12,6 +12,7 @@ import ViewCard from "./Pages/ViewCard";
 import PlayGame from "./Pages/PlayGame";
 import AboutMe from "./Pages/AboutMe";
 import FAQs from "./Pages/FAQs";
+import Profile from "./components/Profile";
 
 import {
 	createBrowserRouter,
@@ -53,6 +54,7 @@ const router = createBrowserRouter(
 			<Route path="/aboutMe" element={<AboutMe />} />
 			<Route path="/FAQs" element={<FAQs />} />
 			<Route path="/" element={<Home />} />
+			<Route path="/user-profile" element={<Profile />} />
 		</Route>
 	)
 );

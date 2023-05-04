@@ -24,6 +24,8 @@ server/.DS_Store
 
 
 
+
 .env
 ../env
 server/.env
+client/.env
