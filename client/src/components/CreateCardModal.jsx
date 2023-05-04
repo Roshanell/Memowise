@@ -7,11 +7,11 @@ export default function CreateCardModal() {
 	const [isShowing, setIsShowing] = useState(false);
 	const [card, setCard] = useState({
 		concept: "",
-		correctAnswer: "",
-		imageLink: "",
-		audioLink: "",
-		wrongAnswerOne: "",
-		wrongAnswerTwo: "",
+		answer: "",
+		imagelink: "",
+		audiolink: "",
+		wronganswerone: "",
+		wronganswertwo: "",
 	});
 
 	// const handleClose = () => setShow(false);
@@ -77,7 +77,7 @@ export default function CreateCardModal() {
 							<Form.Control
 								type="text"
 								name="correctAnswer"
-								value={card.correctAnswer}
+								value={card.answer}
 								onChange={handleInputChange}
 							/>
 						</Form.Group>
@@ -86,7 +86,7 @@ export default function CreateCardModal() {
 							<Form.Control
 								type="text"
 								name="imageLink"
-								value={card.imageLink}
+								value={card.imagelink}
 								onChange={handleInputChange}
 							/>
 						</Form.Group>
@@ -95,7 +95,7 @@ export default function CreateCardModal() {
 							<Form.Control
 								type="text"
 								name="audioLink"
-								value={card.audioLink}
+								value={card.audiolink}
 								onChange={handleInputChange}
 							/>
 						</Form.Group>
@@ -104,7 +104,7 @@ export default function CreateCardModal() {
 							<Form.Control
 								type="text"
 								name="wrongAnswerOne"
-								value={card.wrongAnswerOne}
+								value={card.wronganswerone}
 								onChange={handleInputChange}
 							/>
 						</Form.Group>
@@ -113,7 +113,7 @@ export default function CreateCardModal() {
 							<Form.Control
 								type="text"
 								name="wrongAnswerTwo"
-								value={card.wrongAnswerTwo}
+								value={card.wronganswertwo}
 								onChange={handleInputChange}
 							/>
 						</Form.Group>

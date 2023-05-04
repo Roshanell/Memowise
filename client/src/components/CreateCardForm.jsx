@@ -5,11 +5,11 @@ import Button from "react-bootstrap/Button";
 export default function CreateCardForm() {
 	const [card, setCard] = useState({
 		concept: "",
-		correctAnswer: "",
-		imageLink: "",
-		audioLink: "",
-		wrongAnswerOne: "",
-		wrongAnswerTwo: "",
+		answer: "",
+		imagelink: "",
+		audiolink: "",
+		wronganswerone: "",
+		wronganswertwo: "",
 	});
 
 	const handleInputChange = (event) => {
@@ -17,10 +17,32 @@ export default function CreateCardForm() {
 		setCard((prevCard) => ({ ...prevCard, [name]: value }));
 	};
 
+	const postCard = () => {
+		//console.log(student, "post method")
+		return fetch(`http://localhost:8080/api/cards`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(card),
+		})
+			.then((response) => {
+				//console.log(response);
+				if (response.ok) {
+					console.log("ok");
+					return response.json();
+					//loadStudents();
+				}
+			})
+			.then((data) => {
+				console.log("front the front end", data);
+			});
+	};
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		console.log(card);
+		postCard();
 		// Call the API or do any other necessary action here
+		// createCard()
 	};
 
 	return (
@@ -39,8 +61,8 @@ export default function CreateCardForm() {
 				<Form.Label>Answer</Form.Label>
 				<Form.Control
 					type="text"
-					name="correctAnswer"
-					value={card.correctAnswer}
+					name="answer"
+					value={card.answer}
 					onChange={handleInputChange}
 					required
 				/>
@@ -49,8 +71,8 @@ export default function CreateCardForm() {
 				<Form.Label>Image Link</Form.Label>
 				<Form.Control
 					type="text"
-					name="imageLink"
-					value={card.imageLink}
+					name="imagelink"
+					value={card.imagelink}
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
@@ -58,8 +80,8 @@ export default function CreateCardForm() {
 				<Form.Label>Audio Link</Form.Label>
 				<Form.Control
 					type="text"
-					name="audioLink"
-					value={card.audioLink}
+					name="audiolink"
+					value={card.audiolink}
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
@@ -67,8 +89,8 @@ export default function CreateCardForm() {
 				<Form.Label>Wrong Answer 1 (optional)</Form.Label>
 				<Form.Control
 					type="text"
-					name="wrongAnswerOne"
-					value={card.wrongAnswerOne}
+					name="wronganswerone"
+					value={card.wronganswerone}
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
@@ -76,8 +98,8 @@ export default function CreateCardForm() {
 				<Form.Label>Wrong Answer 2 (optional)</Form.Label>
 				<Form.Control
 					type="text"
-					name="wrongAnswerTwo"
-					value={card.wrongAnswerTwo}
+					name="wronganswertwo"
+					value={card.wronganswertwo}
 					onChange={handleInputChange}
 				/>
 			</Form.Group>

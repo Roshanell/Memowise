@@ -62,95 +62,128 @@ app.get("/api/pixabay", (req, res) => {
 	res.json(imagesData);
 	// 	const test = req.query;
 	// 	// console.log(test, "hi");
-		// const API_KEY = process.env.API_KEY;
-		// console.log(API_KEY);
+	// const API_KEY = process.env.API_KEY;
+	// console.log(API_KEY);
 
-		// let query = encodeURI("school");
+	// let query = encodeURI("school");
 
-		// const url = `https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=photo`;
-		// console.log(url);
-		// fetch(url)
-		// 	.then((response) => {
-		// 		if (response.ok) {
-		// 			return response.json();
-		// 		} else {
-		// 			throw new Error("Network response was not ok");
-		// 		}
-		// 	})
-		// 	.then((data) => {
-		// 		// define an empty arr called hits
-		// 		let hits = [];
-		// 		// if total its is more than 0
-		// 		if (parseInt(data.totalHits) > 0) {
-		// 			// map over each hit
-		// 			data.hits.forEach((hit) => {
-		// 				// define a single hit
-		// 				const singleHit = hit.webformatURL;
-		// 				// push single shit in hits arr
-		// 				hits.push(singleHit);
-		// 				console.log(hit.webformatURL);
-		// 			});
-		// 			// send hits to front end
-		// 			res.send(hits);
-		// 		} else {
-		// 			console.log("No hits");
-		// 		}
-		// 	})
-		// 	.catch((error) => {
-		// 		console.error("There was a problem with the fetch operation:", error);
-		// 	});
-	});
+	// const url = `https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=photo`;
+	// console.log(url);
+	// fetch(url)
+	// 	.then((response) => {
+	// 		if (response.ok) {
+	// 			return response.json();
+	// 		} else {
+	// 			throw new Error("Network response was not ok");
+	// 		}
+	// 	})
+	// 	.then((data) => {
+	// 		// define an empty arr called hits
+	// 		let hits = [];
+	// 		// if total its is more than 0
+	// 		if (parseInt(data.totalHits) > 0) {
+	// 			// map over each hit
+	// 			data.hits.forEach((hit) => {
+	// 				// define a single hit
+	// 				const singleHit = hit.webformatURL;
+	// 				// push single shit in hits arr
+	// 				hits.push(singleHit);
+	// 				console.log(hit.webformatURL);
+	// 			});
+	// 			// send hits to front end
+	// 			res.send(hits);
+	// 		} else {
+	// 			console.log("No hits");
+	// 		}
+	// 	})
+	// 	.catch((error) => {
+	// 		console.error("There was a problem with the fetch operation:", error);
+	// 	});
+});
 
-	app.get("/api/mw", (req, res) => {
-		res.json(dictionaryData);
-		// const mw_api_key = process.env.MW_API_KEY;
-		// let query = "home";
-		// // let query = input.target.value;
-		// const url = `https://www.dictionaryapi.com/api/v3/references/sd2/json/${query}}?key=${mw_api_key}`;
-		// console.log(url);
-		// fetch(url)
-		// 	.then((res) => res.json())
-		// 	.then((data) => {
-		// 		//console.log(data);
-		// 		res.send({ data });
-		// 	})
-		// 	.catch((err) => {
-		// 		console.log(err);
-		// 	});
-		// try {
-		// } catch (e) {
-		// 	return res.status(400).json({ e });
-		// }
-	});
+app.get("/api/mw", (req, res) => {
+	res.json(dictionaryData);
+	// const mw_api_key = process.env.MW_API_KEY;
+	// let query = "home";
+	// // let query = input.target.value;
+	// const url = `https://www.dictionaryapi.com/api/v3/references/sd2/json/${query}}?key=${mw_api_key}`;
+	// console.log(url);
+	// fetch(url)
+	// 	.then((res) => res.json())
+	// 	.then((data) => {
+	// 		//console.log(data);
+	// 		res.send({ data });
+	// 	})
+	// 	.catch((err) => {
+	// 		console.log(err);
+	// 	});
+	// try {
+	// } catch (e) {
+	// 	return res.status(400).json({ e });
+	// }
+});
 
-	// create the POST request
-	app.post("/api/students", async (req, res) => {
-		try {
-			const newStudent = {
-				firstname: req.body.firstname,
-				lastname: req.body.lastname,
-				iscurrent: req.body.iscurrent,
-				parentfirstname: req.body.parentfirstname,
-				parentlastname: req.body.parentlastname,
-				parentemail: req.body.parentemail,
-			};
-			const result = await db.query(
-				"INSERT INTO students(firstname, lastname, is_current, parentfirstname, parentlastname, parentemail) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING *",
-				[
-					newStudent.firstname,
-					newStudent.lastname,
-					newStudent.iscurrent,
-					newStudent.parentfirstname,
-					newStudent.parentlastname,
-					newStudent.parentemail,
-				]
-			);
-			console.log(result.rows[0]);
-			res.json(result.rows[0]);
-		} catch (e) {
-			console.log(e);
-			return res.status(400).json({ e });
-		}
+// create the POST request
+app.post("/api/students", async (req, res) => {
+	try {
+		const newStudent = {
+			firstname: req.body.firstname,
+			lastname: req.body.lastname,
+			iscurrent: req.body.iscurrent,
+			parentfirstname: req.body.parentfirstname,
+			parentlastname: req.body.parentlastname,
+			parentemail: req.body.parentemail,
+		};
+		const result = await db.query(
+			"INSERT INTO students(firstname, lastname, is_current, parentfirstname, parentlastname, parentemail) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING *",
+			[
+				newStudent.firstname,
+				newStudent.lastname,
+				newStudent.iscurrent,
+				newStudent.parentfirstname,
+				newStudent.parentlastname,
+				newStudent.parentemail,
+			]
+		);
+		console.log(result.rows[0]);
+		res.json(result.rows[0]);
+	} catch (e) {
+		console.log(e);
+		return res.status(400).json({ e });
+	}
+});
+
+app.post("/api/cards", async (req, res) => {
+	try {
+		const newCard = {
+			concept: req.body.concept,
+			answer: req.body.answer,
+			imagelink: req.body.imagelink,
+			audiolink: req.body.audiolink,
+			wronganswerone: req.body.wronganswerone,
+			wronganswertwo: req.body.wronganswertwo,
+		};
+		const result = await db.query(
+			"INSERT INTO cards(cardcontent, answer, imagelink, audiolink, wronganswerone, wronganswertwo) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING *",
+			[
+				newCard.concept,
+				newCard.answer,
+				newCard.imagelink,
+				newCard.audiolink,
+				newCard.wronganswerone,
+				newCard.wronganswertwo,
+			]
+		);
+		res.json(result.rows[0]);
+		// console.log("result", result);
+
+		//
+		console.log("req.body", req.body);
+		// console.log(result.rows[0]);
+	} catch (e) {
+		console.log(e);
+		return res.status(400).json({ e });
+	}
 });
 
 // delete request for students

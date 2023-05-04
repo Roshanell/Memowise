@@ -49,6 +49,9 @@ const ListStudents = () => {
 		setStudents((students) => [...students, newStudent]);
 	};
 
+
+
+
 	//A function to control the update in the parent (student component)
 	const updateStudent = (savedStudent) => {
 		console.log("Line 29 savedStudent", savedStudent);

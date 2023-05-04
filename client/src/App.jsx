@@ -20,6 +20,7 @@ import {
 	Outlet,
 	Route,
 } from "react-router-dom";
+import CreateCardPage from "./Pages/CreateCardPage";
 
 // general structure of pages
 const Layout = () => {
@@ -46,7 +47,7 @@ const router = createBrowserRouter(
 		<Route path="/" element={<Layout />}>
 			<Route path="/roster" element={<Roster />} />
 			{/* <Route path="/home" element={<Home />} /> */}
-			<Route path="/create" element={<CreateCard />} />
+			<Route path="/create" element={<CreateCardPage />} />
 			<Route path="/card:id" element={<ViewCard />} />
 			<Route path="/game" element={<Game />} />
 			<Route path="/aboutMe" element={<AboutMe />} />

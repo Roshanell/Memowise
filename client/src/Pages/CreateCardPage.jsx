@@ -2,13 +2,13 @@ import React from "react";
 import CreateCardForm from "../components/CreateCardForm";
 import CreateCardModal from "../components/CreateCardModal";
 
-function CreateCard() {
+function CreateCardPage() {
 	return (
 		<div>
 			<CreateCardForm />
-			<CreateCardModal />
+			{/* <CreateCardModal /> */}
 		</div>
 	);
 }
 
-export default CreateCard;
+export default CreateCardPage;

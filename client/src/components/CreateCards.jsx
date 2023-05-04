@@ -11,7 +11,7 @@ const CreateCard = () => {
 	return (
 		<div className="create-card">
 			<CreateCardModal />
-			{/* <CreateCardForm /> */}
+			
 			<InputGroup className="mb-3">
 				<Form.Control
 					aria-label="Dollar amount (with dot and two decimal places)"
