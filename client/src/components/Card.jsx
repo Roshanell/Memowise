@@ -9,13 +9,13 @@ function Card() {
 	};
 
 	return (
-		<div className={`card ${isFlipped ? "flipped" : ""}`} onClick={handleClick}>
+		<div className={`create-card ${isFlipped ? "flipped" : ""}`} onClick={handleClick}>
 			<div className="front">
 				<h2>Characters</h2>
-				<img src="https://i.imgur.com/byjwQxI.png" height={"100px"}/>
+				<img src="https://i.imgur.com/byjwQxI.png" height={"100px"} />
 			</div>
 			<div className="back">
-				<h2>Back of Card</h2>
+				<i class="fa fa-volume-up"></i>
 				<p>People, animals, creatures, or objects in the story.</p>
 			</div>
 		</div>

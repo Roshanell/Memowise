@@ -16,6 +16,7 @@ export default function CreateCardForm() {
 		const { name, value } = event.target;
 		setCard((prevCard) => ({ ...prevCard, [name]: value }));
 	};
+	
 
 	const postCard = () => {
 		//console.log(student, "post method")
@@ -32,8 +33,8 @@ export default function CreateCardForm() {
 					//loadStudents();
 				}
 			})
-			.then((data) => {
-				console.log("front the front end", data);
+			.then((imagesData) => {
+				console.log("front the front end", imagesData);
 			});
 	};
 
@@ -46,7 +47,7 @@ export default function CreateCardForm() {
 	};
 
 	return (
-		<Form onSubmit={handleSubmit}>
+		<Form onSubmit={handleSubmit} className="create-card-form">
 			<Form.Group controlId="formConcept">
 				<Form.Label>Card Concept</Form.Label>
 				<Form.Control
