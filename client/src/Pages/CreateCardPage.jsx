@@ -22,7 +22,7 @@ function CreateCardPage() {
 	};
 
 	const getMedia = () => {
-		//console.log(student, "post method")
+		
 		return fetch(`http://localhost:8080/api/pixabay`, {
 			method: "GET",
 			headers: { "Content-Type": "application/json" },
@@ -40,6 +40,7 @@ function CreateCardPage() {
 				console.log(data);
 			});
 	};
+	
 
 	return (
 		<div>

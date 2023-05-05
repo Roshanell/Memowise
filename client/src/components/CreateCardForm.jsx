@@ -43,7 +43,7 @@ export default function CreateCardForm() {
 		console.log(card);
 		postCard();
 		// Call the API or do any other necessary action here
-		// createCard()
+		
 	};
 
 	return (
