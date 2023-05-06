@@ -8,11 +8,12 @@ import CreateCard from "./components/CreateCards";
 import Game from "./components/Game";
 import Roster from "./Pages/Roster";
 import Home from "./Pages/Home";
-import ViewCard from "./Pages/ViewCard";
+import ViewCards from "./Pages/ViewCards";
 import PlayGame from "./Pages/PlayGame";
 import AboutMe from "./Pages/AboutMe";
 import FAQs from "./Pages/FAQs";
 import Profile from "./components/Profile";
+
 
 import {
 	createBrowserRouter,
@@ -49,7 +50,7 @@ const router = createBrowserRouter(
 			<Route path="/roster" element={<Roster />} />
 			{/* <Route path="/home" element={<Home />} /> */}
 			<Route path="/create" element={<CreateCardPage />} />
-			<Route path="/card:id" element={<ViewCard />} />
+			<Route path="/cards" element={<ViewCards />} />
 			<Route path="/game" element={<Game />} />
 			<Route path="/aboutMe" element={<AboutMe />} />
 			<Route path="/FAQs" element={<FAQs />} />

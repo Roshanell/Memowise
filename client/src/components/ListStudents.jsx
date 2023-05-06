@@ -26,20 +26,7 @@ const ListStudents = () => {
 			console.log(data, "hard-coded data");
 		})
 		.catch((error) => console.error(error)); // add a catch block to log any errors
-	fetch("http://localhost:8080/api/pixabay")
-		.then((response) => response.json())
-		.then((data) => {
-			console.log(data, "from pixabay");
-		})
-		.catch((error) => console.error(error)); // add a catch block to log any errors
-
-	fetch("http://localhost:8080/api/mw")
-		.then((response) => response.json())
-		.then((data) => {
-			console.log(data, "from mw");
-		})
-		.catch((error) => console.error(error)); // add a catch block to log any errors
-
+	
 	useEffect(() => {
 		loadStudents();
 	}, []);

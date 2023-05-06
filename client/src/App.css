@@ -479,6 +479,16 @@ footer .social-icon li i:hover {
 	top: 50%;
 }
 
+.card-list {
+	margin-right: 5%;
+	margin-top: 5%;
+}
+
+.create-card-image {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+}
 /* create card button */
 
 .css-button-retro--sand {
@@ -519,7 +529,7 @@ footer .social-icon li i:hover {
 	margin-bottom: 10%;
 }
 
-/* Card */
+/* flashcard */
 .create-card {
 	width: 200px !important;
 	height: 300px !important;
@@ -569,6 +579,15 @@ footer .social-icon li i:hover {
 	width: 50%;
 }
 
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+.audio-player{
+	width: 90%;
+}
 /* image gallery */
 /*
 
