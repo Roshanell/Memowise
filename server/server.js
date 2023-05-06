@@ -210,6 +210,19 @@ app.delete("/api/students/:studentId", async (req, res) => {
 	}
 });
 
+
+// delete request for card
+app.delete("/api/cards/:cardId", async (req, res) => {
+	try {
+		const cardId = req.params.cardId;
+		await db.query("DELETE FROM cards WHERE id=$1", [cardId]);
+		console.log("From the delete request-url", cardId);
+		res.status(200).end();
+	} catch (e) {
+		console.log(e);
+		return res.status(400).json({ e });
+	}
+});
 //A put request - Update a student
 app.put("/api/students/:studentId", async (req, res) => {
 	//console.log(req.params);

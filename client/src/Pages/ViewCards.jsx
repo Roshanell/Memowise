@@ -30,7 +30,17 @@ function ViewCards() {
 			})
 			.catch((error) => console.error(error)); // add a catch block to log any errors
 	};
-
+	const onDelete = (card) => {
+		//console.log(student, "delete method")
+		return fetch(`http://localhost:8080/api/cards/${card.id}`, {
+			method: "DELETE",
+		}).then((response) => {
+			//console.log(response);
+			if (response.ok) {
+				loadCards();
+			}
+		});
+	};
 	useEffect(() => {
 		loadCards();
 	}, []);
@@ -43,7 +53,7 @@ function ViewCards() {
 				{cards.map((card) => {
 					return (
 						<li className="card-list" key={card.id}>
-							<Card card={card} audio={audio} />
+							<Card card={card} audio={audio} toDelete={onDelete} />
 						</li>
 					);
 				})}

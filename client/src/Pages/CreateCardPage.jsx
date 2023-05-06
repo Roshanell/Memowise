@@ -66,6 +66,7 @@ function CreateCardPage(props) {
 				console.log(subdirectory, "subdirecotry");
 				let audiourl = `https://media.merriam-webster.com/audio/prons/${language_code}/${country_code}/${format}/${subdirectory}/${audioString}.${format}`;
 				setAudioUrl(audiourl);
+				console.log(audiourl);
 			})
 			.catch((error) => console.error(error));
 	};

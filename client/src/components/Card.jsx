@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function Card({ card, audio }) {
+function Card({ card, audio, toDelete }) {
 	const [isFlipped, setIsFlipped] = useState(false);
 	// how to access audio file name as a string
 	//console.log(audio.data[0].hwi.prs[0].sound.audio)
@@ -12,6 +12,12 @@ function Card({ card, audio }) {
 		setIsFlipped(!isFlipped);
 	};
 
+	const onDelete = (toDeleteStudent) => {
+		console.log(card.id, toDeleteStudent,toDelete)
+		toDelete(toDeleteStudent);
+	};
+
+	
 	return (
 		<div
 			className={`create-card ${isFlipped ? "flipped" : ""}`}
@@ -20,6 +26,14 @@ function Card({ card, audio }) {
 			<div className="front">
 				<h2>{card.answer}</h2>
 				<img src={card.imagelink} className="create-card-image" />
+				<button
+					type="button"
+					onClick={() => {
+						onDelete(card);
+					}}
+				>
+					Delete
+				</button>
 			</div>
 			<div className="back">
 				<i class="fa fa-volume-up"></i>
