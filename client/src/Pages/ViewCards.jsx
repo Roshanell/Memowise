@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 function ViewCards() {
 	const [cards, setCards] = useState([]);
@@ -38,7 +37,6 @@ function ViewCards() {
 	useEffect(() => {
 		loadAudio();
 	}, []);
-
 	return (
 		<div>
 			<ul className="card-container">

@@ -102,6 +102,7 @@ app.get("/api/pixabay", (req, res) => {
 });
 
 app.get("/api/mw", (req, res) => {
+
 	res.json(dictionaryData);
 	// const mw_api_key = process.env.MW_API_KEY;
 	// let query = "home";
@@ -123,6 +124,16 @@ app.get("/api/mw", (req, res) => {
 	// }
 });
 
+
+
+app.get("/api/cards", async (req, res) => {
+	try {
+		const { rows: cards } = await db.query("SELECT * FROM cards");
+		res.send(cards);
+	} catch (e) {
+		return res.status(400).json({ e });
+	}
+});
 // create the POST request
 app.post("/api/students", async (req, res) => {
 	try {

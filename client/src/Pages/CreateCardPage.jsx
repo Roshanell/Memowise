@@ -6,11 +6,12 @@ import Button from "react-bootstrap/esm/Button";
 import { useState, useEffect } from "react";
 
 function CreateCardPage(props) {
-	// console.log(audio)
 	const [search, setSearch] = useState({
 		imagesearch: "",
 		audiosearch: "",
 	});
+	const [audioUrl, setAudioUrl] = useState("");
+
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
 		setSearch((prevSearch) => ({ ...prevSearch, [name]: value }));
@@ -20,7 +21,6 @@ function CreateCardPage(props) {
 		event.preventDefault();
 		getMedia();
 		getAudio();
-		// api call to pixabay and mw post req
 	};
 
 	const getMedia = () => {
@@ -29,12 +29,8 @@ function CreateCardPage(props) {
 			headers: { "Content-Type": "application/json" },
 		})
 			.then((response) => {
-				//console.log(response);
 				if (response.ok) {
-					console.log("ok");
-					// console.log(data)
 					return response.json();
-					//loadStudents();
 				}
 			})
 			.then((data) => {
@@ -42,15 +38,38 @@ function CreateCardPage(props) {
 				console.log(data);
 			});
 	};
+
 	const getAudio = () => {
 		fetch("http://localhost:8080/api/mw")
 			.then((response) => response.json())
 			.then((audio) => {
-				// setAudio(audio);
 				console.log(audio, "from mw");
+				let audioString = audio.data[0].hwi.prs[0].sound.audio;
+				let language_code = "en";
+				let country_code = "us";
+				let format = "mp3";
+				let subdirectory = "";
+
+				if (audioString.startsWith("bix")) {
+					subdirectory += "bix";
+				} else if (audioString.startsWith("gg")) {
+					subdirectory += "gg";
+				} else if (
+					audioString.match(
+						/[\d!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/.test(audioString)
+					)
+				) {
+					subdirectory += "number";
+				} else {
+					subdirectory += audioString[0];
+				}
+				console.log(subdirectory, "subdirecotry");
+				let audiourl = `https://media.merriam-webster.com/audio/prons/${language_code}/${country_code}/${format}/${subdirectory}/${audioString}.${format}`;
+				setAudioUrl(audiourl);
 			})
 			.catch((error) => console.error(error));
 	};
+
 	return (
 		<div>
 			<form onSubmit={handleSubmit} className="create-card-form">
@@ -58,7 +77,6 @@ function CreateCardPage(props) {
 					type="text"
 					name="imagesearch"
 					placeholder="Search for an image"
-					// value={}
 					onChange={handleInputChange}
 					required
 				/>
@@ -66,7 +84,6 @@ function CreateCardPage(props) {
 				<input
 					type="text"
 					name="audiosearch"
-					// value={card.answer}
 					onChange={handleInputChange}
 					placeholder="Search for an audio"
 					required
@@ -75,6 +92,10 @@ function CreateCardPage(props) {
 					Search Media
 				</Button>
 			</form>
+
+			<h1>Audio URL: {audioUrl}</h1>
+			<audio src={audioUrl} controls />
+
 			<CreateCardForm />
 			<ImageGallery />
 		</div>
