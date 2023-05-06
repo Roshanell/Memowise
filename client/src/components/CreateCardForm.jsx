@@ -16,7 +16,6 @@ export default function CreateCardForm() {
 		const { name, value } = event.target;
 		setCard((prevCard) => ({ ...prevCard, [name]: value }));
 	};
-	
 
 	const postCard = () => {
 		//console.log(student, "post method")
@@ -38,12 +37,22 @@ export default function CreateCardForm() {
 			});
 	};
 
+	const clearForm = () => {
+		setCard({
+			concept: "",
+			answer: "",
+			imagelink: "",
+			audiolink: "",
+			wronganswerone: "",
+			wronganswertwo: "",
+		});
+	};
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		console.log(card);
 		postCard();
+		clearForm();
 		// Call the API or do any other necessary action here
-		
 	};
 
 	return (
