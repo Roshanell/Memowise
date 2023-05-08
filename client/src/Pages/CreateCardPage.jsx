@@ -2,6 +2,8 @@ import React from "react";
 import CreateCardForm from "../components/CreateCardForm";
 import ImageGallery from "../components/ImageGallery";
 import Button from "react-bootstrap/esm/Button";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 
 import { useState, useEffect } from "react";
 import Banner from "../components/Banner";
@@ -81,7 +83,7 @@ function CreateCardPage() {
 
 	return (
 		<div>
-			<Banner />
+			{/* <Banner />
 			<div>
 				<form onSubmit={handleSubmit} className="create-card-form">
 					<input
@@ -109,7 +111,47 @@ function CreateCardPage() {
 
 				<CreateCardForm />
 				<ImageGallery />
-			</div>
+			</div> */}
+			{/* <Banner /> */}
+			<Tabs
+				defaultActiveKey="profile"
+				id="uncontrolled-tab-example"
+				className="mb-3"
+			>
+				<Tab eventKey="Create" title="Create a Card" className="tabs">
+					<form onSubmit={handleSubmit} className="create-card-form">
+						<input
+							type="text"
+							name="imagesearch"
+							placeholder="Search for an image"
+							onChange={handleInputChange}
+							required
+						/>
+
+						<input
+							type="text"
+							name="audiosearch"
+							onChange={handleInputChange}
+							placeholder="Search for an audio"
+							required
+						/>
+						<Button variant="primary" type="submit">
+							Search Media
+						</Button>
+					</form>
+
+					<h1>Audio URL: {audioUrl}</h1>
+					<audio src={audioUrl} controls />
+
+					<CreateCardForm />
+					<ImageGallery />
+				</Tab>
+				<Tab
+					eventKey="Generate"
+					title="Generate with AI"
+					className="tabs"
+				></Tab>
+			</Tabs>
 		</div>
 	);
 }

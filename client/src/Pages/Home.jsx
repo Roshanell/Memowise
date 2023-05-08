@@ -5,7 +5,7 @@ function Home() {
 		<div className="home-container">
 			<div className="home-page left-box">
 				{" "}
-				<h1 className="heading">The only you need</h1>
+				<h1 className="heading-homepage">The only you need</h1>
 			</div>
 			<div className="left-box-inner"></div>
 			<div className="home-page right-box">
