@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 // footer
 // TO DO: fix spacing for about us and connect so that it is centered
 //  put about us on the left and connect to the right
@@ -9,38 +10,34 @@ const Footer = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-4">
-							<h4>About us</h4>
 							<ul>
-								<li className="footer-link">
-									<a href="#">Home</a>
-								</li>
-								<li className="footer-link">
-									<a href="#">About Us</a>
-								</li>
-								<li className="footer-link">
-									<a href="#">Our services</a>
-								</li>
-								<li className="footer-link">
-									<a href="#">Contact Us</a>
-								</li>
+								<Link className="nav-link" to="/">
+									Home
+								</Link>
+								<Link className="nav-link" to="/aboutMe">
+									About Me
+								</Link>
+								<Link className="nav-link" to="/FAQS">
+									FAQs
+								</Link>
 							</ul>
 						</div>
 						<div className="col-md-4">
 							<h4>Connect</h4>
 							<ul className="social-icon">
 								<li>
-									<a href="#">
-										<i className="fa fa-facebook" aria-hidden="true"></i>
+									<a href="https://github.com/Roshanell">
+										<i class="fa-brands fa-github"></i>
 									</a>
 								</li>
 								<li>
-									<a href="#">
-										<i className="fa fa-instagram" aria-hidden="true"></i>
+									<a href="https://www.linkedin.com/in/roshanellfrancisco/">
+										<i class="fa-brands fa-linkedin-in"></i>
 									</a>
 								</li>
 								<li>
-									<a href="#">
-										<i className="fa fa-twitter" aria-hidden="true"></i>
+									<a href="https://roshanell.netlify.app/">
+										<i class="fa-solid fa-globe"></i>
 									</a>
 								</li>
 							</ul>
@@ -54,14 +51,14 @@ const Footer = () => {
 						<div className="col-sm-5">
 							<p className="copyright">
 								© 2023 | Made with <i className="fa-solid fa-heart"> </i> By
-								Roshanell Fracisco
+								Roshanell Francisco
 							</p>
 						</div>
 					</div>
 				</div>
-			<div>
-				<p>Logo goes here</p>
-			</div>
+				<div>
+					<p>Logo goes here</p>
+				</div>
 			</div>
 		</footer>
 	);

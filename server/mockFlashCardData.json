@@ -1,0 +1,59 @@
+{
+	"option1": [
+		{
+			"title": "Characters",
+			"content": "People, animals, creatures, or objects in the story"
+		},
+		{
+			"title": "Setting",
+			"content": "Where and when the story takes place"
+		},
+		{
+			"title": "Conflict",
+			"content": "Problem in the story that the characters must solve"
+		},
+		{
+			"title": "Rising Action",
+			"content": "Events leading up to the climax"
+		},
+		{
+			"title": "Climax",
+			"content": "Most intense moment of the story"
+		},
+		{
+			"title": "Falling Action",
+			"content": "Events that follow the climax"
+		},
+		{
+			"title": "Resolution",
+			"content": "Problem has been solved and story is resolved"
+		}
+	],
+    "option2":[
+		{
+			"title": "Conflict",
+			"content":
+				"The problem or struggle between opposing forces; the main problem that the characters try to solve."
+		},
+		{
+			"title": "Rising Action",
+			"content":
+				"The part of the story that builds suspense as the characters move closer to resolving the conflict."
+		},
+		{
+			"title": "Climax",
+			"content":
+				"The most exciting or emotional part of the story; usually the turning point that changes the characters' fate."
+		},
+		{
+			"title": "Falling Action",
+			"content":
+				"The part of the story that occurs after the climax as the characters and story work to a resolution."
+		},
+		{
+			"title": "Resolution",
+			"content":
+				"The outcome of the story when the conflict is resolved and the story is finished."
+		}
+	]
+}
