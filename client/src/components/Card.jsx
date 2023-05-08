@@ -19,27 +19,29 @@ function Card({ card, audio, toDelete }) {
 
 	
 	return (
-		<div
-			className={`create-card ${isFlipped ? "flipped" : ""}`}
-			onClick={handleClick}
-		>
-			<div className="front">
-				<h2>{card.answer}</h2>
-				<img src={card.imagelink} className="create-card-image" />
-				<button
-					type="button"
-					onClick={() => {
-						onDelete(card);
-					}}
-				>
-					Delete
-				</button>
-			</div>
-			<div className="back">
-				<i class="fa fa-volume-up"></i>
-				<audio className="audio-player" scr={""} controls />
+		<div className="create-card-container">
+			<div
+				className={`create-card ${isFlipped ? "flipped" : ""}`}
+				onClick={handleClick}
+			>
+				<div className="front">
+					<h2>{card.answer}</h2>
+					<img src={card.imagelink} className="create-card-image" />
+					<button
+						type="button"
+						onClick={() => {
+							onDelete(card);
+						}}
+					>
+						Delete
+					</button>
+				</div>
+				<div className="back">
+					<i class="fa fa-volume-up"></i>
+					<audio className="audio-player" scr={""} controls />
 
-				<p>People, animals, creatures, or objects in the story.</p>
+					<p>{card.answer}</p>
+				</div>
 			</div>
 		</div>
 	);

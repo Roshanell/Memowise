@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
+import Banner from "../components/Banner";
 
 function ViewCards() {
 	const [cards, setCards] = useState([]);
@@ -49,15 +50,18 @@ function ViewCards() {
 	}, []);
 	return (
 		<div>
-			<ul className="card-container">
-				{cards.map((card) => {
-					return (
-						<li className="card-list" key={card.id}>
-							<Card card={card} audio={audio} toDelete={onDelete} />
-						</li>
-					);
-				})}
-			</ul>
+			<Banner />
+			<div>
+				<ul className="card-container">
+					{cards.map((card) => {
+						return (
+							<li className="card-list" key={card.id}>
+								<Card card={card} audio={audio} toDelete={onDelete} />
+							</li>
+						);
+					})}
+				</ul>
+			</div>
 		</div>
 	);
 }

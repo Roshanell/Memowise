@@ -4,8 +4,9 @@ import ImageGallery from "../components/ImageGallery";
 import Button from "react-bootstrap/esm/Button";
 
 import { useState, useEffect } from "react";
+import Banner from "../components/Banner";
 
-function CreateCardPage(props) {
+function CreateCardPage() {
 	const [search, setSearch] = useState({
 		imagesearch: "",
 		audiosearch: "",
@@ -17,10 +18,18 @@ function CreateCardPage(props) {
 		setSearch((prevSearch) => ({ ...prevSearch, [name]: value }));
 	};
 
+	const clearForm = () => {
+		setSearch({
+			imagesearch: "",
+			audiosearch: "",
+		});
+	};
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		getMedia();
 		getAudio();
+		clearForm();
 	};
 
 	const getMedia = () => {
@@ -35,7 +44,6 @@ function CreateCardPage(props) {
 			})
 			.then((data) => {
 				console.log("from pixabay", data);
-				console.log(data);
 			});
 	};
 
@@ -73,32 +81,35 @@ function CreateCardPage(props) {
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit} className="create-card-form">
-				<input
-					type="text"
-					name="imagesearch"
-					placeholder="Search for an image"
-					onChange={handleInputChange}
-					required
-				/>
+			<Banner />
+			<div>
+				<form onSubmit={handleSubmit} className="create-card-form">
+					<input
+						type="text"
+						name="imagesearch"
+						placeholder="Search for an image"
+						onChange={handleInputChange}
+						required
+					/>
 
-				<input
-					type="text"
-					name="audiosearch"
-					onChange={handleInputChange}
-					placeholder="Search for an audio"
-					required
-				/>
-				<Button variant="primary" type="submit">
-					Search Media
-				</Button>
-			</form>
+					<input
+						type="text"
+						name="audiosearch"
+						onChange={handleInputChange}
+						placeholder="Search for an audio"
+						required
+					/>
+					<Button variant="primary" type="submit">
+						Search Media
+					</Button>
+				</form>
 
-			<h1>Audio URL: {audioUrl}</h1>
-			<audio src={audioUrl} controls />
+				<h1>Audio URL: {audioUrl}</h1>
+				<audio src={audioUrl} controls />
 
-			<CreateCardForm />
-			<ImageGallery />
+				<CreateCardForm />
+				<ImageGallery />
+			</div>
 		</div>
 	);
 }

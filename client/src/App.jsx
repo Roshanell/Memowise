@@ -30,7 +30,7 @@ const Layout = () => {
 		<div className="layout">
 			<header>
 				<MyNavBar />
-				<Banner />
+				
 			</header>
 			<main>
 				{/* specifc page you route to */}

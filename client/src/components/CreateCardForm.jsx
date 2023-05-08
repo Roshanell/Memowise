@@ -29,7 +29,6 @@ export default function CreateCardForm() {
 				if (response.ok) {
 					console.log("ok");
 					return response.json();
-					//loadStudents();
 				}
 			})
 			.then((imagesData) => {
@@ -52,7 +51,6 @@ export default function CreateCardForm() {
 		console.log(card);
 		postCard();
 		clearForm();
-		// Call the API or do any other necessary action here
 	};
 
 	return (

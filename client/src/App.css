@@ -167,7 +167,7 @@ ul {
 	border-top: 5px solid black;
 	border-bottom: 5px solid black;
 	/* position: fixed; */
-	bottom: 0;
+	/* bottom: 0; */
 	width: 70vw;
 	margin-right: 10% !important;
 }
@@ -489,6 +489,10 @@ footer .social-icon li i:hover {
 	width: 100px;
 	border-radius: 50%;
 }
+
+.create-card-container {
+	border: solid 2px orange;
+}
 /* create card button */
 
 .css-button-retro--sand {
@@ -584,8 +588,7 @@ footer .social-icon li i:hover {
 	flex-wrap: wrap;
 }
 
-
-.audio-player{
+.audio-player {
 	width: 90%;
 }
 /* image gallery */
@@ -664,4 +667,172 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	.gallery-item {
 		margin: 0;
 	}
+}
+
+/* home contianer */
+
+.home-container {
+	display: flex;
+	border: solid salmon 2px;
+}
+
+.home-page {
+	border: solid black 3px;
+	height: 100vh;
+}
+.left-box {
+	box-sizing: border-box;
+	position: absolute;
+	width: 36%;
+	height: 36%;
+	top: 10%;
+	background: #f7f7f7;
+	border-width: 5px 5px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+	margin-left: -2px;
+}
+.right-box {
+	box-sizing: border-box;
+	position: absolute;
+	width: 34%;
+	height: 30%;
+	left: 51%;
+	top: 10%;
+	background: #ff5b48;
+	border-width: 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+}
+
+.left-box-two {
+	position: absolute;
+	width: 36%;
+	height: 26%;
+	left: 15%;
+	top: 55%;
+	background: #f7f7f7;
+	border-width: 0px 5px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+}
+
+.right-box-two {
+	position: absolute;
+	width: 34%;
+	height: 26%;
+	left: 51%;
+	top: 55%;
+
+	background: #f7f7f7;
+	border-width: 1px 0px 5px 1px;
+	border-style: solid;
+	border-color: #000000;
+}
+
+.left-box-three {
+	box-sizing: border-box;
+	position: absolute;
+	width: 36%;
+	height: 26%;
+	left: 15%;
+	top: 81%;
+	background: #f7f7f7;
+	border-width: 0px 5px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+}
+
+.right-box-three {
+	box-sizing: border-box;
+
+	position: absolute;
+	width: 34%;
+	height: 26%;
+	left: 51%;
+	top: 81%;
+
+	background: #f7f7f7;
+	border-width: 1px 0px 5px 1px;
+	border-style: solid;
+	border-color: #000000;
+	margin-bottom: 10%;
+}
+
+.left-box-partial {
+	position: absolute;
+	width: 553px;
+	height: 42px;
+	left: 199px;
+	top: 729px;
+
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 35px;
+	line-height: 42px;
+	text-transform: uppercase;
+
+	color: #ffffff;
+}
+.heading {
+	position: absolute;
+	height: 290px;
+	left: 14%;
+	top: 24%;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 900;
+	font-size: 75px;
+	line-height: 90px;
+	color: #000000;
+	text-transform: uppercase;
+}
+.heading-two {
+	position: absolute;
+	height: 289px;
+	left: 0%;
+	top: 36%;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 900;
+	font-size: 71px;
+	line-height: 90px;
+	color: #000000;
+	text-transform: uppercase;
+}
+
+.left-box-inner {
+	box-sizing: border-box;
+	position: absolute;
+	width: 36%;
+	height: 10%;
+	left: 15%;
+	top: 46%;
+	background: #7e38f9;
+	border-width: 0px 5px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+}
+
+.right-inner-box-one {
+	box-sizing: border-box;
+	position: absolute;
+	width: 34%;
+	height: 7%;
+	left: 51%;
+	top: 39%;
+	background: #ffabe5;
+	border-width: 5px 0px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+}
+.right-inner-box-two {
+	position: absolute;
+	position: absolute;
+	width: 34%;
+	height: 109px;
+	left: 51%;
+	top: 45.5%;
+	background: #2d2d2d;
 }
