@@ -7,13 +7,20 @@ function Home() {
 				{" "}
 				<h1 className="heading-homepage">The only you need</h1>
 			</div>
-			<div className="left-box-inner"></div>
+			<div className="left-box-inner">
+				<h3 className="memory-aid-slogan">effective memory-aid tools</h3>
+			</div>
 			<div className="home-page right-box">
 				<h1 className="heading-two">Flashcard</h1>
 			</div>
-			<div className="home-page left-box-two"></div>
+			<div className="home-page left-box-two">
+				<img src="https://i.imgur.com/ktHLGO2.png"/>
+				<h3>NUMBER</h3>
+			</div>
 			<div className="right-inner-box-one"></div>
-			<div className="right-inner-box-two"></div>
+			<div className="right-inner-box-two">
+				<h3 className="learn-more-slogan">Learn new materials quickly</h3>
+			</div>
 			<div className="home-page right-box-two"></div>
 			<div className="home-page left-box-three"></div>
 			<div className="home-page right-box-three"></div>
