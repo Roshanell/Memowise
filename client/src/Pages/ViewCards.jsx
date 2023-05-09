@@ -1,27 +1,20 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
 import Banner from "../components/Banner";
+import loadCards from "../apis/loadCards";
 
 function ViewCards() {
 	const [cards, setCards] = useState([]);
 	const [audio, setAudio] = useState([]);
 
-	const loadCards = () => {
-		fetch("http://localhost:8080/api/cards")
-			.then((response) => response.json())
-			.then((cards) => {
-				setCards(cards);
-				console.log(cards, "list of cards");
-			})
-			.catch((error) => console.error(error)); // add a catch block to log any errors
-	};
 	fetch("http://localhost:8080/api/pixabay")
 		.then((response) => response.json())
 		.then((images) => {
 			console.log(images, "from pixabay");
 		})
 		.catch((error) => console.error(error)); // add a catch block to log any errors
+
 	const loadAudio = () => {
 		fetch("http://localhost:8080/api/mw")
 			.then((response) => response.json())
@@ -42,12 +35,18 @@ function ViewCards() {
 			}
 		});
 	};
-	useEffect(() => {
-		loadCards();
-	}, []);
+
+	// const getCards = useCallback(async () => {
+	// 	const _cards = await loadCards();
+	// 	setCards(_cards);
+	// }, []);
 	useEffect(() => {
 		loadAudio();
+		// getCards();
+		// alternate way of doing async await
+		loadCards().then(setCards);
 	}, []);
+
 	return (
 		<div>
 			<Banner />

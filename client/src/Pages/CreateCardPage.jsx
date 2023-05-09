@@ -4,7 +4,7 @@ import ImageGallery from "../components/ImageGallery";
 import Button from "react-bootstrap/esm/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-
+import Generate from "../components/Generate";
 import { useState, useEffect } from "react";
 import Banner from "../components/Banner";
 
@@ -150,7 +150,9 @@ function CreateCardPage() {
 					eventKey="Generate"
 					title="Generate with AI"
 					className="tabs"
-				></Tab>
+				>
+					<Generate />
+				</Tab>
 			</Tabs>
 		</div>
 	);

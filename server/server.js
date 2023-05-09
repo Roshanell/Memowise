@@ -14,12 +14,11 @@ app.use(cors());
 app.use(express.json());
 
 const configuration = new Configuration({
-	organization: "org-J9MVBvQcfVGNwJp9ChXmJ0Fu",
+	organization: process.env.ORGANIZATION,
 	apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
-// org - J9MVBvQcfVGNwJp9ChXmJ0Fu;
 // creates an endpoint for the route "/""
 app.get("/", (req, res) => {
 	res.json({ message: "Hola, from My template ExpressJS with React-Vite" });
@@ -35,25 +34,32 @@ app.get("/api/students", async (req, res) => {
 	}
 });
 
-//open ai req
-app.get("/api/openai", async (req, res) => {
+//open ai post req
+app.post("/api/cards-generate", async (req, res) => {
 	console.log("connected to open ai on server.js");
 	try {
 		// using mock data for now
-		res.json(data);
-		//console.log(data);
-		// const response = await openai.createCompletion({
-		// 	model: "text-davinci-003",
-		// 	prompt:
-		// 		"Generate for me flash cards defining the elements of plot for fictional stories at a 5th grade level. Structure your response as a JSON array.  Each object in the array will have a key for the title of the card and the value will be the element you are defining. Each object also has a key for the content of the card and the value is the definition",
-		// 	max_tokens: 500,
-		// 	temperature: 1,
-		// });
-		// Response for data
-		//console.log(response.data.choices[0].text);
-		//console.log(JSON.parse(response.data.choices[0].text));
-		// res.send(students);
+		// res.json(data);
+		// console.log(data);
+		// variables that are in the req body should be referenced from here
+		let { numberOfCards, cardTopic, gradeLevel } = req.body;
+		const response = await openai.createCompletion({
+			model: "text-davinci-003",
+			prompt: `Generate for me ${numberOfCards} flash cards at a grade ${gradeLevel} level. The topic of the flash cards will be ${cardTopic}. Structure your response as a JSON array.  Each object in the array is a flash card. Each card has a card title, correct answer, and 2 wrong answers.`,
+			max_tokens: 2048,
+			temperature: 1,
+			top_p: 1.0,
+			frequency_penalty: 0.0,
+			presence_penalty: 0.0,
+		});
+		//Response for data
+		console.log(response.data.choices[0].text);
+		// console.log(JSON.parse(response.data.choices[0].text));
+		// console.log(response);
+
+		res.send(response.data.choices[0].text);
 	} catch (e) {
+		console.log(e);
 		return res.status(400).json({ e });
 	}
 });
@@ -102,7 +108,6 @@ app.get("/api/pixabay", (req, res) => {
 });
 
 app.get("/api/mw", (req, res) => {
-
 	res.json(dictionaryData);
 	// const mw_api_key = process.env.MW_API_KEY;
 	// let query = "home";
@@ -123,8 +128,6 @@ app.get("/api/mw", (req, res) => {
 	// 	return res.status(400).json({ e });
 	// }
 });
-
-
 
 app.get("/api/cards", async (req, res) => {
 	try {
@@ -209,7 +212,6 @@ app.delete("/api/students/:studentId", async (req, res) => {
 		return res.status(400).json({ e });
 	}
 });
-
 
 // delete request for card
 app.delete("/api/cards/:cardId", async (req, res) => {
