@@ -10,6 +10,23 @@ const Game = () => {
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [currentCard, setCurrentCard] = useState({});
 	const [cards, setCards] = useState([]);
+	const [randomAnswers, setRandomAnswers] = useState([]);
+
+	useEffect(() => {
+		if (randomAnswers.length) return;
+		const newRandomAnswers = [];
+
+		let answers = [0, 1, 2];
+		while (answers.length > 0) {
+			const answer = answers.splice(
+				Math.floor(Math.random() * answers.length),
+				1
+			)[0];
+			newRandomAnswers.push(answer);
+		}
+		setRandomAnswers(newRandomAnswers);
+	}, []);
+
 	useEffect(() => {
 		loadCards().then(setCards);
 	}, []);
@@ -42,15 +59,25 @@ const Game = () => {
 					<NextCardButton />
 				</div>
 				<div className="choices-container">
-					<Button className="multiple-choice-button">
-						{currentCard.answer}
-					</Button>
-					<Button className="multiple-choice-button">
-						{currentCard.wronganswerone}
-					</Button>
-					<Button className="multiple-choice-button">
-						{currentCard.wronganswertwo}
-					</Button>
+					{randomAnswers.map((answer) => {
+						if (answer === 0)
+							return (
+								<Button className="multiple-choice-button">
+									{currentCard.answer}
+								</Button>
+							);
+						if (answer === 1)
+							return (
+								<Button className="multiple-choice-button">
+									{currentCard.wronganswerone}
+								</Button>
+							);
+						return (
+							<Button className="multiple-choice-button">
+								{currentCard.wronganswertwo}
+							</Button>
+						);
+					})}
 				</div>
 				<Instructions />
 			</div>
