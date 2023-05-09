@@ -10,7 +10,9 @@ const Game = () => {
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [currentCard, setCurrentCard] = useState({});
 	const [cards, setCards] = useState([]);
-	useEffect(() => loadCards().then(setCards), []);
+	useEffect(() => {
+		loadCards().then(setCards);
+	}, []);
 
 	useEffect(() => setCurrentCard(cards[0] || {}), [cards]);
 	const goToPreviousCard = () => {
