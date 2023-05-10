@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Instructions from "../components/Instructions";
+import Player from "../components/Player";
 
 const Leaderboard = () => {
 	return (
@@ -18,6 +19,15 @@ const Leaderboard = () => {
 				<Instructions />
 				<img src="https://i.imgur.com/OaZRpoH.png" height={"79"} width={"58"} />
 			</div>
+			<div className="leaderboard-headings">
+				<h1>Position</h1>
+				<h1>Name</h1>
+				<h1>Points</h1>
+			</div>
+            <div>
+			<Player />
+            </div>
+           
 		</div>
 	);
 };
