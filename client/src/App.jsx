@@ -13,7 +13,8 @@ import PlayGame from "./Pages/PlayGame";
 import AboutMe from "./Pages/AboutMe";
 import FAQs from "./Pages/FAQs";
 import Profile from "./components/Profile";
-
+import CreateCardPage from "./Pages/CreateCardPage";
+import Leaderboard from "./Pages/Leaderboard";
 
 import {
 	createBrowserRouter,
@@ -22,7 +23,6 @@ import {
 	Outlet,
 	Route,
 } from "react-router-dom";
-import CreateCardPage from "./Pages/CreateCardPage";
 
 // general structure of pages
 const Layout = () => {
@@ -30,7 +30,6 @@ const Layout = () => {
 		<div className="layout">
 			<header>
 				<MyNavBar />
-				
 			</header>
 			<main>
 				{/* specifc page you route to */}
@@ -56,6 +55,7 @@ const router = createBrowserRouter(
 			<Route path="/FAQs" element={<FAQs />} />
 			<Route path="/" element={<Home />} />
 			<Route path="/user-profile" element={<Profile />} />
+			<Route path="/leaderboard" element={<Leaderboard />} />
 		</Route>
 	)
 );

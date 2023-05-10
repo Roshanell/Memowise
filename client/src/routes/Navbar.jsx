@@ -7,7 +7,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 function MyNavBar(props) {
 	const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
 
-
 	return (
 		<>
 			<Navbar sticky="top" className="nav-bar">
@@ -26,6 +25,9 @@ function MyNavBar(props) {
 					</Link>
 					<Link className="nav-link" to="/create">
 						Create Card
+					</Link>
+					<Link className="nav-link" to="/leaderboard">
+						Leaderboard
 					</Link>
 					<Navbar.Toggle />
 					<Navbar.Collapse className="justify-content-end">
