@@ -17,17 +17,17 @@ const Leaderboard = () => {
 					<option value="3">Three</option>
 				</Form.Select>
 				<Instructions />
-				<img src="https://i.imgur.com/OaZRpoH.png" height={"79"} width={"58"} />
 			</div>
-			<div className="leaderboard-headings">
-				<h1>Position</h1>
-				<h1>Name</h1>
-				<h1>Points</h1>
+			<div className="leaderboard-headings-group">
+				<h1 className="leaderboard-heading">Position</h1>
+				<h1 className="leaderboard-heading">Name</h1>
+				<h1 className="leaderboard-heading">Points</h1>
 			</div>
-            <div>
-			<Player />
-            </div>
-           
+			<div className="player-info">
+				<Player />
+				<Player />
+				<Player />
+			</div>
 		</div>
 	);
 };

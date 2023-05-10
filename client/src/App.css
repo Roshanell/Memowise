@@ -912,9 +912,17 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	display: flex;
 }
 
-.leaderboard-headings {
+.leaderboard-headings-group {
 	display: flex;
 	justify-content: space-between;
+	font-family: "Inter";
+	font-style: normal;
+	
+}
+.leaderboard-heading {
+	font-weight: 800;
+	font-size: 50px;
+	line-height: 61px;
 }
 .stats {
 	display: flex;
@@ -925,15 +933,23 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	position: relative;
 	width: 85.46px;
 	height: 54.2px;
-	left: 3%;
+	left: 0%;
 	top: 10%;
 	background: #fca02d;
 	border: 5px solid #000000;
 	border-radius: 15px;
 	margin-bottom: 10%;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 30px;
+	text-align: center;
+	justify-content: center;
+	color: #ffffff;
 }
 .points {
-	left: 82%;
+	left: 87%;
 }
 .leaderboard-image {
 	position: absolute;
@@ -949,7 +965,7 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	width: 100px;
 	height: 100px;
 	left: 40%;
-	top: 43%;
+	top: 48%;
 	background: #d9d9d9;
 	border: 5px solid #000000;
 	border-radius: 50%;
@@ -965,6 +981,15 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	background: #fca02d;
 	border: 5px solid #000000;
 	border-radius: 15px;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 30px;
+	text-align: center;
+	text-justify: center;
+	color: #ffffff;
 }
-.leaderboard-image-section {
+.player-info {
+	margin-top: 3%;
 }
