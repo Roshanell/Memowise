@@ -13,7 +13,6 @@ const Game = () => {
 	const [randomAnswers, setRandomAnswers] = useState([]);
 
 	useEffect(() => {
-		if (randomAnswers.length) return;
 		const newRandomAnswers = [];
 
 		let answers = [0, 1, 2];
@@ -25,7 +24,7 @@ const Game = () => {
 			newRandomAnswers.push(answer);
 		}
 		setRandomAnswers(newRandomAnswers);
-	}, []);
+	}, [currentCard]);
 
 	useEffect(() => {
 		loadCards().then(setCards);
@@ -72,11 +71,12 @@ const Game = () => {
 									{currentCard.wronganswerone}
 								</Button>
 							);
-						return (
-							<Button className="multiple-choice-button">
-								{currentCard.wronganswertwo}
-							</Button>
-						);
+						if (answer === 2)
+							return (
+								<Button className="multiple-choice-button">
+									{currentCard.wronganswertwo}
+								</Button>
+							);
 					})}
 				</div>
 				<Instructions />
