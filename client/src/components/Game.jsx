@@ -49,6 +49,7 @@ const Game = () => {
 			<div id="game-section">
 				<MoreOptions />
 				<i class="fa fa-volume-up"></i>
+				<h3>{currentCard.cardcontent}</h3>
 				<div className="image-container">
 					{/* NOTE : use webformat url when accessing image data from pixabay */}
 					<img src={currentCard.imagelink} height="200px" />
