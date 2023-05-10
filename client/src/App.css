@@ -62,11 +62,11 @@ form {
 
 input[type="text"] {
 	display: inline-block;
-	margin-top: -10px;
+	margin-top: 5px;
 	width: 100%;
 	font-size: 15px;
-	border-radius: 2px;
-	border: 3px solid #98d0f1;
+	border-radius: 50px;
+	border: 3px solid #5974ff;
 }
 
 button.btn.btn-primary {
@@ -377,6 +377,10 @@ footer .social-icon li i:hover {
 	margin-top: 5%;
 }
 
+.FaCaretRight {
+	font-size: 50px;
+}
+
 .choices-container {
 	display: flex;
 	justify-content: center;
@@ -460,7 +464,6 @@ footer .social-icon li i:hover {
 	letter-spacing: 0em;
 	text-align: center;
 	margin-top: 4%;
-	
 }
 
 /* create card section */

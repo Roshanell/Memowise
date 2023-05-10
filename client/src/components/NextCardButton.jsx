@@ -1,7 +1,7 @@
-const NextCardButton = ({ onClick }) => {
+const NextCardButton = ({ icon, onClick }) => {
 	return (
 		<div className="css-button-retro--blue" onClick={onClick}>
-			<i class="fa-solid fa-caret-right"></i>
+			{icon}
 		</div>
 	);
 };

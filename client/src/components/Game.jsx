@@ -5,6 +5,7 @@ import NextCardButton from "./NextCardButton";
 import Banner from "./Banner";
 import { useEffect, useState } from "react";
 import loadCards from "../apis/loadCards";
+import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 
 const Game = () => {
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -43,45 +44,66 @@ const Game = () => {
 
 		setCurrentCard(previousCard);
 	};
+
+	useEffect(() => setCurrentCard(cards[0] || {}), [cards]);
+	const gotoNextCard = () => {
+		let nextCardIndex;
+		if (currentCardIndex === cards.length - 1) {
+			nextCardIndex = 0;
+		} else {
+			nextCardIndex = currentCardIndex + 1;
+		}
+		setCurrentCardIndex(nextCardIndex);
+		const nextCard = cards[nextCardIndex];
+
+		setCurrentCard(nextCard);
+	};
 	return (
 		<div>
 			<Banner />
-			<div id="game-section">
-				<MoreOptions />
-				<i class="fa fa-volume-up"></i>
-				<h3>{currentCard.cardcontent}</h3>
-				<div className="image-container">
-					{/* NOTE : use webformat url when accessing image data from pixabay */}
-					<img src={currentCard.imagelink} height="200px" />
+
+			{currentCard ? (
+				<div id="game-section">
+					<MoreOptions />
+
+					<i class="fa fa-volume-up"></i>
+					<h3>{currentCard.cardcontent}</h3>
+					<div className="image-container">
+						{/* NOTE : use webformat url when accessing image data from pixabay */}
+						<img src={currentCard.imagelink} height="200px" />
+					</div>
+					<div>
+						<NextCardButton icon={<FaCaretLeft />} onClick={gotoNextCard} />
+						<NextCardButton
+							icon={<FaCaretRight />}
+							onClick={goToPreviousCard}
+						/>
+					</div>
+					<div className="choices-container">
+						{randomAnswers.map((answer) => {
+							if (answer === 0)
+								return (
+									<Button className="multiple-choice-button">
+										{currentCard.answer}
+									</Button>
+								);
+							if (answer === 1)
+								return (
+									<Button className="multiple-choice-button">
+										{currentCard.wronganswerone}
+									</Button>
+								);
+							if (answer === 2)
+								return (
+									<Button className="multiple-choice-button">
+										{currentCard.wronganswertwo}
+									</Button>
+								);
+						})}
+					</div>
+					<Instructions />
 				</div>
-				<div>
-					<NextCardButton onClick={goToPreviousCard} />
-					<NextCardButton />
-				</div>
-				<div className="choices-container">
-					{randomAnswers.map((answer) => {
-						if (answer === 0)
-							return (
-								<Button className="multiple-choice-button">
-									{currentCard.answer}
-								</Button>
-							);
-						if (answer === 1)
-							return (
-								<Button className="multiple-choice-button">
-									{currentCard.wronganswerone}
-								</Button>
-							);
-						if (answer === 2)
-							return (
-								<Button className="multiple-choice-button">
-									{currentCard.wronganswertwo}
-								</Button>
-							);
-					})}
-				</div>
-				<Instructions />
-			</div>
+			) : null}
 		</div>
 	);
 };
