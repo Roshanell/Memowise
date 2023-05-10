@@ -459,7 +459,8 @@ footer .social-icon li i:hover {
 	line-height: 28px;
 	letter-spacing: 0em;
 	text-align: center;
-	margin-top: 5%;
+	margin-top: 4%;
+	
 }
 
 /* create card section */
@@ -917,7 +918,6 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	justify-content: space-between;
 	font-family: "Inter";
 	font-style: normal;
-	
 }
 .leaderboard-heading {
 	font-weight: 800;
