@@ -177,26 +177,54 @@ app.post("/api/students", async (req, res) => {
 
 app.post("/api/cards", async (req, res) => {
 	try {
-		const newCard = {
-			concept: req.body.concept,
-			answer: req.body.answer,
-			imagelink: req.body.imagelink,
-			audiolink: req.body.audiolink,
-			wronganswerone: req.body.wronganswerone,
-			wronganswertwo: req.body.wronganswertwo,
-		};
-		const result = await db.query(
-			"INSERT INTO cards(cardcontent, answer, imagelink, audiolink, wronganswerone, wronganswertwo) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING *",
-			[
-				newCard.concept,
-				newCard.answer,
-				newCard.imagelink,
-				newCard.audiolink,
-				newCard.wronganswerone,
-				newCard.wronganswertwo,
-			]
-		);
-		res.json(result.rows[0]);
+		let newCards = [];
+		if (Array.isArray(req.body)) {
+			newCards = req.body.map((card) => [
+				card.concept,
+				card.answer,
+				card.imagelink,
+				card.audiolink,
+				card.wronganswerone,
+				card.wronganswertwo,
+			]);
+		} else {
+			newCards = [
+				req.body.concept,
+				req.body.answer,
+				req.body.imagelink,
+				req.body.audiolink,
+				req.body.wronganswerone,
+				req.body.wronganswertwo,
+			];
+		}
+		// const newCard = {
+		// 	concept: req.body.concept,
+		// 	answer: req.body.answer,
+		// 	imagelink: req.body.imagelink,
+		// 	audiolink: req.body.audiolink,
+		// 	wronganswerone: req.body.wronganswerone,
+		// 	wronganswertwo: req.body.wronganswertwo,
+		// };
+
+		newCards.forEach(async (newCard) => {
+			await db.query(
+				"INSERT INTO cards(concept, answer, imagelink, audiolink, wronganswerone, wronganswertwo) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING *",
+				newCard
+			);
+		});
+		// const result = await db.query(
+		// 	"INSERT INTO cards(cardcontent, answer, imagelink, audiolink, wronganswerone, wronganswertwo) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING *",
+		// 	newCards
+		// [
+		// 	newCard.concept,
+		// 	newCard.answer,
+		// 	newCard.imagelink,
+		// 	newCard.audiolink,
+		// 	newCard.wronganswerone,
+		// 	newCard.wronganswertwo,
+		// ]
+		// );
+		res.json("sucess");
 		// console.log("result", result);
 
 		//
