@@ -45,7 +45,12 @@ app.post("/api/cards-generate", async (req, res) => {
 		let { numberOfCards, cardTopic, gradeLevel } = req.body;
 		const response = await openai.createCompletion({
 			model: "text-davinci-003",
-			prompt: `Generate for me ${numberOfCards} flash cards at a grade ${gradeLevel} level. The topic of the flash cards will be ${cardTopic}. Structure your response as a JSON array.  Each object in the array is a flash card. Each card has a card title, correct answer, and 2 wrong answers.`,
+			prompt: `Generate for me ${numberOfCards} flash cards at a grade ${gradeLevel} level. The topic of the flash cards will be ${cardTopic}. Structure your response as a JSON array.  Each object in the array is a flash card. Each card has a card title, correct answer, and 2 wrong answers. This would be an example of an returned card object {
+				"concept": "",
+				"answer": "",
+				"wronganswerone": "",
+				"wronganswertwo": "",
+			}`,
 			max_tokens: 2048,
 			temperature: 1,
 			top_p: 1.0,
@@ -71,8 +76,8 @@ app.get("/api/pixabay", (req, res) => {
 	// console.log(test, "hi");
 	const API_KEY = process.env.API_KEY;
 	console.log(API_KEY, "api key");
-	console.log(req, "req")
-	console.log(req.query, "server line 74")
+	console.log(req, "req");
+	console.log(req.query, "server line 74");
 	// change this so code is dynamic
 	let query = encodeURI(req.query.query, "query");
 
