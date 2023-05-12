@@ -9,33 +9,36 @@ import { useState, useEffect } from "react";
 import Banner from "../components/Banner";
 
 function CreateCardPage() {
-	const [search, setSearch] = useState({
-		imagesearch: "",
-		audiosearch: "",
-	});
+	const [imageSearch, setImageSearch] = useState("");
+	const [audioSearch, setAudioSearch] = useState("");
 	const [audioUrl, setAudioUrl] = useState("");
+	// const [imageResults, setImageResults] = useState("");
 
-	const handleInputChange = (event) => {
-		const { name, value } = event.target;
-		setSearch((prevSearch) => ({ ...prevSearch, [name]: value }));
+	const handleImageSearch = (event) => {
+		const imageSearch = event.target.value;
+		console.log(imageSearch);
+		setImageSearch(imageSearch);
+	};
+	const handleAudioSearch = (event) => {
+		const audioSearch = event.target.value;
+		console.log(audioSearch);
+		setAudioSearch(audioSearch);
 	};
 
-	const clearForm = () => {
-		setSearch({
-			imagesearch: "",
-			audiosearch: "",
-		});
-	};
+	// let clearForm = () => {
+	// 	setImageSearch((imageSearch = ""));
+	// 	setAudioSearch((audioSearch = ""));
+	// };
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		getMedia();
 		getAudio();
-		clearForm();
+		// clearForm();
 	};
 
 	const getMedia = () => {
-		return fetch(`http://localhost:8080/api/pixabay`, {
+		return fetch(`http://localhost:8080/api/pixabay?query=${imageSearch}`, {
 			method: "GET",
 			headers: { "Content-Type": "application/json" },
 		})
@@ -83,36 +86,6 @@ function CreateCardPage() {
 
 	return (
 		<div>
-			{/* <Banner />
-			<div>
-				<form onSubmit={handleSubmit} className="create-card-form">
-					<input
-						type="text"
-						name="imagesearch"
-						placeholder="Search for an image"
-						onChange={handleInputChange}
-						required
-					/>
-
-					<input
-						type="text"
-						name="audiosearch"
-						onChange={handleInputChange}
-						placeholder="Search for an audio"
-						required
-					/>
-					<Button variant="primary" type="submit">
-						Search Media
-					</Button>
-				</form>
-
-				<h1>Audio URL: {audioUrl}</h1>
-				<audio src={audioUrl} controls />
-
-				<CreateCardForm />
-				<ImageGallery />
-			</div> */}
-			{/* <Banner /> */}
 			<Tabs
 				defaultActiveKey="profile"
 				id="uncontrolled-tab-example"
@@ -123,15 +96,17 @@ function CreateCardPage() {
 						<input
 							type="text"
 							name="imagesearch"
+							value={imageSearch}
 							placeholder="Search for an image"
-							onChange={handleInputChange}
+							onChange={handleImageSearch}
 							required
 						/>
 
 						<input
 							type="text"
 							name="audiosearch"
-							onChange={handleInputChange}
+							value={audioSearch}
+							onChange={handleAudioSearch}
 							placeholder="Search for an audio"
 							required
 						/>
@@ -146,11 +121,7 @@ function CreateCardPage() {
 					<CreateCardForm />
 					<ImageGallery />
 				</Tab>
-				<Tab
-					eventKey="Generate"
-					title="Generate with AI"
-					className="tabs"
-				>
+				<Tab eventKey="Generate" title="Generate with AI" className="tabs">
 					<Generate />
 				</Tab>
 			</Tabs>

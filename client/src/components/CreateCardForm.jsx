@@ -22,7 +22,7 @@ export default function CreateCardForm() {
 		return fetch(`http://localhost:8080/api/cards`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(card),
+			body: JSON.stringify([card]),
 		})
 			.then((response) => {
 				//console.log(response);

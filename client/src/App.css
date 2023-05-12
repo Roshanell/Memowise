@@ -489,15 +489,18 @@ footer .social-icon li i:hover {
 	margin-top: 5%;
 }
 
+.card-ul {
+	display: flex;
+	flex-direction: row;
+	
+}
+
 .create-card-image {
 	height: 100px;
 	width: 100px;
 	border-radius: 50%;
 }
 
-.create-card-container {
-	border: solid 2px orange;
-}
 /* create card button */
 
 .css-button-retro--sand {

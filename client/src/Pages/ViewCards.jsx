@@ -24,14 +24,14 @@ function ViewCards() {
 			})
 			.catch((error) => console.error(error)); // add a catch block to log any errors
 	};
-	const onDelete = (card) => {
-		//console.log(student, "delete method")
-		return fetch(`http://localhost:8080/api/cards/${card.id}`, {
+	const onDelete = async (card) => {
+		console.log(card, "delete method");
+		return await fetch(`http://localhost:8080/api/cards/${card.id}`, {
 			method: "DELETE",
 		}).then((response) => {
 			//console.log(response);
 			if (response.ok) {
-				loadCards();
+				loadCards().then(setCards);
 			}
 		});
 	};

@@ -13,20 +13,21 @@ function Card({ card, audio, toDelete }) {
 	};
 
 	const onDelete = (toDeleteStudent) => {
-		console.log(card.id, toDeleteStudent,toDelete)
+		console.log(card.id, toDeleteStudent, toDelete);
 		toDelete(toDeleteStudent);
 	};
 
-	
 	return (
-		<div className="create-card-container">
+		<div>
 			<div
 				className={`create-card ${isFlipped ? "flipped" : ""}`}
 				onClick={handleClick}
 			>
 				<div className="front">
-					<h2>{card.answer}</h2>
-					<img src={card.imagelink} className="create-card-image" />
+					<h2>{card.concept}</h2>
+					{card.imagelink ? (
+						<img src={card.imagelink} className="create-card-image" />
+					) : null}
 					<button
 						type="button"
 						onClick={() => {
@@ -37,9 +38,12 @@ function Card({ card, audio, toDelete }) {
 					</button>
 				</div>
 				<div className="back">
-					<i class="fa fa-volume-up"></i>
-					<audio className="audio-player" scr={""} controls />
-
+					{card.audioLink ? (
+						<>
+							<i class="fa fa-volume-up"></i>
+							<audio className="audio-player" scr={""} controls />
+						</>
+					) : null}
 					<p>{card.answer}</p>
 				</div>
 			</div>
