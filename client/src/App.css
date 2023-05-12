@@ -597,10 +597,12 @@ footer .social-icon li i:hover {
 	transform: rotateY(180deg);
 }
 .item-category a {
-	float: right;
 	background: #e91e63;
 	padding: 4px;
 	color: #fff;
+	position: absolute;
+	bottom: 85%;
+	left: 35%;
 }
 /* create-card form */
 .create-card-form {

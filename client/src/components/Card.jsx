@@ -34,7 +34,7 @@ function Card({ card, audio, toDelete }) {
 						</div>
 					) : null}
 
-					<h2>{card.concept}</h2>
+					<p>{card.concept}</p>
 					{card.imagelink ? (
 						<img src={card.imagelink} className="create-card-image" />
 					) : null}
