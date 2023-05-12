@@ -65,7 +65,7 @@ form {
 	flex: 1;
 }
 
-input[type="text"] {
+input[type="text"], input {
 	display: inline-block;
 	margin-top: 5px;
 	width: 100%;
@@ -498,6 +498,7 @@ footer .social-icon li i:hover {
 .card-ul {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .create-card-image {
@@ -597,6 +598,7 @@ footer .social-icon li i:hover {
 /* create-card form */
 .create-card-form {
 	width: 50%;
+	display: flex;
 }
 
 .card-container {

@@ -92,6 +92,13 @@ function CreateCardPage() {
 				className="mb-3"
 			>
 				<Tab eventKey="Create" title="Create a Card" className="tabs">
+					<CreateCardForm />
+				</Tab>
+				<Tab eventKey="Generate" title="Generate with AI" className="tabs">
+					<Generate />
+				</Tab>
+
+				<Tab eventKey="contact" title="Search for Media">
 					<form onSubmit={handleSubmit} className="create-card-form">
 						<input
 							type="text"
@@ -117,16 +124,7 @@ function CreateCardPage() {
 
 					<h1>Audio URL: {audioUrl}</h1>
 					<audio src={audioUrl} controls />
-
-					<CreateCardForm />
 					<ImageGallery />
-				</Tab>
-				<Tab
-					eventKey="Generate"
-					title="Generate with AI"
-					className="tabs"
-				>
-					<Generate />
 				</Tab>
 			</Tabs>
 		</div>

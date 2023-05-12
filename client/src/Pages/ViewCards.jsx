@@ -8,22 +8,22 @@ function ViewCards() {
 	const [cards, setCards] = useState([]);
 	const [audio, setAudio] = useState([]);
 
-	fetch("http://localhost:8080/api/pixabay")
-		.then((response) => response.json())
-		.then((images) => {
-			console.log(images, "from pixabay");
-		})
-		.catch((error) => console.error(error)); // add a catch block to log any errors
+	// fetch("http://localhost:8080/api/pixabay")
+	// 	.then((response) => response.json())
+	// 	.then((images) => {
+	// 		console.log(images, "from pixabay");
+	// 	})
+	// 	.catch((error) => console.error(error)); // add a catch block to log any errors
 
-	const loadAudio = () => {
-		fetch("http://localhost:8080/api/mw")
-			.then((response) => response.json())
-			.then((audio) => {
-				setAudio(audio);
-				console.log(audio, "from mw");
-			})
-			.catch((error) => console.error(error)); // add a catch block to log any errors
-	};
+	// const loadAudio = () => {
+	// 	fetch("http://localhost:8080/api/mw")
+	// 		.then((response) => response.json())
+	// 		.then((audio) => {
+	// 			setAudio(audio);
+	// 			console.log(audio, "from mw");
+	// 		})
+	// 		.catch((error) => console.error(error)); // add a catch block to log any errors
+	// };
 	const onDelete = async (card) => {
 		console.log(card, "delete method");
 		return await fetch(`http://localhost:8080/api/cards/${card.id}`, {
@@ -36,14 +36,8 @@ function ViewCards() {
 		});
 	};
 
-	// const getCards = useCallback(async () => {
-	// 	const _cards = await loadCards();
-	// 	setCards(_cards);
-	// }, []);
 	useEffect(() => {
-		loadAudio();
-		// getCards();
-		// alternate way of doing async await
+		// loadAudio();
 		loadCards().then(setCards);
 	}, []);
 
