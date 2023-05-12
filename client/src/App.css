@@ -65,7 +65,8 @@ form {
 	flex: 1;
 }
 
-input[type="text"], input {
+input[type="text"],
+input {
 	display: inline-block;
 	margin-top: 5px;
 	width: 100%;
@@ -594,6 +595,12 @@ footer .social-icon li i:hover {
 
 .flipped {
 	transform: rotateY(180deg);
+}
+.item-category a {
+	float: right;
+	background: #e91e63;
+	padding: 4px;
+	color: #fff;
 }
 /* create-card form */
 .create-card-form {

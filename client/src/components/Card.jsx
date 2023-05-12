@@ -23,7 +23,17 @@ function Card({ card, audio, toDelete }) {
 				className={`create-card ${isFlipped ? "flipped" : ""}`}
 				onClick={handleClick}
 			>
+				{/* {generatedCards.length > 0 ? (
+					<button onClick={saveGeneratedCards}>Save</button>
+				) : null} */}
+
 				<div className="front">
+					{card.tag ? (
+						<div class="item-category">
+							<a href="#">{card.tag}</a>
+						</div>
+					) : null}
+
 					<h2>{card.concept}</h2>
 					{card.imagelink ? (
 						<img src={card.imagelink} className="create-card-image" />

@@ -117,6 +117,7 @@ function CreateCardPage() {
 							placeholder="Search for an audio"
 							required
 						/>
+					
 						<Button variant="primary" type="submit">
 							Search Media
 						</Button>

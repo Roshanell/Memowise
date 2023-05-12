@@ -186,6 +186,7 @@ app.post("/api/cards", async (req, res) => {
 				card.audiolink,
 				card.wronganswerone,
 				card.wronganswertwo,
+				card.tag,
 			]);
 		} else {
 			newCards = [
@@ -195,6 +196,7 @@ app.post("/api/cards", async (req, res) => {
 				req.body.audiolink,
 				req.body.wronganswerone,
 				req.body.wronganswertwo,
+				req.body.tag,
 			];
 		}
 		// const newCard = {
@@ -208,7 +210,7 @@ app.post("/api/cards", async (req, res) => {
 
 		newCards.forEach(async (newCard) => {
 			await db.query(
-				"INSERT INTO cards(concept, answer, imagelink, audiolink, wronganswerone, wronganswertwo) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING *",
+				"INSERT INTO cards(concept, answer, imagelink, audiolink, wronganswerone, wronganswertwo,tag) VALUES($1, $2, $3, $4, $5, $6, $7 ) RETURNING *",
 				newCard
 			);
 		});
