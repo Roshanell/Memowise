@@ -31,9 +31,7 @@ function MyNavBar(props) {
 					</Link>
 					<Navbar.Toggle />
 					<Navbar.Collapse className="justify-content-end">
-						{!user ? null : (
-							<Nav.Link href="/user-profile">{user.name}</Nav.Link>
-						)}
+						{!user ? null : <Nav.Link href="/user-profile"></Nav.Link>}
 						<Navbar.Text>
 							{!isAuthenticated ? (
 								<Link onClick={() => loginWithRedirect()} className="nav-link">
@@ -41,7 +39,7 @@ function MyNavBar(props) {
 								</Link>
 							) : (
 								<Link
-									className="nav-link"
+									className="header-nav-link"
 									onClick={() =>
 										logout({
 											logoutParams: { returnTo: window.location.origin },

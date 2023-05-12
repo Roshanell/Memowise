@@ -121,7 +121,11 @@ function CreateCardPage() {
 					<CreateCardForm />
 					<ImageGallery />
 				</Tab>
-				<Tab eventKey="Generate" title="Generate with AI" className="tabs">
+				<Tab
+					eventKey="Generate"
+					title="Generate with AI"
+					className="tabs"
+				>
 					<Generate />
 				</Tab>
 			</Tabs>

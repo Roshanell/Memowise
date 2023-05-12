@@ -10,14 +10,14 @@ const Footer = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-4">
-							<ul>
-								<Link className="nav-link" to="/">
+							<ul className="footer-nav-links">
+								<Link className="header-nav-link" to="/">
 									Home
 								</Link>
-								<Link className="nav-link" to="/aboutMe">
+								<Link className="header-nav-link" to="/aboutMe">
 									About Me
 								</Link>
-								<Link className="nav-link" to="/FAQS">
+								<Link className="header-nav-link" to="/FAQS">
 									FAQs
 								</Link>
 							</ul>
