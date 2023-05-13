@@ -12,6 +12,7 @@ function CreateCardPage() {
 	const [imageSearch, setImageSearch] = useState("");
 	const [audioSearch, setAudioSearch] = useState("");
 	const [audioUrl, setAudioUrl] = useState("");
+	const [searchResults, setSearchResults] = useState([]);
 	// const [imageResults, setImageResults] = useState("");
 
 	const handleImageSearch = (event) => {
@@ -49,6 +50,7 @@ function CreateCardPage() {
 			})
 			.then((data) => {
 				console.log("from pixabay", data);
+				setSearchResults(data);
 			});
 	};
 
@@ -117,7 +119,7 @@ function CreateCardPage() {
 							placeholder="Search for an audio"
 							required
 						/>
-					
+
 						<Button variant="primary" type="submit">
 							Search Media
 						</Button>
@@ -125,6 +127,15 @@ function CreateCardPage() {
 
 					<h1>Audio URL: {audioUrl}</h1>
 					<audio src={audioUrl} controls />
+
+					<div>
+						{searchResults.map((result) => (
+							<div key={result.id}>
+								{result}
+								{/* Render other data */}
+							</div>
+						))}
+					</div>
 					<ImageGallery />
 				</Tab>
 			</Tabs>

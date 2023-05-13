@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import loadCards from "../apis/loadCards";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 
-
 const Game = () => {
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [currentCard, setCurrentCard] = useState({});
@@ -68,16 +67,13 @@ const Game = () => {
 					<MoreOptions />
 
 					<i class="fa fa-volume-up"></i>
-					<h3>{currentCard.concept}</h3>
+					<h3 className="card-concept">{currentCard.concept}</h3>
 
 					{currentCard.imagelink ? (
 						<img src={currentCard.imagelink} height="200px" />
-					) : (
-						// <i class="fa-regular fa-eye-slash"></i> n
-						null
-					)}
+					) : null}
 
-					<div>
+					<div className="change-cards">
 						<NextCardButton icon={<FaCaretLeft />} onClick={gotoNextCard} />
 						<NextCardButton
 							icon={<FaCaretRight />}
