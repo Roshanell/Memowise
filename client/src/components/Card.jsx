@@ -12,7 +12,7 @@ function Card({ card, audio, toDelete }) {
 		console.log(card.id, toDeleteStudent, toDelete);
 		toDelete(toDeleteStudent);
 	};
-	console.log(card.audiolink)
+	
 
 	return (
 		<div>

@@ -7,6 +7,8 @@ function Generate() {
 	const [cardTopic, setCardTopic] = useState("");
 	const [numberOfCards, setNumberOfCards] = useState(0);
 	const [gradeLevel, setGradeLevel] = useState(0);
+	const [loading, setLoading] = useState(false);
+	const [submit, setSubmit] = useState(false);
 
 	const handlegradeLevel = (event) => {
 		const gradeLevel = event.target.value;
@@ -30,6 +32,11 @@ function Generate() {
 		// clearForm();
 	};
 
+	const handleSetSubmit = () => {
+		console.log("submitted");
+		setSubmit(true);
+		setLoading(true)
+	};
 	const saveGeneratedCards = async () => {
 		console.log("saving");
 		return await fetch(`http://localhost:8080/api/cards`, {
@@ -65,6 +72,7 @@ function Generate() {
 		);
 		if (response.ok) {
 			console.log("from openai", response);
+			setLoading(false);
 			return JSON.parse(await response.text());
 		}
 	};
@@ -96,20 +104,25 @@ function Generate() {
 					placeholder="Enter grade"
 					required
 				/>
-				<button type="submit">Submit</button>
+				<button onClick={handleSetSubmit} type="submit">
+					Submit
+				</button>
 			</form>
 
 			{/* <div>{JSON.stringify(generatedCards)}</div> */}
-
-			<ul className="card-ul">
-				{generatedCards.map((card) => {
-					return (
-						<li className="card-list" key={card.id}>
-							<Card card={card} />
-						</li>
-					);
-				})}
-			</ul>
+			{loading && setSubmit ? (
+				<h1>loading .... </h1>
+			) : (
+				<ul className="card-ul">
+					{generatedCards.map((card) => {
+						return (
+							<li className="card-list" key={card.id}>
+								<Card card={card} />
+							</li>
+						);
+					})}
+				</ul>
+			)}
 			{generatedCards.length > 0 ? (
 				<button onClick={saveGeneratedCards}>Save</button>
 			) : null}
