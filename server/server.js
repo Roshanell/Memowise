@@ -45,7 +45,7 @@ app.post("/api/cards-generate", async (req, res) => {
 		let { numberOfCards, cardTopic, gradeLevel } = req.body;
 		const response = await openai.createCompletion({
 			model: "text-davinci-003",
-			prompt: `Generate for me ${numberOfCards} flash cards at a grade ${gradeLevel} level. The topic of the flash cards will be ${cardTopic}. Structure your response as a JSON array.  Each object in the array is a flash card. Each card has a card title, correct answer, and 2 wrong answers. The tag should be one word that sums up the topic. This would be an example of an returned card object {
+			prompt: `Generate for me ${numberOfCards} flash cards at a grade ${gradeLevel} level. The topic of the flash cards will be ${cardTopic}. Structure your response as a JSON array.  Each object in the array is a flash card. Each card has a card title, correct answer, and 2 wrong answers. The tag should be one word that sums up the topic of all currently generated cards. This would be an example of an returned card object {
 				"concept": "",
 				"answer": "",
 				"wronganswerone": "",
