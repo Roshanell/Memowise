@@ -67,9 +67,14 @@ const Game = () => {
 					<MoreOptions />
 
 					<i class="fa fa-volume-up"></i>
-					<h3 className="card-concept">{currentCard.concept}</h3>
+					{currentCard.imagelink  ? (
+						<h3 className="card-concept-none">{currentCard.concept}</h3>
+					) : (
+						<h3 className="card-concept">{currentCard.concept}</h3>
+					)}
+					{/* <h3 className="card-concept">{currentCard.concept}</h3> */}
 
-					{currentCard.imagelink ? (
+					{currentCard.imagelink  ? (
 						<img src={currentCard.imagelink} height="200px" />
 					) : null}
 

@@ -458,10 +458,13 @@ footer .social-icon li i:hover {
 	top: 4%;
 }
 
-.card-concept{
+.card-concept {
 	margin-top: 12%;
 }
-.change-cards{
+.card-concept-none {
+	margin-top: 0%;
+}
+.change-cards {
 	display: flex;
 	width: 130%;
 	justify-content: space-between;
