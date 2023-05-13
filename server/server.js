@@ -117,25 +117,26 @@ app.get("/api/pixabay", (req, res) => {
 });
 
 app.get("/api/mw", (req, res) => {
-	res.json(dictionaryData);
-	// const mw_api_key = process.env.MW_API_KEY;
+	// res.json(dictionaryData);
+	const mw_api_key = process.env.MW_API_KEY;
 	// let query = "home";
-	// // let query = input.target.value;
-	// const url = `https://www.dictionaryapi.com/api/v3/references/sd2/json/${query}}?key=${mw_api_key}`;
-	// console.log(url);
-	// fetch(url)
-	// 	.then((res) => res.json())
-	// 	.then((data) => {
-	// 		//console.log(data);
-	// 		res.send({ data });
-	// 	})
-	// 	.catch((err) => {
-	// 		console.log(err);
-	// 	});
-	// try {
-	// } catch (e) {
-	// 	return res.status(400).json({ e });
-	// }
+	let query = req.query.query;
+	console.log(query, "query");
+	const url = `https://www.dictionaryapi.com/api/v3/references/sd2/json/${query}}?key=${mw_api_key}`;
+	console.log(url);
+	fetch(url)
+		.then((res) => res.json())
+		.then((data) => {
+			//console.log(data);
+			res.send({ data });
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+	try {
+	} catch (e) {
+		return res.status(400).json({ e });
+	}
 });
 
 app.get("/api/cards", async (req, res) => {
@@ -200,14 +201,6 @@ app.post("/api/cards", async (req, res) => {
 				req.body.tag,
 			];
 		}
-		// const newCard = {
-		// 	concept: req.body.concept,
-		// 	answer: req.body.answer,
-		// 	imagelink: req.body.imagelink,
-		// 	audiolink: req.body.audiolink,
-		// 	wronganswerone: req.body.wronganswerone,
-		// 	wronganswertwo: req.body.wronganswertwo,
-		// };
 
 		newCards.forEach(async (newCard) => {
 			await db.query(
@@ -215,18 +208,7 @@ app.post("/api/cards", async (req, res) => {
 				newCard
 			);
 		});
-		// const result = await db.query(
-		// 	"INSERT INTO cards(cardcontent, answer, imagelink, audiolink, wronganswerone, wronganswertwo) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING *",
-		// 	newCards
-		// [
-		// 	newCard.concept,
-		// 	newCard.answer,
-		// 	newCard.imagelink,
-		// 	newCard.audiolink,
-		// 	newCard.wronganswerone,
-		// 	newCard.wronganswertwo,
-		// ]
-		// );
+
 		res.json("sucess");
 		// console.log("result", result);
 
