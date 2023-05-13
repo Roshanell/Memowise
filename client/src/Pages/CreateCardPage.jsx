@@ -85,7 +85,6 @@ function CreateCardPage() {
 			})
 			.catch((error) => console.error(error));
 	};
-
 	return (
 		<div>
 			<Tabs
@@ -127,16 +126,6 @@ function CreateCardPage() {
 
 					<h1>Audio URL: {audioUrl}</h1>
 					<audio src={audioUrl} controls />
-
-					{/* <div>
-						{searchResults.map((result) => (
-							<div key={result.id}>
-								{result}
-						
-							</div>
-						))}
-						<ImageGallery result={result} />
-					</div> */}
 
 					<ImageGallery searchResults={searchResults} />
 				</Tab>
