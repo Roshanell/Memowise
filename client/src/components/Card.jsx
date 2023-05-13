@@ -3,10 +3,6 @@ import { useState } from "react";
 
 function Card({ card, audio, toDelete }) {
 	const [isFlipped, setIsFlipped] = useState(false);
-	// how to access audio file name as a string
-	//console.log(audio.data[0].hwi.prs[0].sound.audio)
-
-	// console.log(audioString);
 
 	const handleClick = () => {
 		setIsFlipped(!isFlipped);
@@ -16,6 +12,7 @@ function Card({ card, audio, toDelete }) {
 		console.log(card.id, toDeleteStudent, toDelete);
 		toDelete(toDeleteStudent);
 	};
+	console.log(card.audiolink)
 
 	return (
 		<div>
@@ -23,10 +20,6 @@ function Card({ card, audio, toDelete }) {
 				className={`create-card ${isFlipped ? "flipped" : ""}`}
 				onClick={handleClick}
 			>
-				{/* {generatedCards.length > 0 ? (
-					<button onClick={saveGeneratedCards}>Save</button>
-				) : null} */}
-
 				<div className="front">
 					{card.tag ? (
 						<div class="item-category">
@@ -48,10 +41,10 @@ function Card({ card, audio, toDelete }) {
 					</button>
 				</div>
 				<div className="back">
-					{card.audioLink ? (
+					{card.audiolink ? (
 						<>
 							<i class="fa fa-volume-up"></i>
-							<audio className="audio-player" scr={""} controls />
+							<audio className="audio-player" src={card.audiolink} controls />
 						</>
 					) : null}
 					<p>{card.answer}</p>
