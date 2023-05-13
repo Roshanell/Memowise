@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import loadCards from "../apis/loadCards";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 
+
 const Game = () => {
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [currentCard, setCurrentCard] = useState({});
@@ -68,10 +69,14 @@ const Game = () => {
 
 					<i class="fa fa-volume-up"></i>
 					<h3>{currentCard.concept}</h3>
-					<div className="image-container">
-						{/* NOTE : use webformat url when accessing image data from pixabay */}
+
+					{currentCard.imagelink ? (
 						<img src={currentCard.imagelink} height="200px" />
-					</div>
+					) : (
+						// <i class="fa-regular fa-eye-slash"></i> n
+						null
+					)}
+
 					<div>
 						<NextCardButton icon={<FaCaretLeft />} onClick={gotoNextCard} />
 						<NextCardButton

@@ -49,7 +49,7 @@ app.post("/api/cards-generate", async (req, res) => {
 				"concept": "",
 				"answer": "",
 				"wronganswerone": "",
-				"wronganswertwo": "",
+				"wronganswertwo": "",l
 				"tag":"",
 			}`,
 			max_tokens: 2048,
