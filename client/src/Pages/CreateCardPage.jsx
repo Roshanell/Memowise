@@ -128,15 +128,17 @@ function CreateCardPage() {
 					<h1>Audio URL: {audioUrl}</h1>
 					<audio src={audioUrl} controls />
 
-					<div>
+					{/* <div>
 						{searchResults.map((result) => (
 							<div key={result.id}>
 								{result}
-								{/* Render other data */}
+						
 							</div>
 						))}
-					</div>
-					<ImageGallery />
+						<ImageGallery result={result} />
+					</div> */}
+
+					<ImageGallery searchResults={searchResults} />
 				</Tab>
 			</Tabs>
 		</div>
