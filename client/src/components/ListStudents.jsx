@@ -20,12 +20,12 @@ const ListStudents = () => {
 			.catch((error) => console.error(error)); // add a catch block to log any errors
 	};
 
-	fetch("http://localhost:8080/api/openai")
-		.then((response) => response.json())
-		.then((data) => {
-			console.log(data, "hard-coded data");
-		})
-		.catch((error) => console.error(error)); // add a catch block to log any errors
+	// fetch("http://localhost:8080/api/cards/generate")
+	// 	.then((response) => response.json())
+	// 	.then((data) => {
+	// 		console.log(data, "hard-coded data");
+	// 	})
+	// 	.catch((error) => console.error(error)); // add a catch block to log any errors
 	
 	useEffect(() => {
 		loadStudents();

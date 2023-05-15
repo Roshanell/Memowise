@@ -10,6 +10,7 @@ export default function CreateCardForm() {
 		audiolink: "",
 		wronganswerone: "",
 		wronganswertwo: "",
+		tag: "",
 	});
 
 	const handleInputChange = (event) => {
@@ -22,14 +23,13 @@ export default function CreateCardForm() {
 		return fetch(`http://localhost:8080/api/cards`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(card),
+			body: JSON.stringify([card]),
 		})
 			.then((response) => {
 				//console.log(response);
 				if (response.ok) {
 					console.log("ok");
 					return response.json();
-					//loadStudents();
 				}
 			})
 			.then((imagesData) => {
@@ -45,6 +45,7 @@ export default function CreateCardForm() {
 			audiolink: "",
 			wronganswerone: "",
 			wronganswertwo: "",
+			tag: "",
 		});
 	};
 	const handleSubmit = (event) => {
@@ -52,7 +53,6 @@ export default function CreateCardForm() {
 		console.log(card);
 		postCard();
 		clearForm();
-		// Call the API or do any other necessary action here
 	};
 
 	return (
@@ -111,6 +111,16 @@ export default function CreateCardForm() {
 					name="wronganswertwo"
 					value={card.wronganswertwo}
 					onChange={handleInputChange}
+				/>
+			</Form.Group>
+			<Form.Group controlId="tag">
+				<Form.Label>One Word Tag</Form.Label>
+				<Form.Control
+					type="text"
+					name="tag"
+					value={card.tag}
+					onChange={handleInputChange}
+					required
 				/>
 			</Form.Group>
 			<Button variant="primary" type="submit">

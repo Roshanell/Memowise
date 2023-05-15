@@ -3,8 +3,8 @@
 	background: white;
 	margin-left: 15%;
 	margin-right: 15%;
-	/* border: 2px solid black; */
-	overflow: scroll;
+	display: grid;
+	grid-template-rows: auto 100% auto;
 }
 
 .mybody {
@@ -25,7 +25,12 @@ a.navbar-brand {
 
 .nav-link {
 	margin-left: 1rem;
+}
+.header-nav-link {
 	color: white !important;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	text-decoration: none;
 }
 
 .nav-bar {
@@ -60,13 +65,14 @@ form {
 	flex: 1;
 }
 
-input[type="text"] {
+input[type="text"],
+input {
 	display: inline-block;
-	margin-top: -10px;
+	margin-top: 5px;
 	width: 100%;
 	font-size: 15px;
-	border-radius: 2px;
-	border: 3px solid #98d0f1;
+	border-radius: 50px;
+	border: 3px solid #5974ff;
 }
 
 button.btn.btn-primary {
@@ -145,8 +151,17 @@ ul {
 	margin-top: -22px;
 	text-align: right;
 }
+.footer-nav-links {
+	display: flex;
+	flex-direction: column;
+}
 
+footer {
+	z-index: 100;
+	position: absolute;
+}
 .footer-day-time ul li {
+	position: absolute;
 	display: inline;
 	margin-right: 20px;
 }
@@ -167,7 +182,7 @@ ul {
 	border-top: 5px solid black;
 	border-bottom: 5px solid black;
 	/* position: fixed; */
-	bottom: 0;
+	/* bottom: 0; */
 	width: 70vw;
 	margin-right: 10% !important;
 }
@@ -230,7 +245,7 @@ footer .social-icon li i:hover {
 	background: rgb(55, 65, 61);
 	opacity: 0.5;
 	padding: 10px 0px;
-	position: fixed;
+	/* position: fixed; */
 	bottom: 0;
 	width: 70vw;
 	border-bottom: 4px solid black;
@@ -377,6 +392,10 @@ footer .social-icon li i:hover {
 	margin-top: 5%;
 }
 
+.FaCaretRight {
+	font-size: 50px;
+}
+
 .choices-container {
 	display: flex;
 	justify-content: center;
@@ -391,18 +410,10 @@ footer .social-icon li i:hover {
 	right: 45%;
 }
 
-/* TO DO - move the navigation button to the proper positions dynamically */
-/* .card-navigation{
-	display: flex;
-	align-items: center;
-} */
-
 .card-navigation-right {
 	position: relative;
 	left: 50%;
 }
-
-/* TO DO alter size of image and location of buttons */
 
 /* More options button */
 .css-button-retro--yellow {
@@ -447,6 +458,17 @@ footer .social-icon li i:hover {
 	top: 4%;
 }
 
+.card-concept {
+	margin-top: 12%;
+}
+.card-concept-none {
+	margin-top: 0%;
+}
+.change-cards {
+	display: flex;
+	width: 130%;
+	justify-content: space-between;
+}
 /* instructions css */
 
 .instructions {
@@ -459,6 +481,7 @@ footer .social-icon li i:hover {
 	line-height: 28px;
 	letter-spacing: 0em;
 	text-align: center;
+	margin-top: 4%;
 }
 
 /* create card section */
@@ -484,11 +507,18 @@ footer .social-icon li i:hover {
 	margin-top: 5%;
 }
 
+.card-ul {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
 .create-card-image {
 	height: 100px;
 	width: 100px;
 	border-radius: 50%;
 }
+
 /* create card button */
 
 .css-button-retro--sand {
@@ -527,6 +557,9 @@ footer .social-icon li i:hover {
 	border: solid 1px orange;
 	position: relative;
 	margin-bottom: 10%;
+}
+
+.tabs {
 }
 
 /* flashcard */
@@ -574,9 +607,18 @@ footer .social-icon li i:hover {
 .flipped {
 	transform: rotateY(180deg);
 }
+.item-category a {
+	background: #e91e63;
+	padding: 4px;
+	color: #fff;
+	position: absolute;
+	bottom: 85%;
+	left: 35%;
+}
 /* create-card form */
 .create-card-form {
 	width: 50%;
+	display: flex;
 }
 
 .card-container {
@@ -584,8 +626,7 @@ footer .social-icon li i:hover {
 	flex-wrap: wrap;
 }
 
-
-.audio-player{
+.audio-player {
 	width: 90%;
 }
 /* image gallery */
@@ -628,7 +669,7 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 
 .gallery-item {
 	/* Minimum width of 24rem and grow to fit available space */
-	flex: 1 0 24rem;
+	flex: 1 0 24rem !important;
 	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
 	margin: 1rem;
 	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
@@ -638,7 +679,7 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 .gallery-image {
 	display: block;
 	width: 100%;
-	height: 100%;
+	/* height: 100%;  */
 	object-fit: cover;
 	transition: transform 400ms ease-out;
 }
@@ -664,4 +705,251 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	.gallery-item {
 		margin: 0;
 	}
+}
+
+/* home contianer */
+
+.home-container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 2fr 0.5fr 1fr 1fr;
+}
+
+.card2 {
+	position: relative;
+	background: red;
+	border-width: 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+}
+.card2-1 {
+	position: absolute;
+	height: 75px;
+	bottom: 0;
+	display: block;
+	width: 100%;
+	background: #ffabe5;
+	border-width: 5px 0px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+	background-image: url('https://i.imgur.com/WECjTQq.png');
+}
+
+.left-box {
+	box-sizing: border-box;
+	background: #f7f7f7;
+	border-width: 5px 5px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+	height: 100%;
+}
+/* .right-box {
+	box-sizing: border-box;
+
+	background: #ff5b48;
+	border-width: 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+} */
+
+/* .left-box-two {
+	background: #f7f7f7;
+	border-width: 0px 5px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+} */
+
+/* .right-box-two {
+	background: #f7f7f7;
+	border-width: 1px 0px 5px 1px;
+	border-style: solid;
+	border-color: #000000;
+} */
+
+/* .left-box-three {
+	box-sizing: border-box;
+
+	background: #f7f7f7;
+	border-width: 0px 5px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+} */
+
+/* .right-box-three {
+	box-sizing: border-box;
+
+	background: #f7f7f7;
+	border-width: 1px 0px 5px 1px;
+	border-style: solid;
+	border-color: #000000;
+} */
+
+.heading-homepage {
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 900;
+	font-size: 95px;
+	line-height: 100px;
+	color: #000000;
+	text-transform: uppercase;
+	margin-top: 5%;
+	margin-left: 6%;
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+}
+
+.left-box-inner {
+	box-sizing: border-box;
+	background: #7e38f9;
+	border-width: 0px 5px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+}
+
+.right-inner-box-two {
+	background: #2d2d2d;
+}
+.memory-aid-slogan {
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 15px;
+	text-transform: uppercase;
+	color: #ffffff;
+	margin-top: 5%;
+	text-align: center;
+}
+
+.learn-more-slogan {
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 42px;
+	text-transform: uppercase;
+	color: white;
+	margin-top: 3%;
+	text-align: center;
+}
+
+.game-ideas {
+	display: flex;
+	font-family: "Inter";
+	border-width: 0px 5px 5px 0px;
+	border-style: solid;
+	border-color: #000000;
+	padding-top: 10%;
+	padding-bottom: 10%;
+	align-items: center;
+	justify-content: center;
+}
+
+.shapes {
+	border-right: 0px;
+}
+.number-icon {
+	margin-right: 5%;
+}
+.home-word {
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 800;
+	font-size: 35px;
+	line-height: 42px;
+	text-transform: uppercase;
+}
+
+/* Leaderboard */
+
+.select-game-leaderboard {
+	width: 50% !important;
+	height: 10%;
+	background: #d9d9d9;
+}
+
+.game-select {
+	display: flex;
+}
+
+.leaderboard-headings-group {
+	display: flex;
+	justify-content: space-between;
+	font-family: "Inter";
+	font-style: normal;
+}
+.leaderboard-heading {
+	font-weight: 800;
+	font-size: 50px;
+	line-height: 61px;
+}
+.stats {
+	display: flex;
+}
+.position,
+.points {
+	box-sizing: border-box;
+	position: relative;
+	width: 85.46px;
+	height: 54.2px;
+	left: 0%;
+	top: 10%;
+	background: #fca02d;
+	border: 5px solid #000000;
+	border-radius: 15px;
+	margin-bottom: 10%;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 30px;
+	text-align: center;
+	justify-content: center;
+	color: #ffffff;
+}
+.points {
+	left: 83%;
+}
+.leaderboard-image {
+	position: absolute;
+	width: 127px;
+	height: 157px;
+	left: 477px;
+	top: 657px;
+}
+
+.leaderboard-image-elipses {
+	box-sizing: border-box;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 34%;
+	top: 46%;
+	background: #d9d9d9;
+	border: 5px solid #000000;
+	border-radius: 50%;
+	background-image: url("https://i.imgur.com/DfMPylx.png");
+	z-index: 1;
+}
+.leaderboard-name-image {
+	box-sizing: border-box;
+	position: absolute;
+	width: 30%;
+	height: 54.2px;
+	left: 35%;
+	background: #fca02d;
+	border: 5px solid #000000;
+	border-radius: 15px;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 30px;
+	text-align: center;
+	text-justify: center;
+	color: #ffffff;
+}
+.player-info {
+	margin-top: 3%;
 }

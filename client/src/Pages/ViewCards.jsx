@@ -1,63 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
-import { useState, useEffect } from "react";
+import Banner from "../components/Banner";
+import loadCards from "../apis/loadCards";
+import Searchbar from "../components/Searchbar";
 
 function ViewCards() {
 	const [cards, setCards] = useState([]);
 	const [audio, setAudio] = useState([]);
 
-	const loadCards = () => {
-		fetch("http://localhost:8080/api/cards")
-			.then((response) => response.json())
-			.then((cards) => {
-				setCards(cards);
-				console.log(cards, "list of cards");
-			})
-			.catch((error) => console.error(error)); // add a catch block to log any errors
+	const [globalSearchText, setGlobalSearchText] = useState("");
+	const [filteredCards, setFilteredCards] = useState([]);
+
+	const handleSearch = (searchText) => {
+		setGlobalSearchText(searchText);
 	};
-	fetch("http://localhost:8080/api/pixabay")
-		.then((response) => response.json())
-		.then((images) => {
-			console.log(images, "from pixabay");
-		})
-		.catch((error) => console.error(error)); // add a catch block to log any errors
-	const loadAudio = () => {
-		fetch("http://localhost:8080/api/mw")
-			.then((response) => response.json())
-			.then((audio) => {
-				setAudio(audio);
-				console.log(audio, "from mw");
-			})
-			.catch((error) => console.error(error)); // add a catch block to log any errors
-	};
-	const onDelete = (card) => {
-		//console.log(student, "delete method")
-		return fetch(`http://localhost:8080/api/cards/${card.id}`, {
+
+	useEffect(() => {
+		const newFilteredCards = cards.filter((card) =>
+			Object.values(card)
+				.join("")
+				.toLowerCase()
+				.includes(globalSearchText.toLowerCase())
+		);
+		setFilteredCards(newFilteredCards);
+	}, [cards, globalSearchText]);
+
+	const onDelete = async (card) => {
+		console.log(card, "delete method");
+		return await fetch(`http://localhost:8080/api/cards/${card.id}`, {
 			method: "DELETE",
 		}).then((response) => {
-			//console.log(response);
 			if (response.ok) {
-				loadCards();
+				loadCards().then(setCards);
 			}
 		});
 	};
+
 	useEffect(() => {
-		loadCards();
+		loadCards().then(setCards);
 	}, []);
-	useEffect(() => {
-		loadAudio();
-	}, []);
+
 	return (
 		<div>
-			<ul className="card-container">
-				{cards.map((card) => {
-					return (
-						<li className="card-list" key={card.id}>
-							<Card card={card} audio={audio} toDelete={onDelete} />
-						</li>
-					);
-				})}
-			</ul>
+			<Banner />
+			<div>
+				<Searchbar onSearch={handleSearch} />
+				<ul className="card-container">
+					{filteredCards.map((card) => {
+						return (
+							<li className="card-list" key={card.id}>
+								<Card card={card} audio={audio} toDelete={onDelete} />
+							</li>
+						);
+					})}
+				</ul>
+			</div>
 		</div>
 	);
 }

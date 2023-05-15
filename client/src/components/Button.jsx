@@ -1,5 +1,5 @@
-const Button = () => {
-	return <div className="css-button-retro--green">Reusable Button</div>;
+const Button = ({ children }) => {
+	return <div className="css-button-retro--green">{children}</div>;
 };
 
 export default Button;

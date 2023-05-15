@@ -2,29 +2,44 @@ import React from "react";
 import CreateCardForm from "../components/CreateCardForm";
 import ImageGallery from "../components/ImageGallery";
 import Button from "react-bootstrap/esm/Button";
-
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
+import Generate from "../components/Generate";
 import { useState, useEffect } from "react";
+import Banner from "../components/Banner";
 
-function CreateCardPage(props) {
-	const [search, setSearch] = useState({
-		imagesearch: "",
-		audiosearch: "",
-	});
+function CreateCardPage() {
+	const [imageSearch, setImageSearch] = useState("");
+	const [audioSearch, setAudioSearch] = useState("");
 	const [audioUrl, setAudioUrl] = useState("");
+	const [searchResults, setSearchResults] = useState([]);
+	// const [imageResults, setImageResults] = useState("");
 
-	const handleInputChange = (event) => {
-		const { name, value } = event.target;
-		setSearch((prevSearch) => ({ ...prevSearch, [name]: value }));
+	const handleImageSearch = (event) => {
+		const imageSearch = event.target.value;
+		console.log(imageSearch);
+		setImageSearch(imageSearch);
 	};
+	const handleAudioSearch = (event) => {
+		const audioSearch = event.target.value;
+		console.log(audioSearch);
+		setAudioSearch(audioSearch);
+	};
+
+	// let clearForm = () => {
+	// 	setImageSearch((imageSearch = ""));
+	// 	setAudioSearch((audioSearch = ""));
+	// };
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		getMedia();
 		getAudio();
+		// clearForm();
 	};
 
 	const getMedia = () => {
-		return fetch(`http://localhost:8080/api/pixabay`, {
+		return fetch(`http://localhost:8080/api/pixabay?query=${imageSearch}`, {
 			method: "GET",
 			headers: { "Content-Type": "application/json" },
 		})
@@ -35,12 +50,12 @@ function CreateCardPage(props) {
 			})
 			.then((data) => {
 				console.log("from pixabay", data);
-				console.log(data);
+				setSearchResults(data);
 			});
 	};
 
 	const getAudio = () => {
-		fetch("http://localhost:8080/api/mw")
+		fetch(`http://localhost:8080/api/mw?query=${audioSearch}`)
 			.then((response) => response.json())
 			.then((audio) => {
 				console.log(audio, "from mw");
@@ -66,39 +81,56 @@ function CreateCardPage(props) {
 				console.log(subdirectory, "subdirecotry");
 				let audiourl = `https://media.merriam-webster.com/audio/prons/${language_code}/${country_code}/${format}/${subdirectory}/${audioString}.${format}`;
 				setAudioUrl(audiourl);
+
 				console.log(audiourl);
 			})
 			.catch((error) => console.error(error));
 	};
-
 	return (
 		<div>
-			<form onSubmit={handleSubmit} className="create-card-form">
-				<input
-					type="text"
-					name="imagesearch"
-					placeholder="Search for an image"
-					onChange={handleInputChange}
-					required
-				/>
+			<Tabs
+				defaultActiveKey="profile"
+				id="uncontrolled-tab-example"
+				className="mb-3"
+			>
+				<Tab eventKey="Create" title="Create a Card" className="tabs">
+					<CreateCardForm />
+				</Tab>
+				<Tab eventKey="Generate" title="Generate with AI" className="tabs">
+					<Generate />
+				</Tab>
 
-				<input
-					type="text"
-					name="audiosearch"
-					onChange={handleInputChange}
-					placeholder="Search for an audio"
-					required
-				/>
-				<Button variant="primary" type="submit">
-					Search Media
-				</Button>
-			</form>
+				<Tab eventKey="contact" title="Search for Media">
+					<form onSubmit={handleSubmit} className="create-card-form">
+						<input
+							type="text"
+							name="imagesearch"
+							value={imageSearch}
+							placeholder="Search for an image"
+							onChange={handleImageSearch}
+							required
+						/>
 
-			<h1>Audio URL: {audioUrl}</h1>
-			<audio src={audioUrl} controls />
+						<input
+							type="text"
+							name="audiosearch"
+							value={audioSearch}
+							onChange={handleAudioSearch}
+							placeholder="Search for an audio"
+							required
+						/>
 
-			<CreateCardForm />
-			<ImageGallery />
+						<Button variant="primary" type="submit">
+							Search Media
+						</Button>
+					</form>
+
+					<h1>Audio URL: {audioUrl}</h1>
+					<audio src={audioUrl} controls />
+
+					<ImageGallery searchResults={searchResults} />
+				</Tab>
+			</Tabs>
 		</div>
 	);
 }
