@@ -73,7 +73,10 @@ input {
 	font-size: 15px;
 	border-radius: 50px;
 	border: 3px solid #5974ff;
+	padding-left: 1rem;
+	
 }
+
 
 button.btn.btn-primary {
 	margin-top: 25px;
@@ -307,7 +310,7 @@ footer .social-icon li i:hover {
 
 /* Option buttons */
 
-.css-button-retro--green {
+.css-button-retro--green , .submit-button{
 	min-width: 130px;
 	height: 40px;
 	color: #fff;
@@ -325,11 +328,11 @@ footer .social-icon li i:hover {
 	margin-left: 5%;
 	margin-top: 5%;
 }
-.css-button-retro--green:hover:after {
+.css-button-retro--green:hover:after, .submit-button:hover:after{
 	top: 0;
 	left: 0;
 }
-.css-button-retro--green:after {
+.css-button-retro--green:after, .submit-button:after {
 	content: "";
 	width: 100%;
 	z-index: -1;
@@ -489,7 +492,9 @@ footer .social-icon li i:hover {
 	background-color: #d9d9d9;
 	height: 500px;
 }
-
+.create-card-inputs{
+	width: 100%;
+}
 .list-of-links {
 	width: 50%;
 }
@@ -963,10 +968,10 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 }
 .loading-body {
 	width: 100%;
-	height: 100vh;
+	height: 50vh;
 	display: flex;
 	justify-content: center;
-	background-color: #191940;
+	background-color: white;
 	overflow: hidden;
 }
 .main {
@@ -975,7 +980,7 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	align-items: center;
 	flex-direction: column;
 	width: 360px;
-	height: 100vh;
+	height: 50vh;
 	position: relative;
 }
 .balls {

@@ -56,8 +56,11 @@ export default function CreateCardForm() {
 	};
 
 	return (
-		<Form onSubmit={handleSubmit} className="create-card-form">
-			<Form.Group controlId="formConcept">
+		<Form
+			onSubmit={handleSubmit}
+			className="create-card-form create-card-inputs"
+		>
+			<Form.Group controlId="formConcept" className="create-card-inputs">
 				<Form.Label>Card Concept</Form.Label>
 				<br />
 				<Form.Control
@@ -68,7 +71,7 @@ export default function CreateCardForm() {
 					required
 				/>
 			</Form.Group>
-			<Form.Group controlId="formAnswer">
+			<Form.Group controlId="formAnswer " className="create-card-inputs">
 				<Form.Label>Answer</Form.Label>
 				<br />
 				<Form.Control
@@ -79,7 +82,7 @@ export default function CreateCardForm() {
 					required
 				/>
 			</Form.Group>
-			<Form.Group controlId="formImageLink">
+			<Form.Group controlId="formImageLink" className="create-card-inputs">
 				<Form.Label>Image Link</Form.Label>
 				<br />
 				<Form.Control
@@ -89,7 +92,7 @@ export default function CreateCardForm() {
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
-			<Form.Group controlId="formAudioLink">
+			<Form.Group controlId="formAudioLink" className="create-card-inputs">
 				<Form.Label>Audio Link</Form.Label>
 				<br />
 				<Form.Control
@@ -99,7 +102,7 @@ export default function CreateCardForm() {
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
-			<Form.Group controlId="formWrongAnswerOne">
+			<Form.Group controlId="formWrongAnswerOne" className="create-card-inputs">
 				<Form.Label>Wrong Answer 1 (optional)</Form.Label>
 				<br />
 				<Form.Control
@@ -109,7 +112,7 @@ export default function CreateCardForm() {
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
-			<Form.Group controlId="formWrongAnswerTwo">
+			<Form.Group controlId="formWrongAnswerTwo" className="create-card-inputs">
 				<Form.Label>Wrong Answer 2 (optional)</Form.Label>
 				<br />
 				<Form.Control
@@ -119,7 +122,7 @@ export default function CreateCardForm() {
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
-			<Form.Group controlId="tag">
+			<Form.Group controlId="tag" className="create-card-inputs">
 				<Form.Label>One Word Tag</Form.Label>
 				<br />
 				<Form.Control
@@ -130,9 +133,9 @@ export default function CreateCardForm() {
 					required
 				/>
 			</Form.Group>
-			<Button variant="primary" type="submit">
+			<button className="submit-button" type="submit">
 				Save Card
-			</Button>
+			</button>
 		</Form>
 	);
 }
