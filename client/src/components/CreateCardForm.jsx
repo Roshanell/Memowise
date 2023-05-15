@@ -59,6 +59,7 @@ export default function CreateCardForm() {
 		<Form onSubmit={handleSubmit} className="create-card-form">
 			<Form.Group controlId="formConcept">
 				<Form.Label>Card Concept</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="concept"
@@ -69,6 +70,7 @@ export default function CreateCardForm() {
 			</Form.Group>
 			<Form.Group controlId="formAnswer">
 				<Form.Label>Answer</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="answer"
@@ -79,6 +81,7 @@ export default function CreateCardForm() {
 			</Form.Group>
 			<Form.Group controlId="formImageLink">
 				<Form.Label>Image Link</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="imagelink"
@@ -88,6 +91,7 @@ export default function CreateCardForm() {
 			</Form.Group>
 			<Form.Group controlId="formAudioLink">
 				<Form.Label>Audio Link</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="audiolink"
@@ -97,6 +101,7 @@ export default function CreateCardForm() {
 			</Form.Group>
 			<Form.Group controlId="formWrongAnswerOne">
 				<Form.Label>Wrong Answer 1 (optional)</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="wronganswerone"
@@ -106,6 +111,7 @@ export default function CreateCardForm() {
 			</Form.Group>
 			<Form.Group controlId="formWrongAnswerTwo">
 				<Form.Label>Wrong Answer 2 (optional)</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="wronganswertwo"
@@ -115,6 +121,7 @@ export default function CreateCardForm() {
 			</Form.Group>
 			<Form.Group controlId="tag">
 				<Form.Label>One Word Tag</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="tag"

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import Button from "./Button";
+import { Loading } from "./Loading";
 
 function Generate() {
 	const [generatedCards, setGeneratedCards] = useState([]);
@@ -9,7 +10,6 @@ function Generate() {
 	const [gradeLevel, setGradeLevel] = useState(0);
 	const [loading, setLoading] = useState(false);
 	const [submit, setSubmit] = useState(false);
-
 	const handlegradeLevel = (event) => {
 		const gradeLevel = event.target.value;
 		console.log(gradeLevel);
@@ -35,7 +35,7 @@ function Generate() {
 	const handleSetSubmit = () => {
 		console.log("submitted");
 		setSubmit(true);
-		setLoading(true)
+		setLoading(true);
 	};
 	const saveGeneratedCards = async () => {
 		console.log("saving");
@@ -111,7 +111,7 @@ function Generate() {
 
 			{/* <div>{JSON.stringify(generatedCards)}</div> */}
 			{loading && setSubmit ? (
-				<h1>loading .... </h1>
+				<Loading />
 			) : (
 				<ul className="card-ul">
 					{generatedCards.map((card) => {
