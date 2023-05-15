@@ -728,11 +728,11 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	bottom: 0;
 	display: block;
 	width: 100%;
-
 	background: #ffabe5;
 	border-width: 5px 0px 5px 0px;
 	border-style: solid;
 	border-color: #000000;
+	background-image: url('https://i.imgur.com/WECjTQq.png');
 }
 
 .left-box {
