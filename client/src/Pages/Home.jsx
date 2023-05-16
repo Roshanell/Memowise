@@ -1,4 +1,5 @@
 import React from "react";
+import Profile from "../components/Profile"
 
 function Home() {
 	return (
@@ -34,6 +35,7 @@ function Home() {
 				<h3 className="home-word">Lowercase</h3>
 				<img src="https://i.imgur.com/iHhRLDb.png" />
 			</div>
+			<Profile />
 		</div>
 	);
 }

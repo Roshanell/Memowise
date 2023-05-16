@@ -102,7 +102,7 @@ function CreateCardPage() {
 					<Generate />
 				</Tab>
 
-				<Tab eventKey="contact" title="Search for Media">
+				<Tab eventKey="contact" title="Search for Media" className="media-search-grid">
 					<form onSubmit={handleSubmit} className="create-card-form">
 						<Form.Label className="create-card-inputs">
 							Enter a image search term{" "}
@@ -131,7 +131,6 @@ function CreateCardPage() {
 							Search Media
 						</button>
 					</form>
-
 					<h1>Audio URL: {audioUrl}</h1>
 					<audio src={audioUrl} controls />
 

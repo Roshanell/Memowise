@@ -11,24 +11,28 @@ function MyNavBar(props) {
 		<>
 			<Navbar sticky="top" className="nav-bar">
 				<Container>
-					<Link className="nav-link" to="/">
-						Home
-					</Link>
-					<Link className="nav-link" to="/game">
-						Game
-					</Link>
-					<Link className="nav-link" to="/roster">
-						Roster
-					</Link>
-					<Link className="nav-link" to="/cards">
-						View Cards
-					</Link>
-					<Link className="nav-link" to="/create">
-						Create Card
-					</Link>
-					<Link className="nav-link" to="/leaderboard">
-						Leaderboard
-					</Link>
+					{isAuthenticated ? (
+						<>
+							<Link className="nav-link" to="/">
+								Home
+							</Link>
+							<Link className="nav-link" to="/game">
+								Game
+							</Link>
+							<Link className="nav-link" to="/roster">
+								Roster
+							</Link>
+							<Link className="nav-link" to="/cards">
+								View Cards
+							</Link>
+							<Link className="nav-link" to="/create">
+								Create Card
+							</Link>
+							<Link className="nav-link" to="/leaderboard">
+								Leaderboard
+							</Link>
+						</>
+					) : null}
 					<Navbar.Toggle />
 					<Navbar.Collapse className="justify-content-end">
 						{!user ? null : <Nav.Link href="/user-profile"></Nav.Link>}

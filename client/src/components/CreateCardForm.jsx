@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function CreateCardForm() {
 	const [card, setCard] = useState({
@@ -12,6 +13,7 @@ export default function CreateCardForm() {
 		wronganswertwo: "",
 		tag: "",
 	});
+	const { user } = useAuth0();
 
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
@@ -20,7 +22,7 @@ export default function CreateCardForm() {
 
 	const postCard = () => {
 		//console.log(student, "post method")
-		return fetch(`http://localhost:8080/api/cards`, {
+		return fetch(`http://localhost:8080/api/cards/${user.sub}`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify([card]),

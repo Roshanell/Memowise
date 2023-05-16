@@ -5,14 +5,17 @@ import { Loading } from "./Loading";
 import Form from "react-bootstrap/Form";
 import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import { useAuth0 } from "@auth0/auth0-react";
 
-function Generate() {
+function Generate({loadCards}) {
 	const [generatedCards, setGeneratedCards] = useState([]);
 	const [cardTopic, setCardTopic] = useState("");
 	const [numberOfCards, setNumberOfCards] = useState(0);
 	const [gradeLevel, setGradeLevel] = useState(0);
 	const [loading, setLoading] = useState(false);
 	const [submit, setSubmit] = useState(false);
+	const { user } = useAuth0();
+
 	const handlegradeLevel = (event) => {
 		const gradeLevel = event.target.value;
 		console.log(gradeLevel);
@@ -42,7 +45,7 @@ function Generate() {
 	};
 	const saveGeneratedCards = async () => {
 		console.log("saving");
-		return await fetch(`http://localhost:8080/api/cards`, {
+		return await fetch(`http://localhost:8080/api/cards/${user.sub}`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(generatedCards),
