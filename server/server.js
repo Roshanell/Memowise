@@ -139,14 +139,41 @@ app.get("/api/mw", (req, res) => {
 	}
 });
 
-app.get("/api/cards", async (req, res) => {
+app.get("/api/cards/:id", async (req, res) => {
+	console.log(req.params.id);
 	try {
-		const { rows: cards } = await db.query("SELECT * FROM cards");
+		const { rows: cards } = await db.query(
+			"SELECT * FROM cards WHERE user_id = $1",
+			[req.params.id]
+		);
+		console.log(cards);
 		res.send(cards);
 	} catch (e) {
 		return res.status(400).json({ e });
 	}
 });
+
+// creates new entry for user, else does nothing
+app.post("/user", cors(), async (req, res) => {
+	console.log(req.body.id, req.body.email);
+	try {
+		const newUser = {
+			id: req.body.id,
+			email: req.body.email,
+		};
+		const result = await db.query(
+			"INSERT INTO users(id, email) VALUES($1, $2) ON CONFLICT DO NOTHING RETURNING*",
+			[newUser.id, newUser.email]
+		);
+		console.log("result.rows[0]: ", result.rows[0]);
+		// if value is undefined, set value to {}
+		res.json(result.rows[0] ?? {});
+	} catch (e) {
+		console.log(e);
+		return res.status(400).json({ e });
+	}
+});
+
 // create the POST request
 app.post("/api/students", async (req, res) => {
 	try {
@@ -177,7 +204,7 @@ app.post("/api/students", async (req, res) => {
 	}
 });
 
-app.post("/api/cards", async (req, res) => {
+app.post("/api/cards/:userid", async (req, res) => {
 	try {
 		let newCards = [];
 		if (Array.isArray(req.body)) {
@@ -189,6 +216,7 @@ app.post("/api/cards", async (req, res) => {
 				card.wronganswerone,
 				card.wronganswertwo,
 				card.tag,
+				req.params.userid,
 			]);
 		} else {
 			newCards = [
@@ -199,12 +227,13 @@ app.post("/api/cards", async (req, res) => {
 				req.body.wronganswerone,
 				req.body.wronganswertwo,
 				req.body.tag,
+				req.params.userid
 			];
 		}
 
 		newCards.forEach(async (newCard) => {
 			await db.query(
-				"INSERT INTO cards(concept, answer, imagelink, audiolink, wronganswerone, wronganswertwo,tag) VALUES($1, $2, $3, $4, $5, $6, $7 ) RETURNING *",
+				"INSERT INTO cards(concept, answer, imagelink, audiolink, wronganswerone, wronganswertwo, tag, user_id ) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
 				newCard
 			);
 		});
