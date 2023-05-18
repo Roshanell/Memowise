@@ -9,12 +9,21 @@ import { useState, useEffect } from "react";
 import Banner from "../components/Banner";
 import Form from "react-bootstrap/Form";
 import SearchMedia from "../components/SearchMedia";
+import Instructions from "../components/Instructions";
 
 function CreateCardPage() {
 	const [imageSearch, setImageSearch] = useState("");
 	const [audioSearch, setAudioSearch] = useState("");
 	const [audioUrl, setAudioUrl] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
+	const personalizedInstructions = `Create a Card:
+
+Fill card details: Title, description, and relevant information. Add extra content if needed.
+Search Image: Enter topic, browse or use keywords. Copy image URL and paste into the image field.
+Search Audio: Search desired word, copy its URL, and paste into the audio field.
+Click "Search Media" for results to appear.
+`;
+
 	// const [imageResults, setImageResults] = useState("");
 
 	const handleImageSearch = (event) => {
@@ -96,6 +105,7 @@ function CreateCardPage() {
 				className="mb-3"
 			>
 				<Tab eventKey="Create" title="Create a Card" className="tabs">
+					<Instructions personalizedInstructions={personalizedInstructions} />
 					<CreateCardForm />
 					<SearchMedia
 						handleSubmit={handleSubmit}
