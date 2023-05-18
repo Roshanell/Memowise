@@ -7,6 +7,7 @@ const loadCards = async (user) => {
 		console.log(cards);
 		return cards;
 	} catch (e) {
+		return [];
 		console.error(e); // add a catch block to log any errors
 	}
 };

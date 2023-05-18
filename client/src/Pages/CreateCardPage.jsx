@@ -8,13 +8,22 @@ import Generate from "../components/Generate";
 import { useState, useEffect } from "react";
 import Banner from "../components/Banner";
 import Form from "react-bootstrap/Form";
-
+import SearchMedia from "../components/SearchMedia";
+import Instructions from "../components/Instructions";
 
 function CreateCardPage() {
 	const [imageSearch, setImageSearch] = useState("");
 	const [audioSearch, setAudioSearch] = useState("");
 	const [audioUrl, setAudioUrl] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
+	const personalizedInstructions = `Create a Card:
+
+Fill card details: Title, description, and relevant information. Add extra content if needed.
+Search Image: Enter topic, browse or use keywords. Copy image URL and paste into the image field.
+Search Audio: Search desired word, copy its URL, and paste into the audio field.
+Click "Search Media" for results to appear.
+`;
+
 	// const [imageResults, setImageResults] = useState("");
 
 	const handleImageSearch = (event) => {
@@ -96,45 +105,20 @@ function CreateCardPage() {
 				className="mb-3"
 			>
 				<Tab eventKey="Create" title="Create a Card" className="tabs">
+					<Instructions personalizedInstructions={personalizedInstructions} />
 					<CreateCardForm />
+					<SearchMedia
+						handleSubmit={handleSubmit}
+						handleAudioSearch={handleAudioSearch}
+						handleImageSearch={handleImageSearch}
+						imageSearch={imageSearch}
+						audioSearch={audioSearch}
+						audioUrl={audioUrl}
+					/>
+					<ImageGallery searchResults={searchResults} />
 				</Tab>
 				<Tab eventKey="Generate" title="Generate with AI" className="tabs">
 					<Generate />
-				</Tab>
-
-				<Tab eventKey="contact" title="Search for Media" className="media-search-grid">
-					<form onSubmit={handleSubmit} className="create-card-form">
-						<Form.Label className="create-card-inputs">
-							Enter a image search term{" "}
-						</Form.Label>
-						<input
-							type="text"
-							name="imagesearch"
-							value={imageSearch}
-							placeholder="Search for an image"
-							onChange={handleImageSearch}
-							required
-						/>
-						<Form.Label className="create-card-inputs">
-							Enter a audio search term{" "}
-						</Form.Label>
-						<input
-							type="text"
-							name="audiosearch"
-							value={audioSearch}
-							onChange={handleAudioSearch}
-							placeholder="Search for an audio"
-							required
-						/>
-
-						<button className="submit-button" type="submit">
-							Search Media
-						</button>
-					</form>
-					<h1>Audio URL: {audioUrl}</h1>
-					<audio src={audioUrl} controls />
-
-					<ImageGallery searchResults={searchResults} />
 				</Tab>
 			</Tabs>
 		</div>

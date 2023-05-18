@@ -4,6 +4,7 @@ import Banner from "../components/Banner";
 import loadCards from "../apis/loadCards";
 import Searchbar from "../components/Searchbar";
 import { useAuth0 } from "@auth0/auth0-react";
+import Instructions from "../components/Instructions";
 
 function ViewCards() {
 	const [cards, setCards] = useState([]);
@@ -11,6 +12,8 @@ function ViewCards() {
 	const { user } = useAuth0();
 	const [globalSearchText, setGlobalSearchText] = useState("");
 	const [filteredCards, setFilteredCards] = useState([]);
+	const personalizedInstructions =
+		"1. Searching Cards: Enter keywords in the search bar to find specific cards.\n2. Reviewing Cards: Click on a card to view its details and contents.";
 
 	const handleSearch = (searchText) => {
 		setGlobalSearchText(searchText);
@@ -45,6 +48,7 @@ function ViewCards() {
 		<div>
 			<Banner />
 			<div>
+				<Instructions personalizedInstructions={personalizedInstructions} />
 				<Searchbar onSearch={handleSearch} />
 				<ul className="card-container">
 					{filteredCards.map((card) => {

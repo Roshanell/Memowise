@@ -1,5 +1,5 @@
-const Button = ({ children }) => {
-	return <div className="css-button-retro--green">{children}</div>;
+const Button = ({ children, clickHandler }) => {
+	return <button className="css-button-retro--green" onClick={clickHandler}>{children}</button>;
 };
 
 export default Button;

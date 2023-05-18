@@ -13,8 +13,11 @@ const Game = () => {
 	const [currentCard, setCurrentCard] = useState({});
 	const [cards, setCards] = useState([]);
 	const [randomAnswers, setRandomAnswers] = useState([]);
-	const { user } = useAuth0();
+	const [score, setScore] = useState(0);
+	const [hint, setHint] = useState("");
 
+	const { user } = useAuth0();
+	const personalizedInstructions = `Select the correct answer to each question`;
 	useEffect(() => {
 		const newRandomAnswers = [];
 
@@ -60,6 +63,22 @@ const Game = () => {
 
 		setCurrentCard(nextCard);
 	};
+
+	const correctAnswerSelected = () => {
+		console.log("correct");
+		setScore(score + 1);
+		gotoNextCard();
+		setHint("");
+		console.log(score);
+	};
+	const incorrectAnswerSelected = (hintText) => {
+		console.log("incorrect");
+		setScore(score - 1);
+		console.log(score);
+		setHint(hintText);
+		console.log(hintText);
+	};
+
 	return (
 		<div>
 			<Banner />
@@ -91,25 +110,40 @@ const Game = () => {
 						{randomAnswers.map((answer) => {
 							if (answer === 0)
 								return (
-									<Button className="multiple-choice-button">
+									<Button
+										className="multiple-choice-button"
+										clickHandler={correctAnswerSelected}
+									>
 										{currentCard.answer}
 									</Button>
 								);
 							if (answer === 1)
 								return (
-									<Button className="multiple-choice-button">
+									<Button
+										className="multiple-choice-button"
+										clickHandler={() =>
+											incorrectAnswerSelected(currentCard.hintOne)
+										}
+									>
 										{currentCard.wronganswerone}
 									</Button>
 								);
 							if (answer === 2)
 								return (
-									<Button className="multiple-choice-button">
+									<Button
+										className="multiple-choice-button"
+										clickHandler={() =>
+											incorrectAnswerSelected(currentCard.hintTwo)
+										}
+									>
 										{currentCard.wronganswertwo}
 									</Button>
 								);
 						})}
 					</div>
-					<Instructions />
+
+					{hint ? <div>{hint}</div> : null}
+					<Instructions personalizedInstructions={personalizedInstructions} />
 				</div>
 			) : null}
 		</div>
