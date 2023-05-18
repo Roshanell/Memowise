@@ -45,12 +45,15 @@ app.post("/api/cards-generate", async (req, res) => {
 		let { numberOfCards, cardTopic, gradeLevel } = req.body;
 		const response = await openai.createCompletion({
 			model: "text-davinci-003",
-			prompt: `Generate for me ${numberOfCards} flash cards at a grade ${gradeLevel} level. The topic of the flash cards will be ${cardTopic}. Structure your response as a JSON array.  Each object in the array is a flash card. Each card has a card title, correct answer, and 2 wrong answers. The tag should be one word that sums up the topic of all currently generated cards. This would be an example of an returned card object {
+			prompt: `Generate for me ${numberOfCards} flash cards at a grade ${gradeLevel} level. The topic of the flash cards will be ${cardTopic}. Structure your response as a JSON array.  Each object in the array is a flash card. Each card has a card title, correct answer, and 2 wrong answers. Insert a hint that wouldbe helpful if either of the wrong answers were selected. The tag should be one word that sums up the topic of all currently generated cards. This would be an example of an returned card object {
 				"concept": "",
 				"answer": "",
 				"wronganswerone": "",
-				"wronganswertwo": "",l
-				"tag":"",
+				"hintOne": "",				
+				"wronganswertwo": "",
+				"hintTwo": "",
+				"tag": ""
+
 			}`,
 			max_tokens: 2048,
 			temperature: 1,
@@ -227,14 +230,25 @@ app.post("/api/cards/:userid", async (req, res) => {
 				req.body.wronganswerone,
 				req.body.wronganswertwo,
 				req.body.tag,
-				req.params.userid
+				req.params.userid,
 			];
 		}
 
 		newCards.forEach(async (newCard) => {
 			await db.query(
-				"INSERT INTO cards(concept, answer, imagelink, audiolink, wronganswerone, wronganswertwo, tag, user_id ) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
-				newCard
+				"INSERT INTO cards(concept, answer, imagelink, audiolink, wronganswerone, wronganswertwo, tag, user_id,hint_one, hint_two ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
+				[
+					newCard.concept,
+					newCard.answer,
+					newCard.imageLink,
+					newCard.audioLink,
+					newCard.wronganswerone,
+					newCard.wronganswertwo,
+					newCard.tag,
+					newCard.user_id,
+					newCard.hintOne,
+					newCard.hintTwo,
+				]
 			);
 		});
 

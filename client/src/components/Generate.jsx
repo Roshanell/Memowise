@@ -15,6 +15,7 @@ function Generate({ loadCards }) {
 	const [gradeLevel, setGradeLevel] = useState(0);
 	const [loading, setLoading] = useState(false);
 	const [submit, setSubmit] = useState(false);
+	const [cardsSaved, setCardsSaved] = useState(false);
 	const { user } = useAuth0();
 	const personalizedMessage = `Enter Topic: Input the desired topic for the flashcards.
 Enter Grade Level: Provide the grade level for the flashcards. If not in school, assume 12th grade.
@@ -58,6 +59,8 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 			.then((response) => {
 				//console.log(response);
 				if (response.ok) {
+					setGeneratedCards([]);
+					setCardsSaved(true);
 					console.log("ok");
 					return response.json();
 				}
@@ -84,7 +87,9 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 		if (response.ok) {
 			console.log("from openai", response);
 			setLoading(false);
-			return JSON.parse(await response.text());
+			const responseText = await response.text();
+			console.log(responseText);
+			return JSON.parse(responseText);
 		}
 	};
 	const renderTooltip = (props) => (
@@ -96,7 +101,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 
 	return (
 		<div>
-			<Instructions  personalizedInstructions={personalizedMessage}/>
+			<Instructions personalizedInstructions={personalizedMessage} />
 			<form onSubmit={handleSubmit} className="create-card-form">
 				<Form.Label className="create-card-inputs">Enter a topic </Form.Label>
 				<input
@@ -162,6 +167,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 					Save
 				</button>
 			) : null}
+			{cardsSaved ? <div>Cards saved successfully </div> : null}
 		</div>
 	);
 }
