@@ -6,8 +6,9 @@ import Form from "react-bootstrap/Form";
 import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import { useAuth0 } from "@auth0/auth0-react";
+import Instructions from "./Instructions";
 
-function Generate({loadCards}) {
+function Generate({ loadCards }) {
 	const [generatedCards, setGeneratedCards] = useState([]);
 	const [cardTopic, setCardTopic] = useState("");
 	const [numberOfCards, setNumberOfCards] = useState(0);
@@ -15,6 +16,10 @@ function Generate({loadCards}) {
 	const [loading, setLoading] = useState(false);
 	const [submit, setSubmit] = useState(false);
 	const { user } = useAuth0();
+	const personalizedMessage = `Enter Topic: Input the desired topic for the flashcards.
+Enter Grade Level: Provide the grade level for the flashcards. If not in school, assume 12th grade.
+Enter Number of Cards: Specify the desired number of flashcards to generate.
+Click "Generate Flashcards" or a similar button to create the flashcards using AI.`;
 
 	const handlegradeLevel = (event) => {
 		const gradeLevel = event.target.value;
@@ -91,6 +96,7 @@ function Generate({loadCards}) {
 
 	return (
 		<div>
+			<Instructions  personalizedInstructions={personalizedMessage}/>
 			<form onSubmit={handleSubmit} className="create-card-form">
 				<Form.Label className="create-card-inputs">Enter a topic </Form.Label>
 				<input
