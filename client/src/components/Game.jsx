@@ -14,7 +14,7 @@ const Game = () => {
 	const [cards, setCards] = useState([]);
 	const [randomAnswers, setRandomAnswers] = useState([]);
 	const { user } = useAuth0();
-
+	const personalizedInstructions = `Select the correct answer to each question`
 	useEffect(() => {
 		const newRandomAnswers = [];
 
@@ -109,7 +109,7 @@ const Game = () => {
 								);
 						})}
 					</div>
-					<Instructions />
+					<Instructions personalizedInstructions={personalizedInstructions} />
 				</div>
 			) : null}
 		</div>
