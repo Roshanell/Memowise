@@ -8,7 +8,7 @@ import Generate from "../components/Generate";
 import { useState, useEffect } from "react";
 import Banner from "../components/Banner";
 import Form from "react-bootstrap/Form";
-
+import SearchMedia from "../components/SearchMedia";
 
 function CreateCardPage() {
 	const [imageSearch, setImageSearch] = useState("");
@@ -97,45 +97,25 @@ function CreateCardPage() {
 			>
 				<Tab eventKey="Create" title="Create a Card" className="tabs">
 					<CreateCardForm />
+					<SearchMedia
+						handleSubmit={handleSubmit}
+						handleAudioSearch={handleAudioSearch}
+						handleImageSearch={handleImageSearch}
+						imageSearch={imageSearch}
+						audioSearch={audioSearch}
+						audioUrl={audioUrl}
+					/>
+					<ImageGallery searchResults={searchResults} />
 				</Tab>
 				<Tab eventKey="Generate" title="Generate with AI" className="tabs">
 					<Generate />
 				</Tab>
 
-				<Tab eventKey="contact" title="Search for Media" className="media-search-grid">
-					<form onSubmit={handleSubmit} className="create-card-form">
-						<Form.Label className="create-card-inputs">
-							Enter a image search term{" "}
-						</Form.Label>
-						<input
-							type="text"
-							name="imagesearch"
-							value={imageSearch}
-							placeholder="Search for an image"
-							onChange={handleImageSearch}
-							required
-						/>
-						<Form.Label className="create-card-inputs">
-							Enter a audio search term{" "}
-						</Form.Label>
-						<input
-							type="text"
-							name="audiosearch"
-							value={audioSearch}
-							onChange={handleAudioSearch}
-							placeholder="Search for an audio"
-							required
-						/>
-
-						<button className="submit-button" type="submit">
-							Search Media
-						</button>
-					</form>
-					<h1>Audio URL: {audioUrl}</h1>
-					<audio src={audioUrl} controls />
-
-					<ImageGallery searchResults={searchResults} />
-				</Tab>
+				<Tab
+					eventKey="contact"
+					title="Search for Media"
+					className="media-search-grid"
+				></Tab>
 			</Tabs>
 		</div>
 	);
