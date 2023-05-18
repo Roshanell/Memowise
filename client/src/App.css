@@ -7,6 +7,7 @@
 	grid-template-rows: auto 100% auto;
 }
 
+
 .mybody {
 	display: flex;
 	gap: 3em;
@@ -73,6 +74,7 @@ input {
 	font-size: 15px;
 	border-radius: 50px;
 	border: 3px solid #5974ff;
+	padding-left: 1rem;
 }
 
 button.btn.btn-primary {
@@ -307,7 +309,8 @@ footer .social-icon li i:hover {
 
 /* Option buttons */
 
-.css-button-retro--green {
+.css-button-retro--green,
+.submit-button {
 	min-width: 130px;
 	height: 40px;
 	color: #fff;
@@ -325,11 +328,13 @@ footer .social-icon li i:hover {
 	margin-left: 5%;
 	margin-top: 5%;
 }
-.css-button-retro--green:hover:after {
+.css-button-retro--green:hover:after,
+.submit-button:hover:after {
 	top: 0;
 	left: 0;
 }
-.css-button-retro--green:after {
+.css-button-retro--green:after,
+.submit-button:after {
 	content: "";
 	width: 100%;
 	z-index: -1;
@@ -489,7 +494,9 @@ footer .social-icon li i:hover {
 	background-color: #d9d9d9;
 	height: 500px;
 }
-
+.create-card-inputs {
+	width: 100%;
+}
 .list-of-links {
 	width: 50%;
 }
@@ -706,6 +713,13 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 		margin: 0;
 	}
 }
+/* media-search */
+.media-search-grid{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	border: red solid 3px;
+	;
+}
 
 /* home contianer */
 
@@ -732,7 +746,7 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	border-width: 5px 0px 5px 0px;
 	border-style: solid;
 	border-color: #000000;
-	background-image: url('https://i.imgur.com/WECjTQq.png');
+	background-image: url("https://i.imgur.com/WECjTQq.png");
 }
 
 .left-box {
@@ -952,4 +966,112 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 }
 .player-info {
 	margin-top: 3%;
+}
+
+/* Loading Icon */
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.loading-body {
+	width: 100%;
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+	background-color: white;
+	overflow: hidden;
+}
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 360px;
+	height: 50vh;
+	position: relative;
+}
+.balls {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+.ball {
+	position: absolute;
+	top: -50px;
+	width: 50px;
+	height: 50px;
+	background: peru;
+	border-radius: 50%;
+	margin: 0 20px;
+	animation: ball 4s infinite;
+}
+.ball--1 {
+	background-image: linear-gradient(to bottom, #ffe93e, #ff952a);
+}
+.ball--2 {
+	background-image: linear-gradient(to bottom, #ff009e, #ff0038);
+}
+.ball--3 {
+	background-image: linear-gradient(to bottom, #00f4fe, #00bdfb);
+}
+.ball--4 {
+	background-image: linear-gradient(to bottom, #fc00f9, #b500f9);
+}
+.balls-1 .ball--1 {
+	left: 20px;
+	animation-delay: 0;
+}
+.balls-1 .ball--2 {
+	left: 100px;
+	animation-delay: 0.05s;
+}
+.balls-1 .ball--3 {
+	left: 180px;
+	animation-delay: 0.1s;
+}
+.balls-1 .ball--4 {
+	left: 260px;
+	animation-delay: 0.15s;
+}
+.balls-2 .ball--1 {
+	left: 20px;
+	animation-delay: 2s;
+}
+.balls-2 .ball--2 {
+	left: 100px;
+	animation-delay: 2.05s;
+}
+.balls-2 .ball--3 {
+	left: 180px;
+	animation-delay: 2.1s;
+}
+.balls-2 .ball--4 {
+	left: 260px;
+	animation-delay: 2.15s;
+}
+@keyframes ball {
+	0%,
+	25% {
+		top: -50px;
+	}
+	35% {
+		top: calc(60% - 50px);
+	}
+	40% {
+		top: calc(45% - 50px);
+	}
+	45% {
+		top: calc(55% - 50px);
+	}
+	50%,
+	70% {
+		top: calc(50% - 25px);
+	}
+	80%,
+	100% {
+		top: 100%;
+	}
 }

@@ -3,11 +3,12 @@ import Card from "../components/Card";
 import Banner from "../components/Banner";
 import loadCards from "../apis/loadCards";
 import Searchbar from "../components/Searchbar";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function ViewCards() {
 	const [cards, setCards] = useState([]);
 	const [audio, setAudio] = useState([]);
-
+	const { user } = useAuth0();
 	const [globalSearchText, setGlobalSearchText] = useState("");
 	const [filteredCards, setFilteredCards] = useState([]);
 
@@ -31,14 +32,14 @@ function ViewCards() {
 			method: "DELETE",
 		}).then((response) => {
 			if (response.ok) {
-				loadCards().then(setCards);
+				loadCards(user).then(setCards);
 			}
 		});
 	};
 
 	useEffect(() => {
-		loadCards().then(setCards);
-	}, []);
+		if (user) loadCards(user).then(setCards);
+	}, [user]);
 
 	return (
 		<div>

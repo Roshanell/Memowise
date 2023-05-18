@@ -6,12 +6,14 @@ import Banner from "./Banner";
 import { useEffect, useState } from "react";
 import loadCards from "../apis/loadCards";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Game = () => {
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [currentCard, setCurrentCard] = useState({});
 	const [cards, setCards] = useState([]);
 	const [randomAnswers, setRandomAnswers] = useState([]);
+	const { user } = useAuth0();
 
 	useEffect(() => {
 		const newRandomAnswers = [];
@@ -28,8 +30,8 @@ const Game = () => {
 	}, [currentCard]);
 
 	useEffect(() => {
-		loadCards().then(setCards);
-	}, []);
+		loadCards(user).then(setCards);
+	}, [user]);
 
 	useEffect(() => setCurrentCard(cards[0] || {}), [cards]);
 	const goToPreviousCard = () => {
@@ -67,14 +69,14 @@ const Game = () => {
 					<MoreOptions />
 
 					<i class="fa fa-volume-up"></i>
-					{currentCard.imagelink  ? (
+					{currentCard.imagelink ? (
 						<h3 className="card-concept-none">{currentCard.concept}</h3>
 					) : (
 						<h3 className="card-concept">{currentCard.concept}</h3>
 					)}
 					{/* <h3 className="card-concept">{currentCard.concept}</h3> */}
 
-					{currentCard.imagelink  ? (
+					{currentCard.imagelink ? (
 						<img src={currentCard.imagelink} height="200px" />
 					) : null}
 

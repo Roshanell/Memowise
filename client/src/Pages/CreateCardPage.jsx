@@ -7,6 +7,8 @@ import Tabs from "react-bootstrap/Tabs";
 import Generate from "../components/Generate";
 import { useState, useEffect } from "react";
 import Banner from "../components/Banner";
+import Form from "react-bootstrap/Form";
+
 
 function CreateCardPage() {
 	const [imageSearch, setImageSearch] = useState("");
@@ -100,8 +102,11 @@ function CreateCardPage() {
 					<Generate />
 				</Tab>
 
-				<Tab eventKey="contact" title="Search for Media">
+				<Tab eventKey="contact" title="Search for Media" className="media-search-grid">
 					<form onSubmit={handleSubmit} className="create-card-form">
+						<Form.Label className="create-card-inputs">
+							Enter a image search term{" "}
+						</Form.Label>
 						<input
 							type="text"
 							name="imagesearch"
@@ -110,7 +115,9 @@ function CreateCardPage() {
 							onChange={handleImageSearch}
 							required
 						/>
-
+						<Form.Label className="create-card-inputs">
+							Enter a audio search term{" "}
+						</Form.Label>
 						<input
 							type="text"
 							name="audiosearch"
@@ -120,11 +127,10 @@ function CreateCardPage() {
 							required
 						/>
 
-						<Button variant="primary" type="submit">
+						<button className="submit-button" type="submit">
 							Search Media
-						</Button>
+						</button>
 					</form>
-
 					<h1>Audio URL: {audioUrl}</h1>
 					<audio src={audioUrl} controls />
 

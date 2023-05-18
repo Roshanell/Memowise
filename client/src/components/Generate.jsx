@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import Button from "./Button";
+import { Loading } from "./Loading";
+import Form from "react-bootstrap/Form";
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import { useAuth0 } from "@auth0/auth0-react";
 
-function Generate() {
+function Generate({loadCards}) {
 	const [generatedCards, setGeneratedCards] = useState([]);
 	const [cardTopic, setCardTopic] = useState("");
 	const [numberOfCards, setNumberOfCards] = useState(0);
 	const [gradeLevel, setGradeLevel] = useState(0);
 	const [loading, setLoading] = useState(false);
 	const [submit, setSubmit] = useState(false);
+	const { user } = useAuth0();
 
 	const handlegradeLevel = (event) => {
 		const gradeLevel = event.target.value;
@@ -35,11 +41,11 @@ function Generate() {
 	const handleSetSubmit = () => {
 		console.log("submitted");
 		setSubmit(true);
-		setLoading(true)
+		setLoading(true);
 	};
 	const saveGeneratedCards = async () => {
 		console.log("saving");
-		return await fetch(`http://localhost:8080/api/cards`, {
+		return await fetch(`http://localhost:8080/api/cards/${user.sub}`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(generatedCards),
@@ -76,10 +82,17 @@ function Generate() {
 			return JSON.parse(await response.text());
 		}
 	};
+	const renderTooltip = (props) => (
+		<Tooltip id="button-tooltip" {...props}>
+			Please note that response time may vary and accuracy is up to date as of
+			2021.
+		</Tooltip>
+	);
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit} className="create-card-form">
+				<Form.Label className="create-card-inputs">Enter a topic </Form.Label>
 				<input
 					type="text"
 					name="generate card"
@@ -88,6 +101,9 @@ function Generate() {
 					placeholder="Enter topic"
 					required
 				/>
+				<Form.Label className="create-card-inputs">
+					Enter the number of cards you want
+				</Form.Label>
 				<input
 					type="number of cards"
 					name="numberofcards "
@@ -96,6 +112,9 @@ function Generate() {
 					placeholder="Enter number"
 					required
 				/>
+				<Form.Label className="create-card-inputs">
+					Enter the grade level of the class
+				</Form.Label>
 				<input
 					type="number"
 					name="grade level"
@@ -104,14 +123,23 @@ function Generate() {
 					placeholder="Enter grade"
 					required
 				/>
-				<button onClick={handleSetSubmit} type="submit">
-					Submit
-				</button>
+				<OverlayTrigger
+					placement="right"
+					delay={{ show: 250, hide: 400 }}
+					overlay={renderTooltip}
+				>
+					<button
+						onClick={handleSetSubmit}
+						type="submit"
+						className="submit-button"
+					>
+						Submit
+					</button>
+				</OverlayTrigger>
 			</form>
 
-			{/* <div>{JSON.stringify(generatedCards)}</div> */}
 			{loading && setSubmit ? (
-				<h1>loading .... </h1>
+				<Loading />
 			) : (
 				<ul className="card-ul">
 					{generatedCards.map((card) => {
@@ -124,7 +152,9 @@ function Generate() {
 				</ul>
 			)}
 			{generatedCards.length > 0 ? (
-				<button onClick={saveGeneratedCards}>Save</button>
+				<button className="submit-button" onClick={saveGeneratedCards}>
+					Save
+				</button>
 			) : null}
 		</div>
 	);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function CreateCardForm() {
 	const [card, setCard] = useState({
@@ -12,6 +13,7 @@ export default function CreateCardForm() {
 		wronganswertwo: "",
 		tag: "",
 	});
+	const { user } = useAuth0();
 
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
@@ -20,7 +22,7 @@ export default function CreateCardForm() {
 
 	const postCard = () => {
 		//console.log(student, "post method")
-		return fetch(`http://localhost:8080/api/cards`, {
+		return fetch(`http://localhost:8080/api/cards/${user.sub}`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify([card]),
@@ -56,9 +58,13 @@ export default function CreateCardForm() {
 	};
 
 	return (
-		<Form onSubmit={handleSubmit} className="create-card-form">
-			<Form.Group controlId="formConcept">
+		<Form
+			onSubmit={handleSubmit}
+			className="create-card-form create-card-inputs"
+		>
+			<Form.Group controlId="formConcept" className="create-card-inputs">
 				<Form.Label>Card Concept</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="concept"
@@ -67,8 +73,9 @@ export default function CreateCardForm() {
 					required
 				/>
 			</Form.Group>
-			<Form.Group controlId="formAnswer">
+			<Form.Group controlId="formAnswer " className="create-card-inputs">
 				<Form.Label>Answer</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="answer"
@@ -77,8 +84,9 @@ export default function CreateCardForm() {
 					required
 				/>
 			</Form.Group>
-			<Form.Group controlId="formImageLink">
+			<Form.Group controlId="formImageLink" className="create-card-inputs">
 				<Form.Label>Image Link</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="imagelink"
@@ -86,8 +94,9 @@ export default function CreateCardForm() {
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
-			<Form.Group controlId="formAudioLink">
+			<Form.Group controlId="formAudioLink" className="create-card-inputs">
 				<Form.Label>Audio Link</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="audiolink"
@@ -95,8 +104,9 @@ export default function CreateCardForm() {
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
-			<Form.Group controlId="formWrongAnswerOne">
+			<Form.Group controlId="formWrongAnswerOne" className="create-card-inputs">
 				<Form.Label>Wrong Answer 1 (optional)</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="wronganswerone"
@@ -104,8 +114,9 @@ export default function CreateCardForm() {
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
-			<Form.Group controlId="formWrongAnswerTwo">
+			<Form.Group controlId="formWrongAnswerTwo" className="create-card-inputs">
 				<Form.Label>Wrong Answer 2 (optional)</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="wronganswertwo"
@@ -113,8 +124,9 @@ export default function CreateCardForm() {
 					onChange={handleInputChange}
 				/>
 			</Form.Group>
-			<Form.Group controlId="tag">
+			<Form.Group controlId="tag" className="create-card-inputs">
 				<Form.Label>One Word Tag</Form.Label>
+				<br />
 				<Form.Control
 					type="text"
 					name="tag"
@@ -123,9 +135,9 @@ export default function CreateCardForm() {
 					required
 				/>
 			</Form.Group>
-			<Button variant="primary" type="submit">
+			<button className="submit-button" type="submit">
 				Save Card
-			</Button>
+			</button>
 		</Form>
 	);
 }
