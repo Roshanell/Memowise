@@ -110,12 +110,6 @@ function CreateCardPage() {
 				<Tab eventKey="Generate" title="Generate with AI" className="tabs">
 					<Generate />
 				</Tab>
-
-				<Tab
-					eventKey="contact"
-					title="Search for Media"
-					className="media-search-grid"
-				></Tab>
 			</Tabs>
 		</div>
 	);
