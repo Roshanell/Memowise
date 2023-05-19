@@ -1,6 +1,6 @@
 const { Pool } = require("pg");
 const db = new Pool({
-	connectionString: "postgresql://localhost/classbuddy",
+	connectionString: process.env.DATABASE_URL,
 });
 
 module.exports = db;

@@ -246,8 +246,7 @@ app.post("/api/cards/:userid", async (req, res) => {
 					newCard.wronganswertwo,
 					newCard.tag,
 					newCard.user_id,
-					newCard.hintOne,
-					newCard.hintTwo,
+				
 				]
 			);
 		});
