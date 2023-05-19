@@ -1,6 +1,7 @@
 const loadCards = async (user) => {
 	try {
 		//fetch returns a promise
+		console.log(user, user.sub)
 		const cards = await fetch(`http://localhost:8080/api/cards/${user.sub}`)
 			// must use the .json method
 			.then((response) => response.json());
