@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "build": "echo \"No build specified\" && exit 1",
+        "build": "vite build",
         "test": "echo \"No test specified\" && exit 1",
         "start": "node index.js"
     },    "repository": {
@@ -14,7 +14,7 @@
     "license": "ISC",
    "bugs":
     {
-          "url": "https://github.com/Roshanell/Memowize/issues"
+                "url": "https://github.com/Roshanell/Memowize/issues"
   },
     "homepage": "https://github.com/Roshanell/Memowize#readme"
 }

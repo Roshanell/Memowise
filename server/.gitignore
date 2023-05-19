@@ -29,3 +29,4 @@ server/.DS_Store
 ../env
 server/.env
 client/.env
+node_modules
