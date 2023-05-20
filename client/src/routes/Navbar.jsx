@@ -28,8 +28,8 @@ function MyNavBar(props) {
 							<Link className="nav-link" to="/create">
 								Create Card
 							</Link>
-							<Link className="nav-link" to="/leaderboard">
-								Leaderboard
+							<Link className="nav-link" to="/user-profile">
+								Profile
 							</Link>
 						</>
 					) : null}
