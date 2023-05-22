@@ -1,4 +1,4 @@
-## Memowize
+## Memowise
 
 Memowize is an application that aims to streamline the learning process for students and reduce the time, effort, and workload of teachers when working to create new study materials
 
