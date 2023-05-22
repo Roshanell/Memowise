@@ -79,10 +79,12 @@ const Game = () => {
 		console.log(hintText);
 	};
 
+
+	
 	return (
 		<div>
 			<Banner />
-
+		{score}
 			{currentCard ? (
 				<div id="game-section">
 					<MoreOptions />

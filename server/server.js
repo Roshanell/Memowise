@@ -246,7 +246,6 @@ app.post("/api/cards/:userid", async (req, res) => {
 					newCard.wronganswertwo,
 					newCard.tag,
 					newCard.user_id,
-				
 				]
 			);
 		});
@@ -262,6 +261,20 @@ app.post("/api/cards/:userid", async (req, res) => {
 		return res.status(400).json({ e });
 	}
 });
+// app.post("/api/answer/:userid", async (req, res) => {
+// 	try {
+// 		if()
+// 		if (req.body.answer === "correct") {
+// 			await db.query(
+// 				"UPDATE stats SET correct = correct + 1 WHERE userid = $1",
+// 				[req.params.userid]
+// 			);
+// 		}
+// 	} catch (e) {
+// 		console.log(e);
+// 		return res.status(400).json({ e });
+// 	}
+// });
 
 // delete request for students
 app.delete("/api/students/:studentId", async (req, res) => {
