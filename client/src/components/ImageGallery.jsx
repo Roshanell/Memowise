@@ -7,15 +7,15 @@ function ImageGallery({ searchResults }) {
 	};
 	return (
 		<div>
-			<div class="container">
-				<h1 class="heading">Results from image search</h1>
-				<div className="gallery">
-					<div class="gallery-item">
+			<div className="container">
+				<h1 className="heading">Results from image search</h1>
+				<div classNameName="gallery">
+					<div className="gallery-item">
 						{searchResults
 							? searchResults.map((result) => {
 									return (
 										<img
-											class="gallery-image"
+											className="gallery-image"
 											src={result}
 											onClick={() => handleImageClick(result)}
 											style={{ cursor: "pointer" }}

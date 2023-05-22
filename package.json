@@ -6,17 +6,19 @@
         "build": "vite build",
         "test": "echo \"No test specified\" && exit 1",
         "start": "node index.js"
-    },    "repository": {
+    },
+    "repository": {
         "type": "git",
         "url": "git+https://github.com/Roshanell/Memowize.git"
     },
     "author": "",
     "license": "Unlicensed",
-   "bugs":
-    {
-                "url": "https://github.com/Roshanell/Memowize/issues"
-  },
-    "homepage": "https://github.com/Roshanell/Memowize#readme"
+    "bugs":
+    { 
+        "url": "https://github.com/Roshanell/Memowize/issues"
+    },
+    "homepage": "https://github.com/Roshanell/Memowize#readme",
+    "dependencies": {
+        "vite": "^4.3.8"
+    }
 }
-
-

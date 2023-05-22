@@ -7,42 +7,71 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Instructions from "../components/Instructions";
 
 function ViewCards() {
-	const [cards, setCards] = useState([]);
-	const [audio, setAudio] = useState([]);
-	const { user } = useAuth0();
-	const [globalSearchText, setGlobalSearchText] = useState("");
-	const [filteredCards, setFilteredCards] = useState([]);
+	const [cards, setCards] = useState([]); // State variable to store the cards
+	const [audio, setAudio] = useState([]); // State variable for audio (not used in this code)
+	const { user } = useAuth0(); // Destructuring the user object from Auth0
+	const [globalSearchText, setGlobalSearchText] = useState(""); // State variable for global search text
+	const [filteredCards, setFilteredCards] = useState([]); // State variable for filtered cards
 	const personalizedInstructions =
 		"1. Searching Cards: Enter keywords in the search bar to find specific cards.\n2. Reviewing Cards: Click on a card to view its details and contents.";
 
 	const handleSearch = (searchText) => {
-		setGlobalSearchText(searchText);
+		setGlobalSearchText(searchText); // Update the global search text
 	};
 
+	const isAdmin = user?.email === "dteacher422@gmail.com"; // Check if the user is an admin
+
 	useEffect(() => {
-		const newFilteredCards = cards.filter((card) =>
-			Object.values(card)
-				.join("")
-				.toLowerCase()
-				.includes(globalSearchText.toLowerCase())
-		);
-		setFilteredCards(newFilteredCards);
-	}, [cards, globalSearchText]);
+		const loadCardsData = async () => {
+			if (isAdmin) {
+				setCards(await loadCards()); // Load cards for admin (no user parameter)
+			} else {
+				setCards(await loadCards(user)); // Load cards for regular user (passing user parameter)
+			}
+		};
+
+		loadCardsData(); // Call the loadCardsData function when the component mounts or when user or isAdmin changes
+	}, [user, isAdmin]);
+
+	useEffect(() => {
+		const newFilteredCards = isAdmin
+			? cards // For admin, display all cards
+			: cards.filter((card) =>
+					Object.values(card)
+						.join("")
+						.toLowerCase()
+						.includes(globalSearchText.toLowerCase())
+			  ); // For regular users, filter cards based on search text
+
+		setFilteredCards(newFilteredCards); // Update the filtered cards
+	}, [cards, globalSearchText, isAdmin]);
 
 	const onDelete = async (card) => {
 		console.log(card, "delete method");
-		return await fetch(`http://localhost:8080/api/cards/${card.id}`, {
-			method: "DELETE",
-		}).then((response) => {
+		let url = `http://localhost:8080/api/cards/${card.id}`;
+		if (isAdmin) {
+			url = `http://localhost:8080/api/admin/cards/${card.id}`; // Modify the URL for admin deletion
+		}
+		try {
+			const response = await fetch(url, {
+				method: "DELETE",
+			});
 			if (response.ok) {
-				loadCards(user).then(setCards);
+				const loadCardsData = async () => {
+					if (isAdmin) {
+						setCards(await loadCards()); // Reload cards for admin after deletion
+					} else {
+						setCards(await loadCards(user)); // Reload cards for regular user after deletion
+					}
+				};
+
+				loadCardsData(); // Call the loadCardsData function to update the cards
 			}
-		});
+		} catch (e) {
+			console.error(e); // Log any errors that occur during deletion
+		}
 	};
 
-	useEffect(() => {
-		if (user) loadCards(user).then(setCards);
-	}, [user]);
 
 	return (
 		<div>
