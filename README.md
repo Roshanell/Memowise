@@ -1,6 +1,6 @@
 ## Memowise
 
-Memowize is an application that aims to streamline the learning process for students and reduce the time, effort, and workload of teachers when working to create new study materials
+Memowise is an application that aims to streamline the learning process for students and reduce the time, effort, and workload of teachers when working to create new study materials
 
 Link to project: COMING SOON
 
@@ -10,7 +10,7 @@ Link to project: COMING SOON
 
 
 
-Memowize is a full-stack application designed to help users manage and organize their study materials. With a user-friendly interface, users can easily create and manage study cards using manual input or automated generation via artificial intelligence.
+Memowise is a full-stack application designed to help users manage and organize their study materials. With a user-friendly interface, users can easily create and manage study cards using manual input or automated generation via artificial intelligence.
 
 The app uses React for the front-end and Node.js for the back-end, with user data stored in a postgres database. Users can review their study decks and quiz themselves on concepts they have previously studied.
 
