@@ -40,6 +40,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const cards = await generateCards();
+		console.log(cards);
 		setGeneratedCards(cards);
 		// clearForm();
 	};
