@@ -6,7 +6,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function MyNavBar(props) {
 	const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+	let admin = "dteacher422@gmail.com";
+	const isAdmin = user && user.email === admin;
 
+	console.log(user);
 	return (
 		<>
 			<Navbar sticky="top" className="nav-bar">
@@ -19,9 +22,11 @@ function MyNavBar(props) {
 							<Link className="nav-link" to="/game">
 								Game
 							</Link>
-							<Link className="nav-link" to="/roster">
-								Roster
-							</Link>
+							{isAdmin && (
+								<Link className="nav-link" to="/roster">
+									Roster
+								</Link>
+							)}
 							<Link className="nav-link" to="/cards">
 								View Cards
 							</Link>
