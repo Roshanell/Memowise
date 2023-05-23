@@ -82,6 +82,7 @@ const Game = () => {
 	return (
 		<div>
 			<Banner />
+			<Instructions personalizedInstructions={personalizedInstructions} />
 			{score}
 			{currentCard ? (
 				<div id="game-section">
@@ -145,7 +146,6 @@ const Game = () => {
 					</div>
 
 					{hint ? <div>{hint}</div> : null}
-					<Instructions personalizedInstructions={personalizedInstructions} />
 				</div>
 			) : null}
 		</div>
