@@ -65,11 +65,51 @@ Click "Search Media" for results to appear.
 			});
 	};
 
+	// const getAudio = () => {
+	// 	fetch(`http://localhost:8080/api/mw?query=${audioSearch}`)
+	// 		.then((response) => response.json())
+	// 		.then((audio) => {
+	// 			console.log(audio, "from mw");
+	// 			let audioString = audio.data[0].hwi.prs[0].sound.audio;
+	// 			let language_code = "en";
+	// 			let country_code = "us";
+	// 			let format = "mp3";
+	// 			let subdirectory = "";
+
+	// 			if (audioString.startsWith("bix")) {
+	// 				subdirectory += "bix";
+	// 			} else if (audioString.startsWith("gg")) {
+	// 				subdirectory += "gg";
+	// 			} else if (
+	// 				audioString.match(
+	// 					/[\d!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/.test(audioString)
+	// 				)
+	// 			) {
+	// 				subdirectory += "number";
+	// 			} else {
+	// 				subdirectory += audioString[0];
+	// 			}
+	// 			console.log(subdirectory, "subdirecotry");
+	// 			let audiourl = `https://media.merriam-webster.com/audio/prons/${language_code}/${country_code}/${format}/${subdirectory}/${audioString}.${format}`;
+	// 			setAudioUrl(audiourl);
+
+	// 			console.log(audiourl);
+	// 		})
+	// 		.catch((error) => console.error(error));
+	// };
+
 	const getAudio = () => {
 		fetch(`http://localhost:8080/api/mw?query=${audioSearch}`)
 			.then((response) => response.json())
 			.then((audio) => {
 				console.log(audio, "from mw");
+				if (!audio.data || !audio.data[0].hwi || !audio.data[0].hwi.prs) {
+					// Handle case where pronunciation data is not available
+					alert("No pronunciation available for this word.");
+					// Handle this situation accordingly, such as displaying a message to the user
+					return;
+				}
+
 				let audioString = audio.data[0].hwi.prs[0].sound.audio;
 				let language_code = "en";
 				let country_code = "us";
@@ -89,7 +129,7 @@ Click "Search Media" for results to appear.
 				} else {
 					subdirectory += audioString[0];
 				}
-				console.log(subdirectory, "subdirecotry");
+				console.log(subdirectory, "subdirectory");
 				let audiourl = `https://media.merriam-webster.com/audio/prons/${language_code}/${country_code}/${format}/${subdirectory}/${audioString}.${format}`;
 				setAudioUrl(audiourl);
 
@@ -97,6 +137,7 @@ Click "Search Media" for results to appear.
 			})
 			.catch((error) => console.error(error));
 	};
+
 	return (
 		<div>
 			<Tabs
