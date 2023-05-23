@@ -743,11 +743,11 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	bottom: 0;
 	display: block;
 	width: 100%;
-	background: #ffabe5;
+	background-color: #ffabe5;
 	border-width: 5px 0px 5px 0px;
 	border-style: solid;
 	border-color: #000000;
-	background-image: url("https://i.imgur.com/WECjTQq.png");
+	background-image: url("https://i.imgur.com/WECjTQq.png");z-index: 1;
 }
 
 .left-box {
@@ -758,52 +758,13 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	border-color: #000000;
 	height: 100%;
 }
-/* .right-box {
-	box-sizing: border-box;
 
-	background: #ff5b48;
-	border-width: 5px 0px;
-	border-style: solid;
-	border-color: #000000;
-} */
-
-/* .left-box-two {
-	background: #f7f7f7;
-	border-width: 0px 5px 5px 0px;
-	border-style: solid;
-	border-color: #000000;
-} */
-
-/* .right-box-two {
-	background: #f7f7f7;
-	border-width: 1px 0px 5px 1px;
-	border-style: solid;
-	border-color: #000000;
-} */
-
-/* .left-box-three {
-	box-sizing: border-box;
-
-	background: #f7f7f7;
-	border-width: 0px 5px 5px 0px;
-	border-style: solid;
-	border-color: #000000;
-} */
-
-/* .right-box-three {
-	box-sizing: border-box;
-
-	background: #f7f7f7;
-	border-width: 1px 0px 5px 1px;
-	border-style: solid;
-	border-color: #000000;
-} */
 
 .heading-homepage {
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 900;
-	font-size: 95px;
+	font-size: 550%;
 	line-height: 100px;
 	color: #000000;
 	text-transform: uppercase;

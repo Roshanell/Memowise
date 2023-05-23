@@ -10,12 +10,12 @@ const Footer = () => {
 								<Link className="header-nav-link" to="/">
 									Home
 								</Link>
-								<Link className="header-nav-link" to="/aboutMe">
+								{/* <Link className="header-nav-link" to="/aboutMe">
 									About Me
 								</Link>
 								<Link className="header-nav-link" to="/FAQS">
 									FAQs
-								</Link>
+								</Link> */}
 							</ul>
 						</div>
 						<div className="col-md-4">
