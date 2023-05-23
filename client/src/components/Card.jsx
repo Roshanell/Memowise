@@ -22,7 +22,7 @@ function Card({ card, audio, toDelete }) {
 			>
 				<div className="front">
 					{card.tag ? (
-						<div class="item-category">
+						<div className="item-category">
 							<a href="#">{card.tag}</a>
 						</div>
 					) : null}
@@ -43,7 +43,7 @@ function Card({ card, audio, toDelete }) {
 				<div className="back">
 					{card.audiolink ? (
 						<>
-							<i class="fa fa-volume-up"></i>
+							<i className="fa fa-volume-up"></i>
 							<audio className="audio-player" src={card.audiolink} controls />
 						</>
 					) : null}

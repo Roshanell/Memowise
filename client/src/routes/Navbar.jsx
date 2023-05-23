@@ -9,7 +9,7 @@ function MyNavBar(props) {
 	let admin = "dteacher422@gmail.com";
 	const isAdmin = user && user.email === admin;
 
-	console.log(user);
+	// console.log(user);
 	return (
 		<>
 			<Navbar sticky="top" className="nav-bar">

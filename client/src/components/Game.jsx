@@ -89,7 +89,7 @@ const Game = () => {
 				<div id="game-section">
 					<MoreOptions />
 
-					<i class="fa fa-volume-up"></i>
+					<i className="fa fa-volume-up"></i>
 					{currentCard.imagelink ? (
 						<h3 className="card-concept-none">{currentCard.concept}</h3>
 					) : (

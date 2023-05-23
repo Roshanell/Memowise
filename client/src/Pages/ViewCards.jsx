@@ -11,7 +11,7 @@ function ViewCards() {
 	const [audio, setAudio] = useState([]); // State variable for audio (not used in this code)
 	const { user } = useAuth0(); // Destructuring the user object from Auth0
 	const [globalSearchText, setGlobalSearchText] = useState(""); // State variable for global search text
-	const [filteredCards, setFilteredCards] = useState([]); // State variable for filtered cards
+	const [filteredCards, setFilteredCards] = useState(null); // State variable for filtered cards
 	const personalizedInstructions =
 		"1. Searching Cards: Enter keywords in the search bar to find specific cards.\n2. Reviewing Cards: Click on a card to view its details and contents.";
 
@@ -39,6 +39,7 @@ function ViewCards() {
 	// });
 
 	const findCards = () => {
+		if (globalSearchText === "") setFilteredCards(null);
 		return cards.filter((card) =>
 			Object.values(card)
 				.join("")
@@ -94,19 +95,21 @@ function ViewCards() {
 					<Instructions personalizedInstructions={personalizedInstructions} />
 					<Searchbar onSearch={handleSearch} />
 					<ul className="card-container">
-						{ !filteredCards ? cards.map((card) => {
-							return (
-								<li className="card-list" key={card.id}>
-									<Card card={card} audio={audio} toDelete={onDelete} />
-								</li>
-							);
-						}) : filteredCards.map((card) => {
-							return (
-								<li className="card-list" key={card.id}>
-									<Card card={card} audio={audio} toDelete={onDelete} />
-								</li>
-							);
-						})}
+						{filteredCards === null
+							? cards.map((card) => {
+									return (
+										<li className="card-list" key={card.id}>
+											<Card card={card} audio={audio} toDelete={onDelete} />
+										</li>
+									);
+							  })
+							: filteredCards.map((card) => {
+									return (
+										<li className="card-list" key={card.id}>
+											<Card card={card} audio={audio} toDelete={onDelete} />
+										</li>
+									);
+							  })}
 					</ul>
 				</div>
 			</div>
