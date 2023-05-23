@@ -8,10 +8,10 @@ function Card({ card, audio, toDelete }) {
 		setIsFlipped(!isFlipped);
 	};
 
-	const onDelete = (toDeleteStudent) => {
-		console.log(card.id, toDeleteStudent, toDelete);
-		toDelete(toDeleteStudent);
-	};
+	// const onDelete = (toDeleteStudent) => {
+	// 	console.log(card.id, toDeleteStudent, toDelete);
+	// 	toDelete(toDeleteStudent);
+	// };
 	
 
 	return (
@@ -34,7 +34,7 @@ function Card({ card, audio, toDelete }) {
 					<button
 						type="button"
 						onClick={() => {
-							onDelete(card);
+							toDelete(card);
 						}}
 					>
 						Delete

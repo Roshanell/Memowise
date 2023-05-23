@@ -156,6 +156,18 @@ app.get("/api/cards/:id", async (req, res) => {
 	}
 });
 
+app.get("/api/cards", async (req, res) => {
+	try {
+		const { rows: cards } = await db.query(
+			"SELECT * FROM cards",
+		);
+		console.log(cards);
+		res.send(cards);
+	} catch (e) {
+		return res.status(400).json({ e });
+	}
+});
+
 // creates new entry for user, else does nothing
 app.post("/user", cors(), async (req, res) => {
 	console.log(req.body.id, req.body.email);
@@ -209,32 +221,10 @@ app.post("/api/students", async (req, res) => {
 
 app.post("/api/cards/:userid", async (req, res) => {
 	try {
-		let newCards = [];
-		if (Array.isArray(req.body)) {
-			newCards = req.body.map((card) => [
-				card.concept,
-				card.answer,
-				card.imagelink,
-				card.audiolink,
-				card.wronganswerone,
-				card.wronganswertwo,
-				card.tag,
-				req.params.userid,
-			]);
-		} else {
-			newCards = [
-				req.body.concept,
-				req.body.answer,
-				req.body.imagelink,
-				req.body.audiolink,
-				req.body.wronganswerone,
-				req.body.wronganswertwo,
-				req.body.tag,
-				req.params.userid,
-			];
-		}
-
-		newCards.forEach(async (newCard) => {
+		console.log("request body",req.body);
+		const newCards = req.body;
+		console.log("new cards" , newCards);
+		await newCards.forEach(async (newCard) => {
 			await db.query(
 				"INSERT INTO cards(concept, answer, imagelink, audiolink, wronganswerone, wronganswertwo, tag, user_id,hint_one, hint_two ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
 				[
@@ -246,6 +236,8 @@ app.post("/api/cards/:userid", async (req, res) => {
 					newCard.wronganswertwo,
 					newCard.tag,
 					newCard.user_id,
+					newCard.hintOne,
+					newCard.hintTwo,
 				]
 			);
 		});

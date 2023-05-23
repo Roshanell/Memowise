@@ -9,7 +9,7 @@ function ImageGallery({ searchResults }) {
 		<div>
 			<div className="container">
 				<h1 className="heading">Results from image search</h1>
-				<div classNameName="gallery">
+				<div className="gallery">
 					<div className="gallery-item">
 						{searchResults
 							? searchResults.map((result) => {

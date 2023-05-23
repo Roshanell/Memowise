@@ -19,77 +19,98 @@ function ViewCards() {
 		setGlobalSearchText(searchText); // Update the global search text
 	};
 
-	const isAdmin = user?.email === "dteacher422@gmail.com"; // Check if the user is an admin
+	const loadCardsData = async () => {
+		setCards(await loadCards(user)); // Load cards for admin
+	};
 
 	useEffect(() => {
-		const loadCardsData = async () => {
-			if (isAdmin) {
-				setCards(await loadCards()); // Load cards for admin (no user parameter)
-			} else {
-				setCards(await loadCards(user)); // Load cards for regular user (passing user parameter)
-			}
-		};
+		if (user) {
+			// const isAdmin = user?.email === "dteacher422@gmail.com"; // Check if the user is an admin?
+			loadCardsData(); // Call the loadCardsData function when the component mounts or when user or isAdmin changes
+		}
+	}, [user]);
 
-		loadCardsData(); // Call the loadCardsData function when the component mounts or when user or isAdmin changes
-	}, [user, isAdmin]);
+	// const newFilteredCards = cards.filter((card) => {
+	// 	console.log(card);
+	// 	Object.values(card)
+	// 		.join("")
+	// 		.toLowerCase()
+	// 		.includes(globalSearchText.toLowerCase());
+	// });
+
+	const findCards = () => {
+		return cards.filter((card) =>
+			Object.values(card)
+				.join("")
+				.toLowerCase()
+				.includes(globalSearchText.toLowerCase())
+		);
+	};
 
 	useEffect(() => {
-		const newFilteredCards = isAdmin
-			? cards // For admin, display all cards
-			: cards.filter((card) =>
-					Object.values(card)
-						.join("")
-						.toLowerCase()
-						.includes(globalSearchText.toLowerCase())
-			  ); // For regular users, filter cards based on search text
+		// const newFilteredCards = isAdmin
+		// 	? cards // For admin, display all cards
+		// 	: cards.filter((card) =>
+		// 			Object.values(card)
+		// 				.join("")
+		// 				.toLowerCase()
+		// 				.includes(globalSearchText.toLowerCase())
+		// 	  ); // For regular users, filter cards based on search text
 
-		setFilteredCards(newFilteredCards); // Update the filtered cards
-	}, [cards, globalSearchText, isAdmin]);
+		setFilteredCards(findCards()); // Update the filtered cards
+	}, [globalSearchText]);
 
 	const onDelete = async (card) => {
 		console.log(card, "delete method");
 		let url = `http://localhost:8080/api/cards/${card.id}`;
-		if (isAdmin) {
-			url = `http://localhost:8080/api/admin/cards/${card.id}`; // Modify the URL for admin deletion
-		}
+		// if (isAdmin) {
+		// 	url = `http://localhost:8080/api/admin/cards/${card.id}`; // Modify the URL for admin deletion
+		// }
 		try {
 			const response = await fetch(url, {
 				method: "DELETE",
 			});
 			if (response.ok) {
-				const loadCardsData = async () => {
-					if (isAdmin) {
-						setCards(await loadCards()); // Reload cards for admin after deletion
-					} else {
-						setCards(await loadCards(user)); // Reload cards for regular user after deletion
-					}
-				};
-
+				// const loadCardsData = async () => {
+				// 	if (isAdmin) {
+				// 		setCards(await loadCards()); // Reload cards for admin after deletion
+				// 	} else {
+				// 		setCards(await loadCards(user)); // Reload cards for regular user after deletion
+				// 	}
+				// };
 				loadCardsData(); // Call the loadCardsData function to update the cards
+				setFilteredCards(findCards());
 			}
 		} catch (e) {
 			console.error(e); // Log any errors that occur during deletion
 		}
 	};
 
-
 	return (
-		<div>
-			<Banner />
+		cards && (
 			<div>
-				<Instructions personalizedInstructions={personalizedInstructions} />
-				<Searchbar onSearch={handleSearch} />
-				<ul className="card-container">
-					{filteredCards.map((card) => {
-						return (
-							<li className="card-list" key={card.id}>
-								<Card card={card} audio={audio} toDelete={onDelete} />
-							</li>
-						);
-					})}
-				</ul>
+				<Banner />
+				<div>
+					<Instructions personalizedInstructions={personalizedInstructions} />
+					<Searchbar onSearch={handleSearch} />
+					<ul className="card-container">
+						{ !filteredCards ? cards.map((card) => {
+							return (
+								<li className="card-list" key={card.id}>
+									<Card card={card} audio={audio} toDelete={onDelete} />
+								</li>
+							);
+						}) : filteredCards.map((card) => {
+							return (
+								<li className="card-list" key={card.id}>
+									<Card card={card} audio={audio} toDelete={onDelete} />
+								</li>
+							);
+						})}
+					</ul>
+				</div>
 			</div>
-		</div>
+		)
 	);
 }
 

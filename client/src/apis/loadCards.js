@@ -1,10 +1,10 @@
 const loadCards = async (user) => {
 	try {
-		if (!user || !user.sub) {
-			// If user or user.sub is undefined, return an empty array
-			return [];
-		}
-
+		// if (!user || !user.sub) {
+		// 	// If user or user.sub is undefined, return an empty array
+		// 	return [];
+		// }
+		console.log(user);
 		if (user.email === "dteacher422@gmail.com") {
 			// If the user is the admin (teacher) account, load all cards
 			const cards = await fetch("http://localhost:8080/api/cards").then(
