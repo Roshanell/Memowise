@@ -7,7 +7,6 @@
 	grid-template-rows: auto 100% auto;
 }
 
-
 .mybody {
 	display: flex;
 	gap: 3em;
@@ -489,6 +488,10 @@ footer .social-icon li i:hover {
 	margin-top: 4%;
 }
 
+.arrow {
+  transform: scaleY(-1);
+
+}
 /* create card section */
 .create-card {
 	background-color: #d9d9d9;
@@ -714,11 +717,10 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	}
 }
 /* media-search */
-.media-search-grid{
+.media-search-grid {
 	display: grid;
 	grid-template-columns: 50% 50%;
 	border: red solid 3px;
-	;
 }
 
 /* home contianer */
