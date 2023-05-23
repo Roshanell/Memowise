@@ -12,9 +12,10 @@ function ImageGallery({ searchResults }) {
 				<div className="gallery">
 					<div className="gallery-item">
 						{searchResults
-							? searchResults.map((result) => {
+							? searchResults.map((result, index) => {
 									return (
 										<img
+											key={index}
 											className="gallery-image"
 											src={result}
 											onClick={() => handleImageClick(result)}

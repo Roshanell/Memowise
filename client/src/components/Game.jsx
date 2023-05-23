@@ -79,12 +79,10 @@ const Game = () => {
 		console.log(hintText);
 	};
 
-
-	
 	return (
 		<div>
 			<Banner />
-		{score}
+			{score}
 			{currentCard ? (
 				<div id="game-section">
 					<MoreOptions />
@@ -95,7 +93,6 @@ const Game = () => {
 					) : (
 						<h3 className="card-concept">{currentCard.concept}</h3>
 					)}
-					{/* <h3 className="card-concept">{currentCard.concept}</h3> */}
 
 					{currentCard.imagelink ? (
 						<img src={currentCard.imagelink} height="200px" />
@@ -109,10 +106,11 @@ const Game = () => {
 						/>
 					</div>
 					<div className="choices-container">
-						{randomAnswers.map((answer) => {
+						{randomAnswers.map((answer, index) => {
 							if (answer === 0)
 								return (
 									<Button
+										key={index}
 										className="multiple-choice-button"
 										clickHandler={correctAnswerSelected}
 									>
@@ -122,6 +120,7 @@ const Game = () => {
 							if (answer === 1)
 								return (
 									<Button
+										key={index}
 										className="multiple-choice-button"
 										clickHandler={() =>
 											incorrectAnswerSelected(currentCard.hintOne)
@@ -133,6 +132,7 @@ const Game = () => {
 							if (answer === 2)
 								return (
 									<Button
+										key={index}
 										className="multiple-choice-button"
 										clickHandler={() =>
 											incorrectAnswerSelected(currentCard.hintTwo)
