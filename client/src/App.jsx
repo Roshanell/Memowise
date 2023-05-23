@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MyNavBar from "./routes/Navbar";
+import MyNavBar from "./components/MyNavBar";
 import ListStudents from "./components/ListStudents";
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";

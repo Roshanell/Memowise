@@ -12,7 +12,7 @@ function MyNavBar(props) {
 	// console.log(user);
 	return (
 		<>
-			<Navbar sticky="top" className="nav-bar">
+			<Navbar data-testid="navbar"sticky="top" className="nav-bar">
 				<Container>
 					{isAuthenticated ? (
 						<>

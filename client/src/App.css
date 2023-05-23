@@ -495,6 +495,7 @@ footer .social-icon li i:hover {
 .create-card {
 	background-color: #d9d9d9;
 	height: 500px;
+	
 }
 .create-card-inputs {
 	width: 100%;
@@ -601,6 +602,7 @@ footer .social-icon li i:hover {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	border-radius: 10%;
 }
 
 .back {
