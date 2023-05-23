@@ -1,9 +1,7 @@
 const loadCards = async (user) => {
 	try {
-		// if (!user || !user.sub) {
-		// 	// If user or user.sub is undefined, return an empty array
-		// 	return [];
-		// }
+		
+		user?.email 
 		console.log(user);
 		if (user.email === "dteacher422@gmail.com") {
 			// If the user is the admin (teacher) account, load all cards

@@ -489,8 +489,7 @@ footer .social-icon li i:hover {
 }
 
 .arrow {
-  transform: scaleY(-1);
-
+	transform: scaleY(-1);
 }
 /* create card section */
 .create-card {
