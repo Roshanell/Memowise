@@ -43,20 +43,27 @@ function MyNavBar(props) {
 						{!user ? null : <Nav.Link href="/user-profile"></Nav.Link>}
 						<Navbar.Text>
 							{!isAuthenticated ? (
-								<Link onClick={() => loginWithRedirect()} className="nav-link">
-									Log In
-								</Link>
+								<button className="submit-button">
+									<Link
+										onClick={() => loginWithRedirect()}
+										className="nav-link"
+									>
+										Log In
+									</Link>
+								</button>
 							) : (
-								<Link
-									className="header-nav-link"
-									onClick={() =>
-										logout({
-											logoutParams: { returnTo: window.location.origin },
-										})
-									}
-								>
-									{user.name} please Log Out
-								</Link>
+								<button className="submit-button">
+									<Link
+										className="header-nav-link"
+										onClick={() =>
+											logout({
+												logoutParams: { returnTo: window.location.origin },
+											})
+										}
+									>
+										  Log Out
+									</Link>
+								</button>
 							)}
 						</Navbar.Text>
 					</Navbar.Collapse>
