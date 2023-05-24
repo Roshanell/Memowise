@@ -6,7 +6,7 @@ function ImageGallery({ searchResults }) {
 		window.prompt("Copy this URL", imageUrl);
 	};
 	return (
-		<div>
+		<div >
 			<div className="container">
 				<h1 className="heading">Results from image search</h1>
 				<div className="gallery">

@@ -1,13 +1,10 @@
 import React from "react";
 import CreateCardForm from "../components/CreateCardForm";
 import ImageGallery from "../components/ImageGallery";
-import Button from "react-bootstrap/esm/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Generate from "../components/Generate";
 import { useState, useEffect } from "react";
-import Banner from "../components/Banner";
-import Form from "react-bootstrap/Form";
 import SearchMedia from "../components/SearchMedia";
 import Instructions from "../components/Instructions";
 
@@ -24,8 +21,6 @@ Search Audio: Search desired word, copy its URL, and paste into the audio field.
 Click "Search Media" for results to appear.
 `;
 
-	// const [imageResults, setImageResults] = useState("");
-
 	const handleImageSearch = (event) => {
 		const imageSearch = event.target.value;
 		console.log(imageSearch);
@@ -37,10 +32,6 @@ Click "Search Media" for results to appear.
 		setAudioSearch(audioSearch);
 	};
 
-	// let clearForm = () => {
-	// 	setImageSearch((imageSearch = ""));
-	// 	setAudioSearch((audioSearch = ""));
-	// };
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -65,38 +56,6 @@ Click "Search Media" for results to appear.
 			});
 	};
 
-	// const getAudio = () => {
-	// 	fetch(`http://localhost:8080/api/mw?query=${audioSearch}`)
-	// 		.then((response) => response.json())
-	// 		.then((audio) => {
-	// 			console.log(audio, "from mw");
-	// 			let audioString = audio.data[0].hwi.prs[0].sound.audio;
-	// 			let language_code = "en";
-	// 			let country_code = "us";
-	// 			let format = "mp3";
-	// 			let subdirectory = "";
-
-	// 			if (audioString.startsWith("bix")) {
-	// 				subdirectory += "bix";
-	// 			} else if (audioString.startsWith("gg")) {
-	// 				subdirectory += "gg";
-	// 			} else if (
-	// 				audioString.match(
-	// 					/[\d!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/.test(audioString)
-	// 				)
-	// 			) {
-	// 				subdirectory += "number";
-	// 			} else {
-	// 				subdirectory += audioString[0];
-	// 			}
-	// 			console.log(subdirectory, "subdirecotry");
-	// 			let audiourl = `https://media.merriam-webster.com/audio/prons/${language_code}/${country_code}/${format}/${subdirectory}/${audioString}.${format}`;
-	// 			setAudioUrl(audiourl);
-
-	// 			console.log(audiourl);
-	// 		})
-	// 		.catch((error) => console.error(error));
-	// };
 
 	const getAudio = () => {
 		fetch(`http://localhost:8080/api/mw?query=${audioSearch}`)
@@ -147,16 +106,22 @@ Click "Search Media" for results to appear.
 			>
 				<Tab eventKey="Create" title="Create a Card" className="tabs">
 					<Instructions personalizedInstructions={personalizedInstructions} />
-					<CreateCardForm />
-					<SearchMedia
-						handleSubmit={handleSubmit}
-						handleAudioSearch={handleAudioSearch}
-						handleImageSearch={handleImageSearch}
-						imageSearch={imageSearch}
-						audioSearch={audioSearch}
-						audioUrl={audioUrl}
-					/>
-					<ImageGallery searchResults={searchResults} />
+					<div className="create-card-content-container">
+						<div className="searchMedia">
+							<CreateCardForm />
+							<SearchMedia
+								handleSubmit={handleSubmit}
+								handleAudioSearch={handleAudioSearch}
+								handleImageSearch={handleImageSearch}
+								imageSearch={imageSearch}
+								audioSearch={audioSearch}
+								audioUrl={audioUrl}
+							/>
+						</div>
+						<div>
+							<ImageGallery searchResults={searchResults} />
+						</div>
+					</div>
 				</Tab>
 				<Tab eventKey="Generate" title="Generate with AI" className="tabs">
 					<Generate />

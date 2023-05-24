@@ -493,6 +493,13 @@ footer .social-icon li i:hover {
 	transform: scaleY(-1);
 }
 /* create card section */
+.create-card-content-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(1, 1fr);
+	
+}
+
 .create-card {
 	background-color: #d9d9d9;
 	height: 500px;
@@ -652,7 +659,6 @@ The 'supports' rule will only run if your browser supports CSS grid.
 Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
 
 */
-
 .container {
 	max-width: 100rem;
 	margin: 0 auto;
@@ -676,14 +682,13 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 .gallery {
 	display: flex;
 	flex-wrap: wrap;
-	/* Compensate for excess margin on outer gallery flex items */
+
 	margin: -1rem -1rem;
 }
 
 .gallery-item {
-	/* Minimum width of 24rem and grow to fit available space */
 	flex: 1 0 24rem !important;
-	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+
 	margin: 1rem;
 	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
 	overflow: hidden;
@@ -692,7 +697,7 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 .gallery-image {
 	display: block;
 	width: 100%;
-	/* height: 100%;  */
+
 	object-fit: cover;
 	transition: transform 400ms ease-out;
 }
@@ -719,6 +724,7 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 		margin: 0;
 	}
 }
+
 /* media-search */
 .media-search-grid {
 	display: grid;

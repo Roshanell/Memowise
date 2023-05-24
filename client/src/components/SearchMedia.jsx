@@ -23,7 +23,7 @@ function SearchMedia({
 					required
 				/>
 				<Form.Label className="create-card-inputs">
-					Enter a audio search term{" "}
+					Enter an audio search term{" "}
 				</Form.Label>
 				<input
 					type="text"
@@ -37,7 +37,7 @@ function SearchMedia({
 					Search Media
 				</button>
 			</form>
-			<h1>Audio URL: {audioUrl}</h1>
+			<p>Audio URL: {audioUrl}</p>
 			<audio src={audioUrl} controls />
 		</div>
 	);
