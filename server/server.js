@@ -76,7 +76,6 @@ app.post("/api/cards-generate", async (req, res) => {
 app.get("/api/pixabay", (req, res) => {
 	// res.json(imagesData);
 	// const test = req.query.
-
 	// console.log(test, "hi");
 	const API_KEY = process.env.API_KEY;
 	console.log(API_KEY, "api key");

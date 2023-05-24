@@ -12,7 +12,7 @@ function MyNavBar(props) {
 	// console.log(user);
 	return (
 		<>
-			<Navbar data-testid="navbar"sticky="top" className="nav-bar">
+			<Navbar data-testid="navbar" sticky="top" className="nav-bar">
 				<Container>
 					{isAuthenticated ? (
 						<>
@@ -32,6 +32,9 @@ function MyNavBar(props) {
 							</Link>
 							<Link className="nav-link" to="/create">
 								Create Card
+							</Link>
+							<Link className="nav-link" to="/students-data">
+								Students Data
 							</Link>
 							<Link className="nav-link" to="/user-profile">
 								Profile
@@ -61,7 +64,7 @@ function MyNavBar(props) {
 											})
 										}
 									>
-										  Log Out
+										Log Out
 									</Link>
 								</button>
 							)}

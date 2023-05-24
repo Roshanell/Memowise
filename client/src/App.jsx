@@ -12,6 +12,7 @@ import FAQs from "./Pages/FAQs";
 import Profile from "./components/Profile";
 import CreateCardPage from "./Pages/CreateCardPage";
 
+import StudentsData from "./Pages/StudentsData";
 
 import {
 	createBrowserRouter,
@@ -52,7 +53,7 @@ const router = createBrowserRouter(
 			<Route path="/FAQs" element={<FAQs />} />
 			<Route path="/" element={<Home />} />
 			<Route path="/user-profile" element={<Profile />} />
-			{/* <Route path="/leaderboard" element={<Leaderboard />} /> */}
+			<Route path="/students-data" element={<StudentsData />} />
 		</Route>
 	)
 );
