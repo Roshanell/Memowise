@@ -7,14 +7,14 @@ const loadCards = async (user) => {
 			const cards = await fetch("http://localhost:8080/api/cards").then(
 				(response) => response.json()
 			);
-			console.log(cards);
+			// console.log(cards);
 			return cards;
 		} else {
 			// If it's a regular user, load their own cards based on user.sub
 			const cards = await fetch(
 				`http://localhost:8080/api/cards/${user.sub}`
 			).then((response) => response.json());
-			console.log(cards);
+			// console.log(cards);
 			return cards;
 		}
 	} catch (e) {
