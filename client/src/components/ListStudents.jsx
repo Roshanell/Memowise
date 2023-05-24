@@ -15,17 +15,11 @@ const ListStudents = () => {
 			.then((response) => response.json())
 			.then((students) => {
 				setStudents(students);
-				console.log(students, "list of students");
+				// console.log(students, "list of students");
 			})
 			.catch((error) => console.error(error)); // add a catch block to log any errors
 	};
 
-	// fetch("http://localhost:8080/api/cards/generate")
-	// 	.then((response) => response.json())
-	// 	.then((data) => {
-	// 		console.log(data, "hard-coded data");
-	// 	})
-	// 	.catch((error) => console.error(error)); // add a catch block to log any errors
 	
 	useEffect(() => {
 		loadStudents();

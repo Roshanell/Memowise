@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Roster = () => {
 	const { user } = useAuth0();
-	console.log(user);
+	// console.log(user);
 
 	const personalizedInstructions =
 		user && user.given_name
@@ -16,7 +16,7 @@ const Roster = () => {
 		<div>
 			<Banner />
 			<Instructions personalizedInstructions={personalizedInstructions} />
-			<ListStudents />;
+			<ListStudents />
 		</div>
 	);
 };
