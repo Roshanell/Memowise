@@ -166,6 +166,21 @@ app.get("/api/cards", async (req, res) => {
 	}
 });
 
+app.get("/api/scores/:sub", async (req, res) => {
+	try {
+		const { sub } = req.params;
+		const result = await db.query(
+			"SELECT cardid, SUM(CASE WHEN iscorrect THEN 1 ELSE 0 END) AS correct_count, SUM(CASE WHEN iscorrect  THEN 0 ELSE 1 END) AS incorrect_count FROM stats WHERE userid = $1 GROUP BY cardid",
+			[sub]
+		);
+
+		console.log(result);
+		res.json(result.rows);
+	} catch (e) {
+		return res.status(400).json({ e });
+	}
+});
+
 // creates new entry for user, else does nothing
 app.post("/user", cors(), async (req, res) => {
 	console.log(req.body.id, req.body.email);
@@ -253,48 +268,40 @@ app.post("/api/cards/:userid", async (req, res) => {
 });
 
 // /// API endpoint for inserting correct answer
-// app.post("/api/stats/correct/:sub", async (req, res) => {
-// 	try {
-// 		const { sub } = req.params; // gets the userId from the URL route parameters
-// 		const { cardId } = req.body; // gets the cardId from the request body
 
-// 		const client = await pool.connect(); // gets client connection from the connection pool
-// 		const query =
-// 			"INSERT INTO stats (userId, cardId, isCorrect) VALUES ($1, $2, $3)"; // SQL query to insert data into the stats table
-// 		const values = [sub, cardId, true]; // Values that'll be inserted into the query
-// 		await client.query(query, values); // do the query with the values
-// 		client.release(); // Release the client connection back to the pool
-
-// 		res.sendStatus(200);
-// 	} catch (error) {
-// 		console.error("Error inserting correct answer:", error);
-// 		res.sendStatus(500); // Send an error response
-// 	}
-// });
+app.post("/api/stats/correct/:sub", async (req, res) => {
+	try {
+		const { sub } = req.params; // gets the userId from the URL route parameters
+		const { cardId } = req.body; // gets the cardId from the request body
+		const query =
+			"INSERT INTO stats (userId, cardId, isCorrect) VALUES ($1, $2, $3)"; // SQL query to insert data into the stats table
+		const values = [sub, cardId, true]; // Values that'll be inserted into the query
+		await db.query(query, values); // do the query with the values
+		res.sendStatus(200);
+	} catch (error) {
+		console.error("Error inserting correct answer:", error);
+		res.sendStatus(500); // Send an error response
+	}
+});
 
 // // API endpoint for inserting incorrect answer
-// app.post("/api/stats/incorrect/:sub", async (req, res) => {
-// 	try {
-// 		const { sub } = req.params; // get the userId from the URL route parameters
-// 		const { cardId } = req.body; // get the cardId from the request body
-
-// 		const client = await pool.connect(); //client connection from the connection pool
-// 		const query =
-// 			"INSERT INTO stats (userId, cardId, isCorrect) VALUES ($1, $2, $3)"; // SQL query to insert data into the stats table
-// 		const values = [sub, cardId, false]; // Values to be inserted into the query
-// 		await client.query(query, values); // get the query with the values
-// 		client.release(); // Release the client connection back to the pool
-
-// 		res.sendStatus(200);
-// 	} catch (error) {
-// 		console.error("Error inserting incorrect answer:", error);
-// 		res.sendStatus(500);
-// 	}
-// });
+app.post("/api/stats/incorrect/:sub", async (req, res) => {
+	try {
+		const { sub } = req.params; // get the userId from the URL route parameters
+		const { cardId } = req.body; // get the cardId from the request body
+		const query =
+			"INSERT INTO stats (userId, cardId, isCorrect) VALUES ($1, $2, $3)"; // SQL query to insert data into the stats table
+		const values = [sub, cardId, false]; // Values to be inserted into the query
+		await db.query(query, values); // get the query with the values
+		res.sendStatus(200);
+	} catch (error) {
+		console.error("Error inserting incorrect answer:", error);
+		res.sendStatus(500);
+	}
+});
 
 // app.post("/api/answer/:userid", async (req, res) => {
 // 	try {
-// 		if()
 // 		if (req.body.answer === "correct") {
 // 			await db.query(
 // 				"UPDATE stats SET correct = correct + 1 WHERE userid = $1",

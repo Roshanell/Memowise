@@ -66,13 +66,16 @@ const Game = () => {
 
 	const submitCorrectAnswer = async () => {
 		try {
-			const response = await fetch(`/api/stats/correct/${user.sub}`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ cardId: currentCard.id }),
-			});
+			const response = await fetch(
+				`http://localhost:8080/api/stats/correct/${user.sub}`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ cardId: currentCard.id }),
+				}
+			);
 
 			if (response.ok) {
 				console.log("Correct answer submitted");
@@ -86,13 +89,16 @@ const Game = () => {
 
 	const submitIncorrectAnswer = async () => {
 		try {
-			const response = await fetch(`/api/stats/incorrect/${user.sub}`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ cardId: currentCard.id }),
-			});
+			const response = await fetch(
+				`http://localhost:8080/api/stats/incorrect/${user.sub}`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ cardId: currentCard.id }),
+				}
+			);
 
 			if (response.ok) {
 				console.log("Incorrect answer submitted");
@@ -103,6 +109,8 @@ const Game = () => {
 			console.error("Error submitting incorrect answer:", error);
 		}
 	};
+
+
 
 	const correctAnswerSelected = () => {
 		console.log("correct");
