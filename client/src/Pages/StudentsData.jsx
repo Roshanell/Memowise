@@ -1,9 +1,13 @@
 import React from 'react'
+import Instructions from '../components/Instructions'
 
 function StudentsData() {
+    	const personalizedInstructions = `Select a student's name to see thier data`;
   return (
-    <div>StudentsData</div>
-  )
+		<div>
+			<Instructions personalizedInstructions={personalizedInstructions} />{" "}
+		</div>
+	);
 }
 
 export default StudentsData
