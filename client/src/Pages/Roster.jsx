@@ -17,6 +17,7 @@ const Roster = () => {
 			<Banner />
 			<Instructions personalizedInstructions={personalizedInstructions} />
 			<ListStudents />
+
 		</div>
 	);
 };

@@ -12,6 +12,7 @@
 	gap: 3em;
 	padding: 1em;
 	background-color: #f7f7f7;
+	margin-bottom: 8em;
 }
 
 /* navBar */
@@ -495,7 +496,6 @@ footer .social-icon li i:hover {
 .create-card {
 	background-color: #d9d9d9;
 	height: 500px;
-	
 }
 .create-card-inputs {
 	width: 100%;
@@ -635,6 +635,8 @@ footer .social-icon li i:hover {
 .card-container {
 	display: flex;
 	flex-wrap: wrap;
+	margin-left: 10em;
+	margin-bottom: 5em;
 }
 
 .audio-player {
@@ -749,7 +751,8 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	border-width: 5px 0px 5px 0px;
 	border-style: solid;
 	border-color: #000000;
-	background-image: url("https://i.imgur.com/WECjTQq.png");z-index: 1;
+	background-image: url("https://i.imgur.com/WECjTQq.png");
+	z-index: 1;
 }
 
 .left-box {
@@ -760,7 +763,6 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	border-color: #000000;
 	height: 100%;
 }
-
 
 .heading-homepage {
 	font-family: "Inter";
