@@ -64,9 +64,50 @@ const Game = () => {
 		setCurrentCard(nextCard);
 	};
 
+	const submitCorrectAnswer = async () => {
+		try {
+			const response = await fetch(`/api/stats/correct/${user.sub}`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ cardId: currentCard.id }),
+			});
+
+			if (response.ok) {
+				console.log("Correct answer submitted");
+			} else {
+				console.error("Failed to submit correct answer");
+			}
+		} catch (error) {
+			console.error("Error submitting correct answer:", error);
+		}
+	};
+
+	const submitIncorrectAnswer = async () => {
+		try {
+			const response = await fetch(`/api/stats/incorrect/${user.sub}`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ cardId: currentCard.id }),
+			});
+
+			if (response.ok) {
+				console.log("Incorrect answer submitted");
+			} else {
+				console.error("Failed to submit incorrect answer");
+			}
+		} catch (error) {
+			console.error("Error submitting incorrect answer:", error);
+		}
+	};
+
 	const correctAnswerSelected = () => {
 		console.log("correct");
 		setScore(score + 1);
+		submitCorrectAnswer();
 		gotoNextCard();
 		setHint("");
 		console.log(score);
@@ -74,8 +115,9 @@ const Game = () => {
 	const incorrectAnswerSelected = (hintText) => {
 		console.log("incorrect");
 		setScore(score - 1);
-		console.log(score);
+		submitIncorrectAnswer();
 		setHint(hintText);
+		console.log(score);
 		console.log(hintText);
 	};
 

@@ -2,7 +2,6 @@ const loadCards = async (user) => {
 	try {
 		
 		user?.email 
-		console.log(user);
 		if (user.email === "dteacher422@gmail.com") {
 			// If the user is the admin (teacher) account, load all cards
 			const cards = await fetch("http://localhost:8080/api/cards").then(
