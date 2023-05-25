@@ -32,14 +32,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Move to Front End Directory
-        run: cd client
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "18"
       - name: Install dependencies
-        run: npm i
+        run: cd client && npm i
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
