@@ -8,16 +8,16 @@
     ],
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/api/**",
+        "source": "/api{,/**}",
         "run": {
           "serviceId": "memowise-backend",
           "region": "us-central1"
         }
-      }
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      },
     ]
   }
 }
