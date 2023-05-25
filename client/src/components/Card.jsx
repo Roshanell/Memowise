@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import Badge from "react-bootstrap/Badge";
+
 
 function Card({ card, audio, toDelete }) {
 	const [isFlipped, setIsFlipped] = useState(false);
@@ -21,11 +23,14 @@ function Card({ card, audio, toDelete }) {
 				onClick={handleClick}
 			>
 				<div className="front">
-					{card.tag ? (
-						<div className="item-category">
-							<a href="#">{card.tag}</a>
-						</div>
-					) : null}
+					<Badge bg="danger">
+						{card.tag ? (
+							// <div className="item-category">
+							// 	<a href="#">{card.tag}</a>
+							// </div>
+							<div>{card.tag}</div>
+						) : null}
+					</Badge>
 
 					<p>{card.concept}</p>
 					{card.imagelink ? (
