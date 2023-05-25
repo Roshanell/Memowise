@@ -53,7 +53,6 @@ const Game = () => {
 		setHint("");
 	};
 
-
 	const gotoNextCard = () => {
 		setTimeout(() => {
 			let nextCardIndex;
@@ -68,8 +67,6 @@ const Game = () => {
 			setHint("");
 		}, 2000);
 	};
-
-
 
 	const submitCorrectAnswer = async () => {
 		try {

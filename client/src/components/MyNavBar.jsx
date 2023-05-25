@@ -33,9 +33,12 @@ function MyNavBar(props) {
 							<Link className="nav-link" to="/create">
 								Create Card
 							</Link>
-							<Link className="nav-link" to="/students-data">
-								Students Data
-							</Link>
+							{isAdmin && (
+								<Link className="nav-link" to="/students-data">
+									Students Data
+								</Link>
+							)}
+							{/* <Link className="nav-link" to="/students-data"></Link> */}
 							<Link className="nav-link" to="/user-profile">
 								Profile
 							</Link>

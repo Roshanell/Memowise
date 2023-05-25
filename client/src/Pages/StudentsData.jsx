@@ -6,6 +6,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 function StudentsData() {
 	const personalizedInstructions = `Select a student's name to see thier data`;
 	const [students, setStudents] = useState([]);
+	const [selectedStudent, setSelectedStudent] = useState(null);
 
 	useEffect(() => {
 		fetchStudents();
@@ -13,23 +14,36 @@ function StudentsData() {
 
 	async function fetchStudents() {
 		try {
-			const response = await fetch("/api/students");
+			const response = await fetch("http://localhost:8080/api/students");
 			const data = await response.json();
+			console.log(data);
 			setStudents(data);
 		} catch (error) {
-			console.error("Error fetching students:", error);
+			console.log("Error fetching students:", error);
 		}
 	}
 	return (
 		<div>
 			<Instructions personalizedInstructions={personalizedInstructions} />{" "}
-			<DropdownButton id="dropdown-basic-button" title="Dropdown button">
-				{students.map((student) => (
-					<Dropdown.Item key={student.id} href={`#/action-${students.id}`}>
-						{student.name}
-					</Dropdown.Item>
-				))}
-			</DropdownButton>
+			<Dropdown
+				variant="secondary"
+				id="dropdown-basic"
+				onSelect={(e) => setSelectedStudent(e)}
+			>
+				<Dropdown.Toggle variant="secondary" id="dropdown-basic">
+					{selectedStudent ? selectedStudent : "Select a Student"}
+				</Dropdown.Toggle>
+				<Dropdown.Menu style={{ overflowY: "scroll", height: "200px" }}>
+					{students.map((student) => (
+						<Dropdown.Item
+							key={`Student+${student.firstname}`}
+							eventKey={`${student.firstname}`}
+						>
+							{student.firstname}
+						</Dropdown.Item>
+					))}
+				</Dropdown.Menu>
+			</Dropdown>
 		</div>
 	);
 }

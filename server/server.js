@@ -28,6 +28,7 @@ app.get("/", (req, res) => {
 app.get("/api/students", async (req, res) => {
 	try {
 		const { rows: students } = await db.query("SELECT * FROM students");
+		console.log(students);
 		res.send(students);
 	} catch (e) {
 		return res.status(400).json({ e });
@@ -247,7 +248,7 @@ app.post("/api/cards/:userid", async (req, res) => {
 					newCard.wronganswerone,
 					newCard.wronganswertwo,
 					newCard.tag,
-					newCard.user_id,
+					req.params.userid,
 					newCard.hintOne,
 					newCard.hintTwo,
 				]

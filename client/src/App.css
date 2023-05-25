@@ -417,6 +417,23 @@ footer .social-icon li i:hover {
 	font-size: 24px;
 }
 
+.selected-wrong-answer {
+  position: relative;
+}
+
+.wrong-answer-button.selected {
+  position: relative;
+}
+
+.wrong-answer-button.selected::before {
+  content: "\274C";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  color: red;
+}
+
+
 .fa-volume-up {
 	position: relative;
 	top: 0;
