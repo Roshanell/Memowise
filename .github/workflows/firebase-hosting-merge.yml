@@ -8,13 +8,18 @@ name: Deploy to Firebase Hosting on merge
       - main
 jobs:
   build_and_deploy:
+    defaults:
+      run:
+        working-directory: ./client
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: cd client && npm i && npm run build
+      - working-directory: ./client
+      - run: npm i && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MEMOWISE }}'
           channelId: live
           projectId: memowise
+          entryPoint: ./client
