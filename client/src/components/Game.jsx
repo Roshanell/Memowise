@@ -15,9 +15,11 @@ const Game = () => {
 	const [randomAnswers, setRandomAnswers] = useState([]);
 	const [score, setScore] = useState(0);
 	const [hint, setHint] = useState("");
+	const [selectedAnswer, setSelectedAnswer] = useState(null);
 
 	const { user } = useAuth0();
 	const personalizedInstructions = `Select the correct answer to each question`;
+
 	useEffect(() => {
 		const newRandomAnswers = [];
 
@@ -37,6 +39,7 @@ const Game = () => {
 	}, [user]);
 
 	useEffect(() => setCurrentCard(cards[0] || {}), [cards]);
+
 	const goToPreviousCard = () => {
 		let previousCardIndex;
 		if (currentCardIndex === 0) {
@@ -45,24 +48,28 @@ const Game = () => {
 			previousCardIndex = currentCardIndex - 1;
 		}
 		setCurrentCardIndex(previousCardIndex);
-		const previousCard = cards[previousCardIndex];
-
-		setCurrentCard(previousCard);
+		setCurrentCard(cards[previousCardIndex]);
+		setSelectedAnswer(null);
+		setHint("");
 	};
 
-	useEffect(() => setCurrentCard(cards[0] || {}), [cards]);
+
 	const gotoNextCard = () => {
-		let nextCardIndex;
-		if (currentCardIndex === cards.length - 1) {
-			nextCardIndex = 0;
-		} else {
-			nextCardIndex = currentCardIndex + 1;
-		}
-		setCurrentCardIndex(nextCardIndex);
-		const nextCard = cards[nextCardIndex];
-
-		setCurrentCard(nextCard);
+		setTimeout(() => {
+			let nextCardIndex;
+			if (currentCardIndex === cards.length - 1) {
+				nextCardIndex = 0;
+			} else {
+				nextCardIndex = currentCardIndex + 1;
+			}
+			setCurrentCardIndex(nextCardIndex);
+			setCurrentCard(cards[nextCardIndex]);
+			setSelectedAnswer(null);
+			setHint("");
+		}, 2000);
 	};
+
+
 
 	const submitCorrectAnswer = async () => {
 		try {
@@ -110,18 +117,17 @@ const Game = () => {
 		}
 	};
 
-
-
-	const correctAnswerSelected = () => {
-		console.log("correct");
+	const handleCorrectAnswerSelected = () => {
+		setSelectedAnswer(0);
 		setScore(score + 1);
 		submitCorrectAnswer();
 		gotoNextCard();
 		setHint("");
 		console.log(score);
 	};
-	const incorrectAnswerSelected = (hintText) => {
-		console.log("incorrect");
+
+	const handleIncorrectAnswerSelected = (hintText) => {
+		setSelectedAnswer(null);
 		setScore(score - 1);
 		submitIncorrectAnswer();
 		setHint(hintText);
@@ -158,40 +164,49 @@ const Game = () => {
 					</div>
 					<div className="choices-container">
 						{randomAnswers.map((answer, index) => {
-							if (answer === 0)
+							if (answer === 0) {
 								return (
 									<Button
 										key={index}
-										className="multiple-choice-button"
-										clickHandler={correctAnswerSelected}
+										className={`multiple-choice-button ${
+											selectedAnswer === 0 ? "selected" : ""
+										}`}
+										clickHandler={handleCorrectAnswerSelected}
 									>
+										{selectedAnswer === 0 && answer === 0 ? (
+											<span className="smiley">&#128512;</span>
+										) : null}
 										{currentCard.answer}
 									</Button>
 								);
-							if (answer === 1)
+							}
+							if (answer === 1) {
 								return (
 									<Button
 										key={index}
 										className="multiple-choice-button"
 										clickHandler={() =>
-											incorrectAnswerSelected(currentCard.hintOne)
+											handleIncorrectAnswerSelected(currentCard.hintOne)
 										}
 									>
 										{currentCard.wronganswerone}
 									</Button>
 								);
-							if (answer === 2)
+							}
+							if (answer === 2) {
 								return (
 									<Button
 										key={index}
 										className="multiple-choice-button"
 										clickHandler={() =>
-											incorrectAnswerSelected(currentCard.hintTwo)
+											handleIncorrectAnswerSelected(currentCard.hintTwo)
 										}
 									>
 										{currentCard.wronganswertwo}
 									</Button>
 								);
+							}
+							return null;
 						})}
 					</div>
 

@@ -409,6 +409,14 @@ footer .social-icon li i:hover {
 	top: 24%;
 }
 
+/* Game.css */
+
+.smiley {
+	display: inline-block;
+	margin-right: 5px;
+	font-size: 24px;
+}
+
 .fa-volume-up {
 	position: relative;
 	top: 0;
