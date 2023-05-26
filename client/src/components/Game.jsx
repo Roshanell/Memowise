@@ -16,6 +16,8 @@ const Game = () => {
 	const [score, setScore] = useState(0);
 	const [hint, setHint] = useState("");
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
+	const [correctAnswers, setCorrectAnswers] = useState(0);
+	const [isFlipped, setIsFlipped] = useState(false);
 
 	const { user } = useAuth0();
 	const personalizedInstructions = `Select the correct answer to each question`;
@@ -55,6 +57,8 @@ const Game = () => {
 
 	const gotoNextCard = () => {
 		setTimeout(() => {
+			setIsFlipped(false);
+
 			let nextCardIndex;
 			if (currentCardIndex === cards.length - 1) {
 				nextCardIndex = 0;
@@ -117,6 +121,8 @@ const Game = () => {
 	const handleCorrectAnswerSelected = () => {
 		setSelectedAnswer(0);
 		setScore(score + 1);
+		setIsFlipped(true);
+		setCorrectAnswers(correctAnswers + 1);
 		submitCorrectAnswer();
 		gotoNextCard();
 		setHint("");
@@ -125,7 +131,7 @@ const Game = () => {
 
 	const handleIncorrectAnswerSelected = (hintText) => {
 		setSelectedAnswer(null);
-		setScore(score - 1);
+		// setScore(score - 1);
 		submitIncorrectAnswer();
 		setHint(hintText);
 		console.log(score);
@@ -136,7 +142,25 @@ const Game = () => {
 		<div>
 			<Banner />
 			<Instructions personalizedInstructions={personalizedInstructions} />
-			{score}
+
+			<div className={`score-component ${isFlipped ? "flipped" : ""}`}>
+				<div className="score-circle">
+					<div className="score-front">
+						<span className="score-text">{score}</span>
+					</div>
+					<div className="score-back">
+						<span className="score-text-flipped">
+							{" "}
+							<img
+								src="https://i.imgur.com/i8qWOkU.png"
+								className="score-star"
+								alt="Star"
+							/>
+						</span>
+					</div>
+				</div>
+			</div>
+
 			{currentCard ? (
 				<div id="game-section">
 					<MoreOptions />

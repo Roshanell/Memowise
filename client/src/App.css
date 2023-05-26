@@ -383,6 +383,65 @@ footer .social-icon li i:hover {
 	font-size: 45px;
 }
 /* game section */
+
+.score-component {
+	display: inline-block;
+	perspective: 1000px;
+	width: 46%;
+	margin-left: 45%;
+}
+
+.score-circle {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background-color: lightblue;
+	text-align: center;
+	line-height: 80px;
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+	transform-style: preserve-3d;
+	transition: transform 0.6s;
+}
+
+.score-component.flipped .score-circle {
+	transform: rotateY(180deg);
+}
+
+.score-front,
+.score-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.score-back {
+	transform: rotateY(180deg);
+}
+
+.score-text,
+.score-text-flipped {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+}
+
+.score-star {
+	display: block;
+	margin: 10px auto;
+	height: 50px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.score-component.flipped .score-star {
+	opacity: 1;
+}
+
 #game-section {
 	border: solid 3px black;
 	height: 50vh;
@@ -418,21 +477,20 @@ footer .social-icon li i:hover {
 }
 
 .selected-wrong-answer {
-  position: relative;
+	position: relative;
 }
 
 .wrong-answer-button.selected {
-  position: relative;
+	position: relative;
 }
 
 .wrong-answer-button.selected::before {
-  content: "\274C";
-  position: absolute;
-  top: 0;
-  left: -20px;
-  color: red;
+	content: "\274C";
+	position: absolute;
+	top: 0;
+	left: -20px;
+	color: red;
 }
-
 
 .fa-volume-up {
 	position: relative;
@@ -770,7 +828,6 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	border-width: 5px 0px;
 	border-style: solid;
 	border-color: #000000;
-
 }
 .card2-1 {
 	position: absolute;
@@ -974,8 +1031,8 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	margin-bottom: 10rem;
 }
 
-.student-cards{
-	display:flex;
+.student-cards {
+	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
