@@ -41,13 +41,13 @@ function Card({ card, audio, toDelete }) {
 					</button>
 				</div>
 				<div className="back">
+					<p>{card.answer}</p>
 					{card.audiolink ? (
 						<>
-							<i className="fa fa-volume-up"></i>
+							{/* <i className="fa fa-volume-up"></i> */}
 							<audio className="audio-player" src={card.audiolink} controls />
 						</>
 					) : null}
-					<p>{card.answer}</p>
 				</div>
 			</div>
 		</div>
