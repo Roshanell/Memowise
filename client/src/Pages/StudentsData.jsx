@@ -66,7 +66,7 @@ function StudentsData() {
 					))}
 				</Dropdown.Menu>
 			</Dropdown>
-			<div>
+			<div className="student-cards">
 				{studentCards ? studentCards.map((card) => <Card card={card} />) : null}
 			</div>
 		</div>
