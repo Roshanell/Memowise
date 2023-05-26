@@ -6,16 +6,17 @@ function ImageGallery({ searchResults }) {
 		window.prompt("Copy this URL", imageUrl);
 	};
 	return (
-		<div>
-			<div class="container">
-				<h1 class="heading">Results from image search</h1>
+		<div >
+			<div className="container">
+				<h1 className="heading">Results from image search</h1>
 				<div className="gallery">
-					<div class="gallery-item">
+					<div className="gallery-item">
 						{searchResults
-							? searchResults.map((result) => {
+							? searchResults.map((result, index) => {
 									return (
 										<img
-											class="gallery-image"
+											key={index}
+											className="gallery-image"
 											src={result}
 											onClick={() => handleImageClick(result)}
 											style={{ cursor: "pointer" }}

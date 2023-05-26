@@ -6,10 +6,13 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function MyNavBar(props) {
 	const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+	let admin = "dteacher422@gmail.com";
+	const isAdmin = user && user.email === admin;
 
+	// console.log(user);
 	return (
 		<>
-			<Navbar sticky="top" className="nav-bar">
+			<Navbar data-testid="navbar" sticky="top" className="nav-bar">
 				<Container>
 					{isAuthenticated ? (
 						<>
@@ -19,15 +22,23 @@ function MyNavBar(props) {
 							<Link className="nav-link" to="/game">
 								Game
 							</Link>
-							<Link className="nav-link" to="/roster">
-								Roster
-							</Link>
+							{isAdmin && (
+								<Link className="nav-link" to="/roster">
+									Roster
+								</Link>
+							)}
 							<Link className="nav-link" to="/cards">
 								View Cards
 							</Link>
 							<Link className="nav-link" to="/create">
 								Create Card
 							</Link>
+							{isAdmin && (
+								<Link className="nav-link" to="/students-data">
+									Students Data
+								</Link>
+							)}
+							{/* <Link className="nav-link" to="/students-data"></Link> */}
 							<Link className="nav-link" to="/user-profile">
 								Profile
 							</Link>
@@ -38,20 +49,27 @@ function MyNavBar(props) {
 						{!user ? null : <Nav.Link href="/user-profile"></Nav.Link>}
 						<Navbar.Text>
 							{!isAuthenticated ? (
-								<Link onClick={() => loginWithRedirect()} className="nav-link">
-									Log In
-								</Link>
+								<button className="submit-button">
+									<Link
+										onClick={() => loginWithRedirect()}
+										className="nav-link"
+									>
+										Log In
+									</Link>
+								</button>
 							) : (
-								<Link
-									className="header-nav-link"
-									onClick={() =>
-										logout({
-											logoutParams: { returnTo: window.location.origin },
-										})
-									}
-								>
-									{user.name} please Log Out
-								</Link>
+								<button className="submit-button">
+									<Link
+										className="header-nav-link"
+										onClick={() =>
+											logout({
+												logoutParams: { returnTo: window.location.origin },
+											})
+										}
+									>
+										Log Out
+									</Link>
+								</button>
 							)}
 						</Navbar.Text>
 					</Navbar.Collapse>

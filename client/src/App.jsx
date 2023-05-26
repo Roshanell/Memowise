@@ -1,10 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MyNavBar from "./routes/Navbar";
-import ListStudents from "./components/ListStudents";
+import MyNavBar from "./components/MyNavBar";
 import Footer from "./components/Footer";
-import Banner from "./components/Banner";
-import CreateCard from "./components/CreateCards";
 import Game from "./components/Game";
 import Roster from "./Pages/Roster";
 import Home from "./Pages/Home";
@@ -14,7 +11,8 @@ import AboutMe from "./Pages/AboutMe";
 import FAQs from "./Pages/FAQs";
 import Profile from "./components/Profile";
 import CreateCardPage from "./Pages/CreateCardPage";
-import Leaderboard from "./Pages/Leaderboard";
+
+import StudentsData from "./Pages/StudentsData";
 
 import {
 	createBrowserRouter,
@@ -55,7 +53,7 @@ const router = createBrowserRouter(
 			<Route path="/FAQs" element={<FAQs />} />
 			<Route path="/" element={<Home />} />
 			<Route path="/user-profile" element={<Profile />} />
-			{/* <Route path="/leaderboard" element={<Leaderboard />} /> */}
+			<Route path="/students-data" element={<StudentsData />} />
 		</Route>
 	)
 );

@@ -1,8 +1,4 @@
 import { Link } from "react-router-dom";
-// footer
-// TO DO: fix spacing for about us and connect so that it is centered
-//  put about us on the left and connect to the right
-//  change color for contact us icons to greysih
 const Footer = () => {
 	return (
 		<footer>
@@ -14,12 +10,12 @@ const Footer = () => {
 								<Link className="header-nav-link" to="/">
 									Home
 								</Link>
-								<Link className="header-nav-link" to="/aboutMe">
+								{/* <Link className="header-nav-link" to="/aboutMe">
 									About Me
 								</Link>
 								<Link className="header-nav-link" to="/FAQS">
 									FAQs
-								</Link>
+								</Link> */}
 							</ul>
 						</div>
 						<div className="col-md-4">
@@ -27,17 +23,17 @@ const Footer = () => {
 							<ul className="social-icon">
 								<li>
 									<a href="https://github.com/Roshanell">
-										<i class="fa-brands fa-github"></i>
+										<i className="fa-brands fa-github"></i>
 									</a>
 								</li>
 								<li>
 									<a href="https://www.linkedin.com/in/roshanellfrancisco/">
-										<i class="fa-brands fa-linkedin-in"></i>
+										<i className="fa-brands fa-linkedin-in"></i>
 									</a>
 								</li>
 								<li>
 									<a href="https://roshanell.netlify.app/">
-										<i class="fa-solid fa-globe"></i>
+										<i className="fa-solid fa-globe"></i>
 									</a>
 								</li>
 							</ul>

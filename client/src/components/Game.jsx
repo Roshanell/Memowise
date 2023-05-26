@@ -2,22 +2,27 @@ import Instructions from "./Instructions";
 import Button from "./Button";
 import MoreOptions from "./MoreOptions";
 import NextCardButton from "./NextCardButton";
-import Banner from "./Banner";
+import NavBanner from "./NavBanner";
 import { useEffect, useState } from "react";
 import loadCards from "../apis/loadCards";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Game = () => {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [currentCard, setCurrentCard] = useState({});
 	const [cards, setCards] = useState([]);
 	const [randomAnswers, setRandomAnswers] = useState([]);
 	const [score, setScore] = useState(0);
 	const [hint, setHint] = useState("");
+	const [selectedAnswer, setSelectedAnswer] = useState(null);
+	const [correctAnswers, setCorrectAnswers] = useState(0);
+	const [isFlipped, setIsFlipped] = useState(false);
 
 	const { user } = useAuth0();
 	const personalizedInstructions = `Select the correct answer to each question`;
+
 	useEffect(() => {
 		const newRandomAnswers = [];
 
@@ -37,6 +42,7 @@ const Game = () => {
 	}, [user]);
 
 	useEffect(() => setCurrentCard(cards[0] || {}), [cards]);
+
 	const goToPreviousCard = () => {
 		let previousCardIndex;
 		if (currentCardIndex === 0) {
@@ -45,57 +51,127 @@ const Game = () => {
 			previousCardIndex = currentCardIndex - 1;
 		}
 		setCurrentCardIndex(previousCardIndex);
-		const previousCard = cards[previousCardIndex];
-
-		setCurrentCard(previousCard);
+		setCurrentCard(cards[previousCardIndex]);
+		setSelectedAnswer(null);
+		setHint("");
 	};
 
-	useEffect(() => setCurrentCard(cards[0] || {}), [cards]);
 	const gotoNextCard = () => {
-		let nextCardIndex;
-		if (currentCardIndex === cards.length - 1) {
-			nextCardIndex = 0;
-		} else {
-			nextCardIndex = currentCardIndex + 1;
-		}
-		setCurrentCardIndex(nextCardIndex);
-		const nextCard = cards[nextCardIndex];
+		setTimeout(() => {
+			setIsFlipped(false);
 
-		setCurrentCard(nextCard);
+			let nextCardIndex;
+			if (currentCardIndex === cards.length - 1) {
+				nextCardIndex = 0;
+			} else {
+				nextCardIndex = currentCardIndex + 1;
+			}
+			setCurrentCardIndex(nextCardIndex);
+			setCurrentCard(cards[nextCardIndex]);
+			setSelectedAnswer(null);
+			setHint("");
+		}, 2000);
 	};
 
-	const correctAnswerSelected = () => {
-		console.log("correct");
+	const submitCorrectAnswer = async () => {
+		try {
+			const response = await fetch(
+				`${API}/stats/correct/${user.sub}`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ cardId: currentCard.id }),
+				}
+			);
+
+			if (response.ok) {
+				console.log("Correct answer submitted");
+			} else {
+				console.error("Failed to submit correct answer");
+			}
+		} catch (error) {
+			console.error("Error submitting correct answer:", error);
+		}
+	};
+
+	const submitIncorrectAnswer = async () => {
+		try {
+			const response = await fetch(
+				`${API}/stats/incorrect/${user.sub}`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ cardId: currentCard.id }),
+				}
+			);
+
+			if (response.ok) {
+				console.log("Incorrect answer submitted");
+			} else {
+				console.error("Failed to submit incorrect answer");
+			}
+		} catch (error) {
+			console.error("Error submitting incorrect answer:", error);
+		}
+	};
+
+	const handleCorrectAnswerSelected = () => {
+		setSelectedAnswer(0);
 		setScore(score + 1);
+		setIsFlipped(true);
+		setCorrectAnswers(correctAnswers + 1);
+		submitCorrectAnswer();
 		gotoNextCard();
 		setHint("");
 		console.log(score);
 	};
-	const incorrectAnswerSelected = (hintText) => {
-		console.log("incorrect");
-		setScore(score - 1);
-		console.log(score);
+
+	const handleIncorrectAnswerSelected = (hintText) => {
+		setSelectedAnswer(null);
+		// setScore(score - 1);
+		submitIncorrectAnswer();
 		setHint(hintText);
+		console.log(score);
 		console.log(hintText);
 	};
 
-
-	
 	return (
 		<div>
-			<Banner />
-		{score}
+			<NavBanner />
+			<Instructions personalizedInstructions={personalizedInstructions} />
+
+			<div className={`score-component ${isFlipped ? "flipped" : ""}`}>
+				<div className="score-circle">
+					<div className="score-front">
+						<span className="score-text">{score}</span>
+					</div>
+					<div className="score-back">
+						<span className="score-text-flipped">
+							{" "}
+							<img
+								src="https://i.imgur.com/i8qWOkU.png"
+								className="score-star"
+								alt="Star"
+							/>
+						</span>
+					</div>
+				</div>
+			</div>
+
 			{currentCard ? (
 				<div id="game-section">
 					<MoreOptions />
 
-					<i class="fa fa-volume-up"></i>
+					<i className="fa fa-volume-up"></i>
 					{currentCard.imagelink ? (
 						<h3 className="card-concept-none">{currentCard.concept}</h3>
 					) : (
 						<h3 className="card-concept">{currentCard.concept}</h3>
 					)}
-					{/* <h3 className="card-concept">{currentCard.concept}</h3> */}
 
 					{currentCard.imagelink ? (
 						<img src={currentCard.imagelink} height="200px" />
@@ -109,43 +185,54 @@ const Game = () => {
 						/>
 					</div>
 					<div className="choices-container">
-						{randomAnswers.map((answer) => {
-							if (answer === 0)
+						{randomAnswers.map((answer, index) => {
+							if (answer === 0) {
 								return (
 									<Button
-										className="multiple-choice-button"
-										clickHandler={correctAnswerSelected}
+										key={index}
+										className={`multiple-choice-button ${
+											selectedAnswer === 0 ? "selected" : ""
+										}`}
+										clickHandler={handleCorrectAnswerSelected}
 									>
+										{selectedAnswer === 0 && answer === 0 ? (
+											<span className="smiley">&#128512;</span>
+										) : null}
 										{currentCard.answer}
 									</Button>
 								);
-							if (answer === 1)
+							}
+							if (answer === 1) {
 								return (
 									<Button
+										key={index}
 										className="multiple-choice-button"
 										clickHandler={() =>
-											incorrectAnswerSelected(currentCard.hintOne)
+											handleIncorrectAnswerSelected(currentCard.hintOne)
 										}
 									>
 										{currentCard.wronganswerone}
 									</Button>
 								);
-							if (answer === 2)
+							}
+							if (answer === 2) {
 								return (
 									<Button
+										key={index}
 										className="multiple-choice-button"
 										clickHandler={() =>
-											incorrectAnswerSelected(currentCard.hintTwo)
+											handleIncorrectAnswerSelected(currentCard.hintTwo)
 										}
 									>
 										{currentCard.wronganswertwo}
 									</Button>
 								);
+							}
+							return null;
 						})}
 					</div>
 
 					{hint ? <div>{hint}</div> : null}
-					<Instructions personalizedInstructions={personalizedInstructions} />
 				</div>
 			) : null}
 		</div>

@@ -1,12 +1,13 @@
 import React from "react";
 import ListStudents from "../components/ListStudents";
-import Banner from "../components/Banner";
+
 import Instructions from "../components/Instructions";
 import { useAuth0 } from "@auth0/auth0-react";
+import NavBanner from "../components/NavBanner";
 
 const Roster = () => {
 	const { user } = useAuth0();
-	console.log(user);
+	// console.log(user);
 
 	const personalizedInstructions =
 		user && user.given_name
@@ -14,9 +15,10 @@ const Roster = () => {
 			: "Instructions for adding, editing, and deleting students.";
 	return (
 		<div>
-			<Banner />
+			<NavBanner />
 			<Instructions personalizedInstructions={personalizedInstructions} />
-			<ListStudents />;
+			<ListStudents />
+
 		</div>
 	);
 };

@@ -7,12 +7,12 @@
 	grid-template-rows: auto 100% auto;
 }
 
-
 .mybody {
 	display: flex;
 	gap: 3em;
 	padding: 1em;
 	background-color: #f7f7f7;
+	margin-bottom: 8em;
 }
 
 /* navBar */
@@ -383,6 +383,65 @@ footer .social-icon li i:hover {
 	font-size: 45px;
 }
 /* game section */
+
+.score-component {
+	display: inline-block;
+	perspective: 1000px;
+	width: 46%;
+	margin-left: 45%;
+}
+
+.score-circle {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background-color: lightblue;
+	text-align: center;
+	line-height: 80px;
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+	transform-style: preserve-3d;
+	transition: transform 0.6s;
+}
+
+.score-component.flipped .score-circle {
+	transform: rotateY(180deg);
+}
+
+.score-front,
+.score-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.score-back {
+	transform: rotateY(180deg);
+}
+
+.score-text,
+.score-text-flipped {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+}
+
+.score-star {
+	display: block;
+	margin: 10px auto;
+	height: 50px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.score-component.flipped .score-star {
+	opacity: 1;
+}
+
 #game-section {
 	border: solid 3px black;
 	height: 50vh;
@@ -407,6 +466,30 @@ footer .social-icon li i:hover {
 	align-items: center;
 	position: relative;
 	top: 24%;
+}
+
+/* Game.css */
+
+.smiley {
+	display: inline-block;
+	margin-right: 5px;
+	font-size: 24px;
+}
+
+.selected-wrong-answer {
+	position: relative;
+}
+
+.wrong-answer-button.selected {
+	position: relative;
+}
+
+.wrong-answer-button.selected::before {
+	content: "\274C";
+	position: absolute;
+	top: 0;
+	left: -20px;
+	color: red;
 }
 
 .fa-volume-up {
@@ -489,7 +572,16 @@ footer .social-icon li i:hover {
 	margin-top: 4%;
 }
 
+.arrow {
+	transform: scaleY(-1);
+}
 /* create card section */
+.create-card-content-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(1, 1fr);
+}
+
 .create-card {
 	background-color: #d9d9d9;
 	height: 500px;
@@ -599,6 +691,7 @@ footer .social-icon li i:hover {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	border-radius: 10%;
 }
 
 .back {
@@ -631,6 +724,8 @@ footer .social-icon li i:hover {
 .card-container {
 	display: flex;
 	flex-wrap: wrap;
+	margin-left: 10em;
+	margin-bottom: 5em;
 }
 
 .audio-player {
@@ -646,7 +741,6 @@ The 'supports' rule will only run if your browser supports CSS grid.
 Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
 
 */
-
 .container {
 	max-width: 100rem;
 	margin: 0 auto;
@@ -670,14 +764,13 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 .gallery {
 	display: flex;
 	flex-wrap: wrap;
-	/* Compensate for excess margin on outer gallery flex items */
+
 	margin: -1rem -1rem;
 }
 
 .gallery-item {
-	/* Minimum width of 24rem and grow to fit available space */
 	flex: 1 0 24rem !important;
-	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+
 	margin: 1rem;
 	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
 	overflow: hidden;
@@ -686,7 +779,7 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 .gallery-image {
 	display: block;
 	width: 100%;
-	/* height: 100%;  */
+
 	object-fit: cover;
 	transition: transform 400ms ease-out;
 }
@@ -713,12 +806,12 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 		margin: 0;
 	}
 }
+
 /* media-search */
-.media-search-grid{
+.media-search-grid {
 	display: grid;
 	grid-template-columns: 50% 50%;
 	border: red solid 3px;
-	;
 }
 
 /* home contianer */
@@ -742,11 +835,12 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	bottom: 0;
 	display: block;
 	width: 100%;
-	background: #ffabe5;
+	background-color: #ffabe5;
 	border-width: 5px 0px 5px 0px;
 	border-style: solid;
 	border-color: #000000;
 	background-image: url("https://i.imgur.com/WECjTQq.png");
+	z-index: 1;
 }
 
 .left-box {
@@ -757,52 +851,12 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	border-color: #000000;
 	height: 100%;
 }
-/* .right-box {
-	box-sizing: border-box;
-
-	background: #ff5b48;
-	border-width: 5px 0px;
-	border-style: solid;
-	border-color: #000000;
-} */
-
-/* .left-box-two {
-	background: #f7f7f7;
-	border-width: 0px 5px 5px 0px;
-	border-style: solid;
-	border-color: #000000;
-} */
-
-/* .right-box-two {
-	background: #f7f7f7;
-	border-width: 1px 0px 5px 1px;
-	border-style: solid;
-	border-color: #000000;
-} */
-
-/* .left-box-three {
-	box-sizing: border-box;
-
-	background: #f7f7f7;
-	border-width: 0px 5px 5px 0px;
-	border-style: solid;
-	border-color: #000000;
-} */
-
-/* .right-box-three {
-	box-sizing: border-box;
-
-	background: #f7f7f7;
-	border-width: 1px 0px 5px 1px;
-	border-style: solid;
-	border-color: #000000;
-} */
 
 .heading-homepage {
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 900;
-	font-size: 95px;
+	font-size: 550%;
 	line-height: 100px;
 	color: #000000;
 	text-transform: uppercase;
@@ -968,6 +1022,20 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	margin-top: 3%;
 }
 
+/* Students Data */
+
+.dropdown {
+	margin-left: 20em;
+	margin-top: -7em;
+
+	margin-bottom: 10rem;
+}
+
+.student-cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
 /* Loading Icon */
 
 * {

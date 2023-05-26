@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import Badge from "react-bootstrap/Badge";
+
 
 function Card({ card, audio, toDelete }) {
 	const [isFlipped, setIsFlipped] = useState(false);
@@ -8,11 +10,6 @@ function Card({ card, audio, toDelete }) {
 		setIsFlipped(!isFlipped);
 	};
 
-	const onDelete = (toDeleteStudent) => {
-		console.log(card.id, toDeleteStudent, toDelete);
-		toDelete(toDeleteStudent);
-	};
-	
 
 	return (
 		<div>
@@ -21,11 +18,14 @@ function Card({ card, audio, toDelete }) {
 				onClick={handleClick}
 			>
 				<div className="front">
-					{card.tag ? (
-						<div class="item-category">
-							<a href="#">{card.tag}</a>
-						</div>
-					) : null}
+					<Badge bg="danger">
+						{card.tag ? (
+							// <div className="item-category">
+							// 	<a href="#">{card.tag}</a>
+							// </div>
+							<div>{card.tag}</div>
+						) : null}
+					</Badge>
 
 					<p>{card.concept}</p>
 					{card.imagelink ? (
@@ -34,20 +34,20 @@ function Card({ card, audio, toDelete }) {
 					<button
 						type="button"
 						onClick={() => {
-							onDelete(card);
+							toDelete(card);
 						}}
 					>
 						Delete
 					</button>
 				</div>
 				<div className="back">
+					<p>{card.answer}</p>
 					{card.audiolink ? (
 						<>
-							<i class="fa fa-volume-up"></i>
+							{/* <i className="fa fa-volume-up"></i> */}
 							<audio className="audio-player" src={card.audiolink} controls />
 						</>
 					) : null}
-					<p>{card.answer}</p>
 				</div>
 			</div>
 		</div>

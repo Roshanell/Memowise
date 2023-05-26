@@ -11,7 +11,8 @@ function Home() {
 				</h1>
 			</div>
 			<div className="card2">
-				<div className="card2-1 right-inner-box-one">pink</div>
+				<div className="card2-1 right-inner-box-one">
+				</div>
 			</div>
 			<div className="left-box-inner">
 				<h3 className="memory-aid-slogan">Effective Memory Aid</h3>
@@ -35,7 +36,6 @@ function Home() {
 				<h3 className="home-word">Lowercase</h3>
 				<img src="https://i.imgur.com/iHhRLDb.png" />
 			</div>
-		
 		</div>
 	);
 }

@@ -3,20 +3,24 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "build": "vite build",
+        "build": "vite build client/",
         "test": "echo \"No test specified\" && exit 1",
-        "start": "node index.js"
-    },    "repository": {
+        "start": "node index.js",
+        "postinstall": "(cd client && npm install) && (cd server && npm install)"
+    },
+
+    "repository": {
         "type": "git",
         "url": "git+https://github.com/Roshanell/Memowize.git"
     },
     "author": "",
     "license": "Unlicensed",
-   "bugs":
-    {
-                "url": "https://github.com/Roshanell/Memowize/issues"
-  },
-    "homepage": "https://github.com/Roshanell/Memowize#readme"
+    "bugs":
+    { 
+        "url": "https://github.com/Roshanell/Memowize/issues"
+    },
+    "homepage": "https://github.com/Roshanell/Memowize#readme",
+    "dependencies": {
+        "vite": "^4.3.8"
+    }
 }
-
-
