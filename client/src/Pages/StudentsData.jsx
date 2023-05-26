@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Instructions from "../components/Instructions";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import Card from "../components/Card";
 
 function StudentsData() {
-	const personalizedInstructions = `Select a student's name to see thier data`;
+	const personalizedInstructions = `Select a student's name to see their data`;
 	const [students, setStudents] = useState([]);
 	const [selectedStudent, setSelectedStudent] = useState(null);
 	const [studentCards, setStudentCards] = useState(null);
+
 	useEffect(() => {
 		fetchStudents();
 	}, []);
@@ -24,50 +24,60 @@ function StudentsData() {
 		}
 	}
 
-	const handleOnSelect = (e) => {
-		setSelectedStudent(e);
-		loadStudents(e);
+	const handleOnSelect = (eventKey) => {
+		setSelectedStudent(eventKey);
+		loadStudents(eventKey);
 	};
 
-	const loadStudents = async (student) => {
-		console.log("This is the selected student id: ", student);
+	const loadStudents = async (studentId) => {
+		console.log("This is the selected student id:", studentId);
 		try {
 			const cards = await fetch(
-				`http://localhost:8080/api/cards/${student}`
+				`http://localhost:8080/api/cards/${studentId}`
 			).then((response) => response.json());
-			console.log("This is the returned cards data: ", cards);
+			console.log("This is the returned cards data:", cards);
 			setStudentCards(cards);
-		} catch (e) {
-			console.error(e);
-			return [];
+		} catch (error) {
+			console.error(error);
+			setStudentCards(null);
 		}
 	};
 
 	return (
 		<div>
-			<Instructions personalizedInstructions={personalizedInstructions} />{" "}
+			<Instructions personalizedInstructions={personalizedInstructions} />
 			<Dropdown
 				variant="secondary"
 				id="dropdown-basic"
 				onSelect={handleOnSelect}
 			>
 				<Dropdown.Toggle variant="secondary" id="dropdown-basic">
-					{/* {sel ? selectedStudent : "Select a Student"} */}
 					Select a student
 				</Dropdown.Toggle>
 				<Dropdown.Menu style={{ overflowY: "scroll", height: "200px" }}>
 					{students.map((student) => (
 						<Dropdown.Item
 							key={`Student+${student.firstname}`}
-							eventKey={`${student.studentid}`}
+							eventKey={student.studentid}
 						>
 							{student.firstname}
 						</Dropdown.Item>
 					))}
 				</Dropdown.Menu>
 			</Dropdown>
+			{selectedStudent && (
+				<h1 className="selected-student">
+					Selected Student:{" "}
+					{ 
+						students.find((student) => student.studentid === selectedStudent)
+							?.firstname
+					}
+				</h1>
+			)}
 			<div className="student-cards">
-				{studentCards ? studentCards.map((card) => <Card card={card} />) : null}
+				{studentCards
+					? studentCards.map((card) => <Card card={card} key={card.id} />)
+					: null}
 			</div>
 		</div>
 	);
