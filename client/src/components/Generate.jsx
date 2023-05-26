@@ -9,6 +9,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Instructions from "./Instructions";
 
 function Generate({ loadCards }) {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	const [generatedCards, setGeneratedCards] = useState([]);
 	const [cardTopic, setCardTopic] = useState("");
 	const [numberOfCards, setNumberOfCards] = useState(0);
@@ -52,7 +53,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 	};
 	const saveGeneratedCards = async () => {
 		console.log("saving");
-		return await fetch(`http://localhost:8080/api/cards/${user.sub}`, {
+		return await fetch(`${API}/cards/${user.sub}`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(generatedCards),
@@ -82,7 +83,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 			}),
 		};
 		const response = await fetch(
-			`http://localhost:8080/api/cards-generate`,
+			`${API}/cards-generate`,
 			requestOptions
 		);
 		if (response.ok) {

@@ -3,11 +3,12 @@ import { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	const { user, isAuthenticated, isLoading } = useAuth0();
 	const insertUserToDatabase = async () => {
 		let userObject = { id: user.sub, email: user.email };
 
-		await fetch("http://localhost:8080/user", {
+		await fetch(`${API}/user`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

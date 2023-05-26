@@ -4,6 +4,8 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Card from "../components/Card";
 
 function StudentsData() {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
+
 	const personalizedInstructions = `Select a student's name to see their data`;
 	const [students, setStudents] = useState([]);
 	const [selectedStudent, setSelectedStudent] = useState(null);
@@ -15,7 +17,7 @@ function StudentsData() {
 
 	async function fetchStudents() {
 		try {
-			const response = await fetch("http://localhost:8080/api/students");
+			const response = await fetch(`${API}/api/students`);
 			const data = await response.json();
 			console.log(data);
 			setStudents(data);
@@ -32,9 +34,9 @@ function StudentsData() {
 	const loadStudents = async (studentId) => {
 		console.log("This is the selected student id:", studentId);
 		try {
-			const cards = await fetch(
-				`http://localhost:8080/api/cards/${studentId}`
-			).then((response) => response.json());
+			const cards = await fetch(`${API}/cards/${studentId}`).then((response) =>
+				response.json()
+			);
 			console.log("This is the returned cards data:", cards);
 			setStudentCards(cards);
 		} catch (error) {
@@ -68,7 +70,7 @@ function StudentsData() {
 			{selectedStudent && (
 				<h1 className="selected-student">
 					Selected Student:{" "}
-					{ 
+					{
 						students.find((student) => student.studentid === selectedStudent)
 							?.firstname
 					}

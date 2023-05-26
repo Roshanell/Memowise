@@ -4,6 +4,7 @@ import MyForm from "./Form";
 import Student from "./Student";
 
 const ListStudents = () => {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	// this is my original state with an array of students
 	const [students, setStudents] = useState([]);
 
@@ -11,7 +12,7 @@ const ListStudents = () => {
 	const [editingStudent, setEditingStudent] = useState(null);
 
 	const loadStudents = () => {
-		fetch("http://localhost:8080/api/students")
+		fetch(`${API}/students`)
 			.then((response) => response.json())
 			.then((students) => {
 				setStudents(students);
@@ -20,7 +21,6 @@ const ListStudents = () => {
 			.catch((error) => console.error(error)); // add a catch block to log any errors
 	};
 
-	
 	useEffect(() => {
 		loadStudents();
 	}, []);
@@ -29,9 +29,6 @@ const ListStudents = () => {
 		console.log(newStudent, "From the parent - List of Students");
 		setStudents((students) => [...students, newStudent]);
 	};
-
-
-
 
 	//A function to control the update in the parent (student component)
 	const updateStudent = (savedStudent) => {
@@ -43,7 +40,7 @@ const ListStudents = () => {
 	//A function to handle the Delete funtionality
 	const onDelete = (student) => {
 		//console.log(student, "delete method")
-		return fetch(`http://localhost:8080/api/students/${student.id}`, {
+		return fetch(`${API}/students/${student.id}`, {
 			method: "DELETE",
 		}).then((response) => {
 			//console.log(response);

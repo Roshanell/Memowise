@@ -7,6 +7,8 @@ import Instructions from "../components/Instructions";
 import NavBanner from "../components/NavBanner";
 
 function ViewCards() {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
+
 	const [cards, setCards] = useState([]);
 	const [audio, setAudio] = useState([]);
 	const { user } = useAuth0();
@@ -45,7 +47,7 @@ function ViewCards() {
 
 	const onDelete = async (card) => {
 		try {
-			let url = `http://localhost:8080/api/cards/${card.id}`;
+			let url = `${API}/cards/${card.id}`;
 			const response = await fetch(url, {
 				method: "DELETE",
 			});

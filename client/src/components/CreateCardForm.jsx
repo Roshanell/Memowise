@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function CreateCardForm() {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	const [card, setCard] = useState({
 		concept: "",
 		answer: "",
@@ -22,7 +23,7 @@ export default function CreateCardForm() {
 
 	const postCard = () => {
 		//console.log(student, "post method")
-		return fetch(`http://localhost:8080/api/cards/${user.sub}`, {
+		return fetch(`${API}/cards/${user.sub}`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify([card]),

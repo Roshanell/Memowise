@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 
 const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	// This is the original State with not initial student
 	const [student, setStudent] = useState(
 		editingStudent || {
@@ -11,7 +12,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 			parentfirstname: "",
 			parentlastname: "",
 			parentemail: "",
-			studentid:"",
+			studentid: "",
 		}
 	);
 
@@ -64,7 +65,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 
 	//A function to handle the post request
 	const postStudent = (newStudent) => {
-		return fetch("http://localhost:8080/api/students", {
+		return fetch(`${API}/students`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(newStudent),
@@ -83,7 +84,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 
 	//A function to handle the post request
 	const putStudent = (toEditStudent) => {
-		return fetch(`http://localhost:8080/api/students/${toEditStudent.id}`, {
+		return fetch(`${API}/students/${toEditStudent.id}`, {
 			method: "PUT",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(toEditStudent),

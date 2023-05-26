@@ -9,6 +9,7 @@ import SearchMedia from "../components/SearchMedia";
 import Instructions from "../components/Instructions";
 
 function CreateCardPage() {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	const [imageSearch, setImageSearch] = useState("");
 	const [audioSearch, setAudioSearch] = useState("");
 	const [audioUrl, setAudioUrl] = useState("");
@@ -41,7 +42,7 @@ Click "Search Media" for results to appear.
 	};
 
 	const getMedia = () => {
-		return fetch(`http://localhost:8080/api/pixabay?query=${imageSearch}`, {
+		return fetch(`${API}/pixabay?query=${imageSearch}`, {
 			method: "GET",
 			headers: { "Content-Type": "application/json" },
 		})
@@ -58,7 +59,7 @@ Click "Search Media" for results to appear.
 
 
 	const getAudio = () => {
-		fetch(`http://localhost:8080/api/mw?query=${audioSearch}`)
+		fetch(`${API}/mw?query=${audioSearch}`)
 			.then((response) => response.json())
 			.then((audio) => {
 				console.log(audio, "from mw");

@@ -9,6 +9,7 @@ import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Game = () => {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [currentCard, setCurrentCard] = useState({});
 	const [cards, setCards] = useState([]);
@@ -75,7 +76,7 @@ const Game = () => {
 	const submitCorrectAnswer = async () => {
 		try {
 			const response = await fetch(
-				`http://localhost:8080/api/stats/correct/${user.sub}`,
+				`${API}/stats/correct/${user.sub}`,
 				{
 					method: "POST",
 					headers: {
@@ -98,7 +99,7 @@ const Game = () => {
 	const submitIncorrectAnswer = async () => {
 		try {
 			const response = await fetch(
-				`http://localhost:8080/api/stats/incorrect/${user.sub}`,
+				`${API}/stats/incorrect/${user.sub}`,
 				{
 					method: "POST",
 					headers: {
