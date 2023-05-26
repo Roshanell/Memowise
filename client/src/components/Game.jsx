@@ -2,7 +2,7 @@ import Instructions from "./Instructions";
 import Button from "./Button";
 import MoreOptions from "./MoreOptions";
 import NextCardButton from "./NextCardButton";
-import Banner from "./Banner";
+import NavBanner from "./NavBanner";
 import { useEffect, useState } from "react";
 import loadCards from "../apis/loadCards";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
@@ -140,7 +140,7 @@ const Game = () => {
 
 	return (
 		<div>
-			<Banner />
+			<NavBanner />
 			<Instructions personalizedInstructions={personalizedInstructions} />
 
 			<div className={`score-component ${isFlipped ? "flipped" : ""}`}>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
-import Banner from "../components/Banner";
 import loadCards from "../apis/loadCards";
 import Searchbar from "../components/Searchbar";
 import { useAuth0 } from "@auth0/auth0-react";
 import Instructions from "../components/Instructions";
+import NavBanner from "../components/NavBanner";
 
 function ViewCards() {
 	const [cards, setCards] = useState([]);
@@ -60,7 +60,7 @@ function ViewCards() {
 
 	return (
 		<div>
-			<Banner />
+			<NavBanner />
 			<div>
 				<Instructions personalizedInstructions={personalizedInstructions} />
 				<Searchbar onSearch={handleSearch} />
