@@ -17,7 +17,7 @@ function StudentsData() {
 
 	async function fetchStudents() {
 		try {
-			const response = await fetch(`${API}/api/students`);
+			const response = await fetch(`${API}/students`);
 			const data = await response.json();
 			console.log(data);
 			setStudents(data);
