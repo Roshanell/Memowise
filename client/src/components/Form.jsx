@@ -140,7 +140,6 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 					type="text"
 					id="add-student-id"
 					placeholder="Student Id"
-					required
 					value={student.studentid}
 					onChange={handleStudentId}
 				/>
