@@ -18,6 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "The VITE_APP_API_SERVER_URL on the runner is $VITE_APP_API_SERVER_URL ."
+      - run: |
+          touch .env
+          echo VITE_APP_API_SERVER_URL=${{ secrets.VITE_APP_AUTH0_DOMAIN }} >> .env
+          cat .env
+        working-directory: ./client
       - run: npm i && npm run build
         working-directory: ./client
       - uses: FirebaseExtended/action-hosting-deploy@v0
