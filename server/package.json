@@ -9,7 +9,7 @@
     "server": "nodemon server.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Unlicensed",
   "dependencies": {
     "@mui/material": "^5.12.2",
     "@mui/styled-engine-sc": "^5.12.0",
