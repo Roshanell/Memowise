@@ -6,12 +6,6 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - main
-env:
-  VITE_APP_API_SERVER_URL: ${{ secrets.VITE_APP_API_SERVER_URL }}
-  VITE_APP_AUTH0_DOMAIN: ${{ secrets.VITE_APP_AUTH0_DOMAIN }}
-  VITE_APP_AUTH0_CLIENT_ID: ${{ secrets.VITE_APP_AUTH0_CLIENT_ID }}
-  VITE_APP_CLIENTSECRET: ${{ secrets.VITE_APP_CLIENTSECRET }}
-  VITE_APP_AUTH0_CALLBACK_URL: ${{ secrets.VITE_APP_AUTH0_CALLBACK_URL }}
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -20,7 +14,9 @@ jobs:
       - run: echo "The VITE_APP_API_SERVER_URL on the runner is $VITE_APP_API_SERVER_URL ."
       - run: |
           touch .env
-          echo VITE_APP_API_SERVER_URL=${{ secrets.VITE_APP_AUTH0_DOMAIN }} >> .env
+          echo VITE_APP_API_SERVER_URL=https://memowise.web.app >> .env
+          echo VITE_APP_AUTH0_DOMAIN=dev-8ccpbfwcevi6g5r7.us.auth0.com >> .env
+          echo VITE_APP_AUTH0_CALLBACK_URL=https://memowise.web.app/callback >> .env
           cat .env
         working-directory: ./client
       - run: npm i && npm run build
