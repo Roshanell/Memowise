@@ -1,5 +1,5 @@
-const API = import.meta.env.VITE_APP_API_SERVER_URL;
 const loadCards = async (user) => {
+	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	try {
 		user?.email;
 		if (user.email === "dteacher422@gmail.com") {
