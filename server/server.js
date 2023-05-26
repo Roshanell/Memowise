@@ -212,9 +212,10 @@ app.post("/api/students", async (req, res) => {
 			parentfirstname: req.body.parentfirstname,
 			parentlastname: req.body.parentlastname,
 			parentemail: req.body.parentemail,
+			studentid: req.body.studentid,
 		};
 		const result = await db.query(
-			"INSERT INTO students(firstname, lastname, is_current, parentfirstname, parentlastname, parentemail) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING *",
+			"INSERT INTO students(firstname, lastname, is_current, parentfirstname, parentlastname, parentemail, studentid) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
 			[
 				newStudent.firstname,
 				newStudent.lastname,
@@ -222,6 +223,7 @@ app.post("/api/students", async (req, res) => {
 				newStudent.parentfirstname,
 				newStudent.parentlastname,
 				newStudent.parentemail,
+				newStudent.studentid,
 			]
 		);
 		console.log(result.rows[0]);

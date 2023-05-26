@@ -10,11 +10,6 @@ function Card({ card, audio, toDelete }) {
 		setIsFlipped(!isFlipped);
 	};
 
-	// const onDelete = (toDeleteStudent) => {
-	// 	console.log(card.id, toDeleteStudent, toDelete);
-	// 	toDelete(toDeleteStudent);
-	// };
-	
 
 	return (
 		<div>

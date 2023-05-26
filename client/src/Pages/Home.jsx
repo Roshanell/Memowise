@@ -12,7 +12,7 @@ function Home() {
 			</div>
 			<div className="card2">
 				<div className="card2-1 right-inner-box-one">
-					pink
+					<img src="https://imgur.com/nzuD8BK" />
 				</div>
 			</div>
 			<div className="left-box-inner">

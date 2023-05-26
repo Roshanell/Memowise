@@ -11,6 +11,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 			parentfirstname: "",
 			parentlastname: "",
 			parentemail: "",
+			studentid:"",
 		}
 	);
 
@@ -44,6 +45,11 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 	const handleParentEmailChange = (event) => {
 		const parentemail = event.target.value;
 		setStudent((student) => ({ ...student, parentemail }));
+	};
+
+	const handleStudentId = (event) => {
+		const studentid = event.target.value;
+		setStudent((student) => ({ ...student, studentid }));
 	};
 	const clearForm = () => {
 		setStudent({
@@ -125,7 +131,19 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 					value={student.lastname}
 					onChange={handleLastnameChange}
 				/>
+
 				{/* parent, email student name, email ,  recieved */}
+			</Form.Group>
+			<Form.Group>
+				<Form.Label>Student Id</Form.Label>
+				<input
+					type="text"
+					id="add-student-id"
+					placeholder="Student Id"
+					required
+					value={student.studentid}
+					onChange={handleStudentId}
+				/>
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Parent First Name</Form.Label>
