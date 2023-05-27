@@ -54,10 +54,19 @@ Link: https://docs.google.com/document/d/1qEFzdITWw6q9pFZ_6FJIjBttkmBrJ9zswpNuLk
 
 
 
-Coming
 
-Lessons Learned:
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those whoa this is awesome or fuck yeah I did it! moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+
+## Lessons Learned:
+
+
+1. API Integration: Learn how to interact with and integrate external APIs into your projects.
+2. User Interface Design: Gain insights into designing an intuitive and user-friendly interface.
+3. Authentication and Security: Understand secure authentication systems and data protection.
+4. Database Management: Learn about database design and CRUD operations.
+5. Error Handling and Debugging: Develop effective error handling and debugging techniques.
+6. Collaboration and User Roles: Implement user roles and collaboration features.
+7. Time Management and Deadline Adherence: Practice effective time management and meeting project deadlines.
+8. Continuous Learning and Adaptability: Embrace learning new technologies and adapting to changing requirements.
 
 Examples:
 Take a look at these couple examples that I have in my own portfolio:
