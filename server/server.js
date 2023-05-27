@@ -183,7 +183,8 @@ app.get("/api/scores/:sub", async (req, res) => {
 
 // creates new entry for user, else does nothing
 app.post("/api/user", cors(), async (req, res) => {
-	console.log(req.body.id, req.body.email);
+	console.log(
+		"id and email",req.body.id, req.body.email);
 	try {
 		const newUser = {
 			id: req.body.id,

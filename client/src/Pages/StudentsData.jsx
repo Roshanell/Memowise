@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Instructions from "../components/Instructions";
 import Dropdown from "react-bootstrap/Dropdown";
-import Card from "../components/Card";
+import Flashcard from "../components/Flashcard";
 
 function StudentsData() {
 	const API = import.meta.env.VITE_APP_API_SERVER_URL;
@@ -78,7 +78,7 @@ function StudentsData() {
 			)}
 			<div className="student-cards">
 				{studentCards
-					? studentCards.map((card) => <Card card={card} key={card.id} />)
+					? studentCards.map((card) => <Flashcard card={card} key={card.id} />)
 					: null}
 			</div>
 		</div>

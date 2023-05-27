@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "./Card";
+
 import Button from "./Button";
 import { Loading } from "./Loading";
 import Form from "react-bootstrap/Form";
@@ -7,6 +7,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import { useAuth0 } from "@auth0/auth0-react";
 import Instructions from "./Instructions";
+import Flashcard from "./Flashcard";
 
 function Generate({ loadCards }) {
 	const API = import.meta.env.VITE_APP_API_SERVER_URL;
@@ -158,7 +159,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 					{generatedCards.map((card) => {
 						return (
 							<li className="card-list" key={card.id}>
-								<Card card={card} />
+								<Flashcard card={card} />
 							</li>
 						);
 					})}
