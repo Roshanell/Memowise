@@ -61,7 +61,8 @@ Link: https://docs.google.com/document/d/1qEFzdITWw6q9pFZ_6FJIjBttkmBrJ9zswpNuLk
 7. Time Management and Deadline Adherence: Practice effective time management and meeting project deadlines.
 8. Continuous Learning and Adaptability: Embrace learning new technologies and adapting to changing requirements.
 
-Examples:
+## Examples:
+
 Take a look at these couple examples that I have in my own portfolio:
 
 Shaken Not Stirred: https://shaken-not-stirred.netlify.app/
