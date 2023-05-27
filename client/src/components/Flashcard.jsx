@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Badge from "react-bootstrap/Badge";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 function Flashcard({ card, audio, toDelete }) {
 	const [isFlipped, setIsFlipped] = useState(false);
@@ -26,14 +27,14 @@ function Flashcard({ card, audio, toDelete }) {
 						<img src={card.imagelink} className="create-card-image" />
 					) : null}
 
-					<button
+					<Button
 						type="button"
 						onClick={() => {
 							toDelete(card);
 						}}
 					>
 						Delete
-					</button>
+					</Button>
 				</Card.Body>
 				<div className="back">
 					<p>{card.answer}</p>

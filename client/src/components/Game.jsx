@@ -1,5 +1,4 @@
 import Instructions from "./Instructions";
-import Button from "./Button";
 import MoreOptions from "./MoreOptions";
 import NextCardButton from "./NextCardButton";
 import NavBanner from "./NavBanner";
@@ -7,6 +6,7 @@ import { useEffect, useState } from "react";
 import loadCards from "../apis/loadCards";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import { useAuth0 } from "@auth0/auth0-react";
+import CustomButton from "./CustomButton";
 
 const Game = () => {
 	const API = import.meta.env.VITE_APP_API_SERVER_URL;
@@ -188,7 +188,7 @@ const Game = () => {
 						{randomAnswers.map((answer, index) => {
 							if (answer === 0) {
 								return (
-									<Button
+									<CustomButton 
 										key={index}
 										className={`multiple-choice-button ${
 											selectedAnswer === 0 ? "selected" : ""
@@ -199,12 +199,12 @@ const Game = () => {
 											<span className="smiley">&#128512;</span>
 										) : null}
 										{currentCard.answer}
-									</Button>
+									</CustomButton>
 								);
 							}
 							if (answer === 1) {
 								return (
-									<Button
+									<CustomButton
 										key={index}
 										className="multiple-choice-button"
 										clickHandler={() =>
@@ -212,12 +212,12 @@ const Game = () => {
 										}
 									>
 										{currentCard.wronganswerone}
-									</Button>
+									</CustomButton>
 								);
 							}
 							if (answer === 2) {
 								return (
-									<Button
+									<CustomButton
 										key={index}
 										className="multiple-choice-button"
 										clickHandler={() =>
@@ -225,7 +225,7 @@ const Game = () => {
 										}
 									>
 										{currentCard.wronganswertwo}
-									</Button>
+									</CustomButton>
 								);
 							}
 							return null;

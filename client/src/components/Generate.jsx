@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import Button from "./Button";
 import { Loading } from "./Loading";
 import Form from "react-bootstrap/Form";
 import Tooltip from "react-bootstrap/Tooltip";

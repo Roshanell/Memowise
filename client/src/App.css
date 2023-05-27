@@ -97,10 +97,6 @@ button.btn.btn-primary {
 	margin-top: 1em;
 }
 
-.card-body {
-	margin-left: 2em;
-	margin-right: 2em;
-}
 
 /* footer */
 
@@ -669,9 +665,9 @@ footer .social-icon li i:hover {
 	transition: transform 1s;
 	transform-style: preserve-3d;
 	perspective: 1000px;
-	border: solid 2px black !important;
+	/* border: solid 2px black !important;
 	margin-top: 3%;
-	margin-bottom: 3%;
+	margin-bottom: 3%; */
 }
 
 .front,
@@ -685,13 +681,15 @@ footer .social-icon li i:hover {
 }
 
 .front {
-	background-color: #fff;
-	color: #333;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	border-radius: 10%;
+    /* background-color: #fff; */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: flex-start; */
+    /* border-radius: 10%; */
+    /* flex-wrap: wrap; */
+    /* align-content: center; */
 }
 
 .back {
