@@ -8,7 +8,7 @@ const Profile = () => {
 	const insertUserToDatabase = async () => {
 		let userObject = { id: user.sub, email: user.email };
 
-		await fetch(`${API}/api/user`, {
+		await fetch(`${API}/user`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
