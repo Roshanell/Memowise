@@ -6,7 +6,7 @@ import Flashcard from "../components/Flashcard";
 function StudentsData() {
 	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 
-	const personalizedInstructions = `Select a student's name to see their data`;
+	const personalizedInstructions = `Select a student's name from the dropdown menu. No students will be shown if no user ID is provided or an incorrect user ID was provided in the roster `;
 	const [students, setStudents] = useState([]);
 	const [selectedStudent, setSelectedStudent] = useState(null);
 	const [studentCards, setStudentCards] = useState(null);

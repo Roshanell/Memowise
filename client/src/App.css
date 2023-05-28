@@ -268,7 +268,7 @@ footer .social-icon li i:hover {
 	margin-right: 0;
 }
 .copyright {
-	margin-top:5%;
+	margin-top: 5%;
 	font-size: 18px;
 	color: white;
 }
@@ -1047,6 +1047,19 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
+
+/* client errors */
+
+.error-message {
+	color: #ff0000; /* Red color for error messages */
+	background-color: #ffecec; /* Light red background color */
+	padding: 10px; /* Add padding to provide some space around the message */
+	border: 1px solid #ff0000; /* Add a border around the message */
+	border-radius: 4px; /* Round the corners of the message */
+	font-size: 16px; /* Adjust the font size as needed */
+	font-weight: bold; /* Make the text bold for emphasis */
+}
+
 /* Loading Icon */
 
 * {
