@@ -37,7 +37,7 @@ function Flashcard({ card, audio, toDelete }) {
 					</Button>
 				</Card.Body>
 				<div className="back">
-					<p>{card.answer}</p>
+					<p className="card-answer">{card.answer}</p>
 					{card.audiolink ? (
 						<>
 							<audio className="audio-player" src={card.audiolink} controls />

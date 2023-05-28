@@ -568,6 +568,10 @@ footer .social-icon li i:hover {
 	transform: scaleY(-1);
 }
 /* create card section */
+
+.card-answer{
+	width: 15vw;
+}
 .create-card-content-container {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);

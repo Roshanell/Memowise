@@ -88,10 +88,10 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 		};
 		const response = await fetch(`${API}/cards-generate`, requestOptions);
 		if (response.ok) {
-			console.log("from openai", response);
+			// console.log("from openai", response);
 			setLoading(false);
 			const responseText = await response.text();
-			console.log(responseText);
+			// console.log(responseText);
 			return JSON.parse(responseText);
 		}
 	};
@@ -159,7 +159,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 					{generatedCards.map((card) => {
 						return (
 							<li className="card-list" key={card.id}>
-								<Flashcard card={card} />
+								<Flashcard card={card} key={card.id} />
 							</li>
 						);
 					})}
