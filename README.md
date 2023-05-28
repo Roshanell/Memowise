@@ -5,8 +5,12 @@
 
 
 # Memowise
-
 Memowise is an application that aims to streamline the learning process for students and reduce the time, effort, and workload of users when creating new study materials. The application allows users to easily manage and organize their study materials using manual input or automated generation via artificial intelligence.
+
+![image](https://github.com/Roshanell/Memowise/assets/96213223/45f396bb-6da5-41d0-80be-fb31eb25068f)
+
+
+
 
 ## Table of Contents
 - [Project Link](#project-link)
