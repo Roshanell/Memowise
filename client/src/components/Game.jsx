@@ -87,7 +87,7 @@ const Game = () => {
 			);
 
 			if (response.ok) {
-				console.log("Correct answer submitted");
+				// console.log("Correct answer submitted");
 			} else {
 				console.error("Failed to submit correct answer");
 			}
@@ -110,9 +110,9 @@ const Game = () => {
 			);
 
 			if (response.ok) {
-				console.log("Incorrect answer submitted");
+				// console.log("Incorrect answer submitted");
 			} else {
-				console.error("Failed to submit incorrect answer");
+				// console.error("Failed to submit incorrect answer");
 			}
 		} catch (error) {
 			console.error("Error submitting incorrect answer:", error);
@@ -127,7 +127,7 @@ const Game = () => {
 		submitCorrectAnswer();
 		gotoNextCard();
 		setHint("");
-		console.log(score);
+		// console.log(score);
 	};
 
 	const handleIncorrectAnswerSelected = (hintText) => {
@@ -135,8 +135,8 @@ const Game = () => {
 		// setScore(score - 1);
 		submitIncorrectAnswer();
 		setHint(hintText);
-		console.log(score);
-		console.log(hintText);
+		// console.log(score);
+		// console.log(hintText);
 	};
 
 	return (

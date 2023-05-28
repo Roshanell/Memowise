@@ -7,7 +7,7 @@ const loadCards = async (user) => {
 			const cards = await fetch(`${API}/cards`).then((response) =>
 				response.json()
 			);
-			console.log(user);
+			// console.log(user);
 			// console.log(cards);
 			return cards;
 		} else {

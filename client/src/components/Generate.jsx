@@ -40,7 +40,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 	};
 	const handleCardTopicChange = (event) => {
 		const cardTopic = event.target.value;
-		console.log(cardTopic);
+		// console.log(cardTopic);
 		setCardTopic(cardTopic);
 	};
 	const handleSubmit = async (event) => {
