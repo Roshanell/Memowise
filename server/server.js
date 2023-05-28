@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 app.get("/api/students", async (req, res) => {
 	try {
 		const { rows: students } = await db.query("SELECT * FROM students");
-		console.log(students);
+		// console.log(students);
 		res.send(students);
 	} catch (e) {
 		return res.status(400).json({ e });
@@ -37,7 +37,7 @@ app.get("/api/students", async (req, res) => {
 
 //open ai post req
 app.post("/api/cards-generate", async (req, res) => {
-	console.log("connected to open ai on server.js");
+	// console.log("connected to open ai on server.js");
 	try {
 		// using mock data for now
 		// res.json(data);
@@ -63,13 +63,13 @@ app.post("/api/cards-generate", async (req, res) => {
 			presence_penalty: 0.0,
 		});
 		//Response for data
-		console.log(response.data.choices[0].text);
+		// console.log(response.data.choices[0].text);
 		// console.log(JSON.parse(response.data.choices[0].text));
 		// console.log(response);
 
 		res.send(response.data.choices[0].text);
 	} catch (e) {
-		console.log(e);
+		// console.log(e);
 		return res.status(400).json({ e });
 	}
 });
@@ -79,14 +79,14 @@ app.get("/api/pixabay", (req, res) => {
 	// const test = req.query.
 	// console.log(test, "hi");
 	const API_KEY = process.env.API_KEY;
-	console.log(API_KEY, "api key");
-	console.log(req, "req");
-	console.log(req.query, "server line 74");
+	// console.log(API_KEY, "api key");
+	// console.log(req, "req");
+	// console.log(req.query, "server line 74");
 	// change this so code is dynamic
 	let query = encodeURI(req.query.query, "query");
 
 	const url = `https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=photo`;
-	console.log(url, "url");
+	// console.log(url, "url");
 	fetch(url)
 		.then((response) => {
 			if (response.ok) {
@@ -106,12 +106,12 @@ app.get("/api/pixabay", (req, res) => {
 					const singleHit = hit.webformatURL;
 					// push single shit in hits arr
 					hits.push(singleHit);
-					console.log(hit.webformatURL);
+					// console.log(hit.webformatURL);
 				});
 				// send hits to front end
 				res.send(hits);
 			} else {
-				console.log("No hits");
+				// console.log("No hits");
 			}
 		})
 		.catch((error) => {
@@ -124,9 +124,9 @@ app.get("/api/mw", (req, res) => {
 	const mw_api_key = process.env.MW_API_KEY;
 	// let query = "home";
 	let query = req.query.query;
-	console.log(query, "query");
+	// console.log(query, "query");
 	const url = `https://www.dictionaryapi.com/api/v3/references/sd2/json/${query}}?key=${mw_api_key}`;
-	console.log(url);
+	// console.log(url);
 	fetch(url)
 		.then((res) => res.json())
 		.then((data) => {
@@ -134,7 +134,7 @@ app.get("/api/mw", (req, res) => {
 			res.send({ data });
 		})
 		.catch((err) => {
-			console.log(err);
+			// console.log(err);
 		});
 	try {
 	} catch (e) {
@@ -143,13 +143,13 @@ app.get("/api/mw", (req, res) => {
 });
 
 app.get("/api/cards/:id", async (req, res) => {
-	console.log(req.params.id);
+	// console.log(req.params.id);
 	try {
 		const { rows: cards } = await db.query(
 			"SELECT * FROM cards WHERE user_id = $1",
 			[req.params.id]
 		);
-		console.log(cards);
+		// console.log(cards);
 		res.send(cards);
 	} catch (e) {
 		return res.status(400).json({ e });
@@ -159,7 +159,7 @@ app.get("/api/cards/:id", async (req, res) => {
 app.get("/api/cards", async (req, res) => {
 	try {
 		const { rows: cards } = await db.query("SELECT * FROM cards");
-		console.log(cards);
+		// console.log(cards);
 		res.send(cards);
 	} catch (e) {
 		return res.status(400).json({ e });
@@ -174,7 +174,7 @@ app.get("/api/scores/:sub", async (req, res) => {
 			[sub]
 		);
 
-		console.log(result);
+		// console.log(result);
 		res.json(result.rows);
 	} catch (e) {
 		return res.status(400).json({ e });
@@ -183,8 +183,8 @@ app.get("/api/scores/:sub", async (req, res) => {
 
 // creates new entry for user, else does nothing
 app.post("/api/user", cors(), async (req, res) => {
-	console.log(
-		"id and email",req.body.id, req.body.email);
+	// console.log(
+	// 	"id and email",req.body.id, req.body.email);
 	try {
 		const newUser = {
 			id: req.body.id,
@@ -194,11 +194,11 @@ app.post("/api/user", cors(), async (req, res) => {
 			"INSERT INTO users(id, email) VALUES($1, $2) ON CONFLICT DO NOTHING RETURNING*",
 			[newUser.id, newUser.email]
 		);
-		console.log("result.rows[0]: ", result.rows[0]);
+		// console.log("result.rows[0]: ", result.rows[0]);
 		// if value is undefined, set value to {}
 		res.json(result.rows[0] ?? {});
 	} catch (e) {
-		console.log(e);
+		// console.log(e);
 		return res.status(400).json({ e });
 	}
 });
@@ -227,19 +227,19 @@ app.post("/api/students", async (req, res) => {
 				newStudent.studentid,
 			]
 		);
-		console.log(result.rows[0]);
+		// console.log(result.rows[0]);
 		res.json(result.rows[0]);
 	} catch (e) {
-		console.log(e);
+		// console.log(e);
 		return res.status(400).json({ e });
 	}
 });
 
 app.post("/api/cards/:userid", async (req, res) => {
 	try {
-		console.log("request body", req.body);
+		// console.log("request body", req.body);
 		const newCards = req.body;
-		console.log("new cards", newCards);
+		// console.log("new cards", newCards);
 		await newCards.forEach(async (newCard) => {
 			await db.query(
 				"INSERT INTO cards(concept, answer, imagelink, audiolink, wronganswerone, wronganswertwo, tag, user_id,hint_one, hint_two ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
@@ -262,10 +262,10 @@ app.post("/api/cards/:userid", async (req, res) => {
 		// console.log("result", result);
 
 		//
-		console.log("req.body", req.body);
+		// console.log("req.body", req.body);
 		// console.log(result.rows[0]);
 	} catch (e) {
-		console.log(e);
+		// console.log(e);
 		return res.status(400).json({ e });
 	}
 });
@@ -322,10 +322,10 @@ app.delete("/api/students/:studentId", async (req, res) => {
 	try {
 		const studentId = req.params.studentId;
 		await db.query("DELETE FROM students WHERE id=$1", [studentId]);
-		console.log("From the delete request-url", studentId);
+		// console.log("From the delete request-url", studentId);
 		res.status(200).end();
 	} catch (e) {
-		console.log(e);
+		// console.log(e);
 		return res.status(400).json({ e });
 	}
 });
@@ -335,10 +335,10 @@ app.delete("/api/cards/:cardId", async (req, res) => {
 	try {
 		const cardId = req.params.cardId;
 		await db.query("DELETE FROM cards WHERE id=$1", [cardId]);
-		console.log("From the delete request-url", cardId);
+		// console.log("From the delete request-url", cardId);
 		res.status(200).end();
 	} catch (e) {
-		console.log(e);
+		// console.log(e);
 		return res.status(400).json({ e });
 	}
 });
@@ -356,11 +356,11 @@ app.put("/api/students/:studentId", async (req, res) => {
 		parentlastname: req.body.parentlastname,
 		parentemail: req.body.parentemail,
 	};
-	console.log("In the server from the url - the student id", studentId);
-	console.log(
-		"In the server, from the react - the student to be edited",
-		updatedStudent
-	);
+	// console.log("In the server from the url - the student id", studentId);
+	// console.log(
+	// 	"In the server, from the react - the student to be edited",
+	// 	updatedStudent
+	// );
 	// UPDATE students SET lastname = "something" WHERE id="16";
 	const query = `UPDATE students SET firstname=$1, lastname=$2, is_current=$3 parentfirstname=$4, parentlastname=$5, parentemail=$6 WHERE id=${studentId} RETURNING *`;
 	const values = [
@@ -373,10 +373,10 @@ app.put("/api/students/:studentId", async (req, res) => {
 	];
 	try {
 		const updated = await db.query(query, values);
-		console.log(updated.rows[0]);
+		// console.log(updated.rows[0]);
 		res.send(updated.rows[0]);
 	} catch (e) {
-		console.log(e);
+		// console.log(e);
 		return res.status(400).json({ e });
 	}
 });

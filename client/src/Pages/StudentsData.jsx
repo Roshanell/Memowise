@@ -19,7 +19,7 @@ function StudentsData() {
 		try {
 			const response = await fetch(`${API}/students`);
 			const data = await response.json();
-			console.log(data);
+			// console.log(data);
 			setStudents(data);
 		} catch (error) {
 			console.log("Error fetching students:", error);
@@ -32,12 +32,12 @@ function StudentsData() {
 	};
 
 	const loadStudents = async (studentId) => {
-		console.log("This is the selected student id:", studentId);
+		// console.log("This is the selected student id:", studentId);
 		try {
 			const cards = await fetch(`${API}/cards/${studentId}`).then((response) =>
 				response.json()
 			);
-			console.log("This is the returned cards data:", cards);
+			// console.log("This is the returned cards data:", cards);
 			setStudentCards(cards);
 		} catch (error) {
 			console.error(error);

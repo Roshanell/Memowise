@@ -26,13 +26,13 @@ const ListStudents = () => {
 	}, []);
 
 	const onSaveStudent = (newStudent) => {
-		console.log(newStudent, "From the parent - List of Students");
+		// console.log(newStudent, "From the parent - List of Students");
 		setStudents((students) => [...students, newStudent]);
 	};
 
 	//A function to control the update in the parent (student component)
 	const updateStudent = (savedStudent) => {
-		console.log("Line 29 savedStudent", savedStudent);
+		// console.log("Line 29 savedStudent", savedStudent);
 		// This function should update the whole list of students -
 		loadStudents();
 	};

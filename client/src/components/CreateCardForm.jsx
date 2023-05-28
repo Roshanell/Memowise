@@ -31,12 +31,12 @@ export default function CreateCardForm() {
 			.then((response) => {
 				//console.log(response);
 				if (response.ok) {
-					console.log("ok");
+					// console.log("ok");
 					return response.json();
 				}
 			})
 			.then((imagesData) => {
-				console.log("front the front end", imagesData);
+				// console.log("front the front end", imagesData);
 			});
 	};
 

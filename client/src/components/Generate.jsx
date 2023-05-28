@@ -30,12 +30,12 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 	};
 	const handlegradeLevel = (event) => {
 		const gradeLevel = event.target.value;
-		console.log(gradeLevel);
+		// console.log(gradeLevel);
 		setGradeLevel(gradeLevel);
 	};
 	const handleNumberOfCardsChange = (event) => {
 		const numberOfCards = event.target.value;
-		console.log(numberOfCards);
+		// console.log(numberOfCards);
 		setNumberOfCards(numberOfCards);
 	};
 	const handleCardTopicChange = (event) => {
@@ -46,17 +46,17 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const cards = await generateCards();
-		console.log(cards);
+		// console.log(cards);
 		setGeneratedCards(cards);
 		clearForm();
 	};
 	const handleSetSubmit = () => {
-		console.log("submitted");
+		// console.log("submitted");
 		setSubmit(true);
 		setLoading(true);
 	};
 	const saveGeneratedCards = async () => {
-		console.log("saving");
+		// console.log("saving");
 		return await fetch(`${API}/cards/${user.sub}`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
@@ -67,7 +67,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 				if (response.ok) {
 					setGeneratedCards([]);
 					setCardsSaved(true);
-					console.log("ok");
+					// console.log("ok");
 					return response.json();
 				}
 			})
