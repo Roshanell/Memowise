@@ -97,7 +97,6 @@ button.btn.btn-primary {
 	margin-top: 1em;
 }
 
-
 /* footer */
 
 ul {
@@ -177,7 +176,7 @@ ul {
 	border-bottom: 5px solid black;
 	/* position: fixed; */
 	/* bottom: 0; */
-	width: 70vw;
+	width: 100%;
 	margin-right: 10% !important;
 }
 .footer-top h4 {
@@ -197,6 +196,13 @@ footer p {
 .footer-logo {
 	display: block;
 	margin-bottom: 32px;
+}
+
+.logo {
+	height: 100px;
+	opacity: 1;
+
+	/* margin-top: -46%; */
 }
 .address1 li {
 	list-style: none;
@@ -236,12 +242,12 @@ footer .social-icon li i:hover {
 }
 
 .footer-bottom {
-	background: rgb(55, 65, 61);
-	opacity: 0.5;
+	background: #808080;
+	/* opacity: .5; */
 	padding: 10px 0px;
 	/* position: fixed; */
 	bottom: 0;
-	width: 70vw;
+	width: 100%;
 	border-bottom: 4px solid black;
 	display: flex;
 }
@@ -262,6 +268,7 @@ footer .social-icon li i:hover {
 	margin-right: 0;
 }
 .copyright {
+	margin-top:5%;
 	font-size: 18px;
 	color: white;
 }
@@ -569,7 +576,7 @@ footer .social-icon li i:hover {
 }
 /* create card section */
 
-.card-answer{
+.card-answer {
 	width: 15vw;
 }
 .create-card-content-container {
@@ -681,15 +688,15 @@ footer .social-icon li i:hover {
 }
 
 .front {
-    /* background-color: #fff; */
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* align-items: flex-start; */
-    /* border-radius: 10%; */
-    /* flex-wrap: wrap; */
-    /* align-content: center; */
+	/* background-color: #fff; */
+	color: #333;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	/* align-items: flex-start; */
+	/* border-radius: 10%; */
+	/* flex-wrap: wrap; */
+	/* align-content: center; */
 }
 
 .back {
@@ -1021,11 +1028,10 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 }
 /* generate tab */
 
-.generate-tab{
+.generate-tab {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 }
 /* Students Data */
 
