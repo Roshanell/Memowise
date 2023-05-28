@@ -1,8 +1,47 @@
+<h1 align="center">
+  <br>
+<img src="https://i.imgur.com/hpUeyGf.png" alt="MemowiseLogo" width="200">
+  <br>
+  Memowise
+  <br>
+
+</h1>
 # Memowise
 
 Memowise is an application that aims to streamline the learning process for students and reduce the time, effort, and workload of users when working to create new study materials.
 
 Link to project: https://memowise.web.app/
+
+## Table of Contents
+
+[Project Link]
+[How It's Made:]
+[Features]
+[Wireframe]
+[Design Document]
+[Optimizations]
+[Lessons Learned]
+[About Me]
+
+
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+        <li><a href="api-reference">API Reference</a></li>
+      </ul>
+    </li>
+        <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
 ## How It's Made:
 
@@ -60,6 +99,20 @@ Link: https://docs.google.com/document/d/1qEFzdITWw6q9pFZ_6FJIjBttkmBrJ9zswpNuLk
 6. Collaboration and User Roles: Implement user roles and collaboration features.
 7. Time Management and Deadline Adherence: Practice effective time management and meeting project deadlines.
 8. Continuous Learning and Adaptability: Embrace learning new technologies and adapting to changing requirements.
+
+## About Me:
+
+About Me
+
+I'm a passionate and adaptable software engineer with a background in education, transitioning into the tech industry. As a bootcamp graduate, I bring a strong foundation in programming languages and frameworks, including HTML, CSS, JavaScript, React, and Node.js. My experience as a teacher has honed my communication skills and ability to collaborate effectively with cross-functional teams.
+
+I thrive in fast-paced environments and possess a natural curiosity that drives me to continuously learn and stay up-to-date with the latest technologies and industry trends. I approach challenges with enthusiasm, embracing them as opportunities for growth and skill enhancement. With a focus on problem-solving and delivering innovative solutions, I take pride in writing clean and efficient code to create robust and user-friendly applications.
+
+I'm excited to contribute to a dynamic team that values collaboration, innovation, and continuous improvement. As a detail-oriented software engineer, I'm confident in my ability to make valuable contributions to projects while fostering a positive and inclusive work environment. Let's connect and create something remarkable together!
+
+Take a look at these couple examples that I have in my own portfolio:
+
+Portfollio: https://roshanell.netlify.app/
 
 ## Examples:
 
