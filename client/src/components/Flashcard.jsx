@@ -1,57 +1,52 @@
 import React from "react";
 import { useState } from "react";
 import Badge from "react-bootstrap/Badge";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
-
-function Card({ card, audio, toDelete }) {
+function Flashcard({ card, audio, toDelete }) {
 	const [isFlipped, setIsFlipped] = useState(false);
 
 	const handleClick = () => {
 		setIsFlipped(!isFlipped);
 	};
 
-
 	return (
 		<div>
-			<div
+			<Card
+				style={{ width: "18rem" }}
 				className={`create-card ${isFlipped ? "flipped" : ""}`}
 				onClick={handleClick}
 			>
-				<div className="front">
-					<Badge bg="danger">
-						{card.tag ? (
-							// <div className="item-category">
-							// 	<a href="#">{card.tag}</a>
-							// </div>
-							<div>{card.tag}</div>
-						) : null}
-					</Badge>
+				<Card.Body className="front">
+					<Badge bg="danger">{card.tag ? <div>{card.tag}</div> : null}</Badge>
 
-					<p>{card.concept}</p>
+					<Card.Title>{card.concept}</Card.Title>
+
 					{card.imagelink ? (
 						<img src={card.imagelink} className="create-card-image" />
 					) : null}
-					<button
+
+					<Button
 						type="button"
 						onClick={() => {
 							toDelete(card);
 						}}
 					>
 						Delete
-					</button>
-				</div>
+					</Button>
+				</Card.Body>
 				<div className="back">
-					<p>{card.answer}</p>
+					<p className="card-answer">{card.answer}</p>
 					{card.audiolink ? (
 						<>
-							{/* <i className="fa fa-volume-up"></i> */}
 							<audio className="audio-player" src={card.audiolink} controls />
 						</>
 					) : null}
 				</div>
-			</div>
+			</Card>
 		</div>
 	);
 }
 
-export default Card;
+export default Flashcard;

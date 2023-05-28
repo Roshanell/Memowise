@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Instructions from "../components/Instructions";
 import Dropdown from "react-bootstrap/Dropdown";
-import Card from "../components/Card";
+import Flashcard from "../components/Flashcard";
 
 function StudentsData() {
 	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 
-	const personalizedInstructions = `Select a student's name to see their data`;
+	const personalizedInstructions = `Select a student's name from the dropdown menu. No students will be shown if no user ID is provided or an incorrect user ID was provided in the roster `;
 	const [students, setStudents] = useState([]);
 	const [selectedStudent, setSelectedStudent] = useState(null);
 	const [studentCards, setStudentCards] = useState(null);
@@ -19,7 +19,7 @@ function StudentsData() {
 		try {
 			const response = await fetch(`${API}/students`);
 			const data = await response.json();
-			console.log(data);
+			// console.log(data);
 			setStudents(data);
 		} catch (error) {
 			console.log("Error fetching students:", error);
@@ -32,12 +32,12 @@ function StudentsData() {
 	};
 
 	const loadStudents = async (studentId) => {
-		console.log("This is the selected student id:", studentId);
+		// console.log("This is the selected student id:", studentId);
 		try {
 			const cards = await fetch(`${API}/cards/${studentId}`).then((response) =>
 				response.json()
 			);
-			console.log("This is the returned cards data:", cards);
+			// console.log("This is the returned cards data:", cards);
 			setStudentCards(cards);
 		} catch (error) {
 			console.error(error);
@@ -57,9 +57,9 @@ function StudentsData() {
 					Select a student
 				</Dropdown.Toggle>
 				<Dropdown.Menu style={{ overflowY: "scroll", height: "200px" }}>
-					{students.map((student) => (
+					{students.map((student, index) => (
 						<Dropdown.Item
-							key={`Student+${student.firstname}`}
+							key={index}
 							eventKey={student.studentid}
 						>
 							{student.firstname}
@@ -78,7 +78,7 @@ function StudentsData() {
 			)}
 			<div className="student-cards">
 				{studentCards
-					? studentCards.map((card) => <Card card={card} key={card.id} />)
+					? studentCards.map((card) => <Flashcard card={card} key={card.id} />)
 					: null}
 			</div>
 		</div>

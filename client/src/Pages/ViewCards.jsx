@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Card from "../components/Card";
 import loadCards from "../apis/loadCards";
 import Searchbar from "../components/Searchbar";
 import { useAuth0 } from "@auth0/auth0-react";
 import Instructions from "../components/Instructions";
 import NavBanner from "../components/NavBanner";
+import Flashcard from "../components/Flashcard";
 
 function ViewCards() {
 	const API = import.meta.env.VITE_APP_API_SERVER_URL;
@@ -69,7 +69,7 @@ function ViewCards() {
 				<ul className="card-container">
 					{(filteredCards === null ? cards : filteredCards).map((card) => (
 						<li className="card-list" key={card.id}>
-							<Card card={card} audio={audio} toDelete={onDelete} />
+							<Flashcard card={card} audio={audio} toDelete={onDelete} />
 						</li>
 					))}
 				</ul>

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import Card from "./Card";
-import Button from "./Button";
+
 import { Loading } from "./Loading";
 import Form from "react-bootstrap/Form";
 import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import { useAuth0 } from "@auth0/auth0-react";
 import Instructions from "./Instructions";
+import Flashcard from "./Flashcard";
 
-function Generate({ loadCards }) {
+function Generate() {
 	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	const [generatedCards, setGeneratedCards] = useState([]);
 	const [cardTopic, setCardTopic] = useState("");
@@ -23,36 +23,40 @@ Enter Grade Level: Provide the grade level for the flashcards. If not in school,
 Enter Number of Cards: Specify the desired number of flashcards to generate.
 Click "Generate Flashcards" or a similar button to create the flashcards using AI.`;
 
+	const clearForm = () => {
+		setCardTopic("");
+		setNumberOfCards(0);
+		setGradeLevel(0);
+	};
 	const handlegradeLevel = (event) => {
 		const gradeLevel = event.target.value;
-		console.log(gradeLevel);
+		// console.log(gradeLevel);
 		setGradeLevel(gradeLevel);
 	};
 	const handleNumberOfCardsChange = (event) => {
 		const numberOfCards = event.target.value;
-		console.log(numberOfCards);
+		// console.log(numberOfCards);
 		setNumberOfCards(numberOfCards);
 	};
 	const handleCardTopicChange = (event) => {
 		const cardTopic = event.target.value;
-		console.log(cardTopic);
+		// console.log(cardTopic);
 		setCardTopic(cardTopic);
 	};
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const cards = await generateCards();
-		console.log(cards);
+		// console.log(cards);
 		setGeneratedCards(cards);
-		// clearForm();
+		clearForm();
 	};
-
 	const handleSetSubmit = () => {
-		console.log("submitted");
+		// console.log("submitted");
 		setSubmit(true);
 		setLoading(true);
 	};
 	const saveGeneratedCards = async () => {
-		console.log("saving");
+		// console.log("saving");
 		return await fetch(`${API}/cards/${user.sub}`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
@@ -63,7 +67,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 				if (response.ok) {
 					setGeneratedCards([]);
 					setCardsSaved(true);
-					console.log("ok");
+					// console.log("ok");
 					return response.json();
 				}
 			})
@@ -82,15 +86,12 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 				gradeLevel,
 			}),
 		};
-		const response = await fetch(
-			`${API}/cards-generate`,
-			requestOptions
-		);
+		const response = await fetch(`${API}/cards-generate`, requestOptions);
 		if (response.ok) {
-			console.log("from openai", response);
+			// console.log("from openai", response);
 			setLoading(false);
 			const responseText = await response.text();
-			console.log(responseText);
+			// console.log(responseText);
 			return JSON.parse(responseText);
 		}
 	};
@@ -102,7 +103,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 	);
 
 	return (
-		<div>
+		<div className="generate-tab">
 			<Instructions personalizedInstructions={personalizedMessage} />
 			<form onSubmit={handleSubmit} className="create-card-form">
 				<Form.Label className="create-card-inputs">Enter a topic </Form.Label>
@@ -158,7 +159,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 					{generatedCards.map((card) => {
 						return (
 							<li className="card-list" key={card.id}>
-								<Card card={card} />
+								<Flashcard card={card} key={card.id} />
 							</li>
 						);
 					})}

@@ -53,7 +53,9 @@ const Footer = () => {
 					</div>
 				</div>
 				<div>
-					<p>Logo goes here</p>
+					<p>
+						<img className="logo"src="https://i.imgur.com/hpUeyGf.png" />
+					</p>
 				</div>
 			</div>
 		</footer>

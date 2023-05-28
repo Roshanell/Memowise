@@ -74,15 +74,18 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 				return response.json();
 			})
 			.then((data) => {
-				//console.log("From the post ", data);
+				// console.log("From the post ", data);
 				//I'm sending data to the List of Students (the parent) for updating the list
 				onSaveStudent(data);
 				//this line just for cleaning the form
 				clearForm();
+			})
+			.catch((error) => {
+				alert("Error adding student:" + error.message);
 			});
 	};
 
-	//A function to handle the post request
+	//A function to handle the put request
 	const putStudent = (toEditStudent) => {
 		return fetch(`${API}/students/${toEditStudent.id}`, {
 			method: "PUT",
@@ -113,7 +116,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 		<Form className="form-students" onSubmit={handleSubmit}>
 			<Form.Group>
 				<Form.Label>First Name</Form.Label>
-				<input
+				<Form.Control
 					type="text"
 					id="add-user-name"
 					placeholder="First Name"
@@ -124,7 +127,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Last Name</Form.Label>
-				<input
+				<Form.Control
 					type="text"
 					id="add-user-lastname"
 					placeholder="Last Name"
@@ -137,7 +140,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Student Id</Form.Label>
-				<input
+				<Form.Control
 					type="text"
 					id="add-student-id"
 					placeholder="Student Id"
@@ -147,7 +150,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Parent First Name</Form.Label>
-				<input
+				<Form.Control
 					type="text"
 					id="add-parent-first-name"
 					placeholder="Parent First Name"
@@ -158,7 +161,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Parent Last Name</Form.Label>
-				<input
+				<Form.Control
 					type="text"
 					id="add-parent-last-name"
 					placeholder="Parent Last Name"
@@ -169,7 +172,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Parent Email</Form.Label>
-				<input
+				<Form.Control
 					type="text"
 					id="add-parent-email"
 					placeholder="Parent Email"

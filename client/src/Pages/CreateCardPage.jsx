@@ -24,12 +24,12 @@ Click "Search Media" for results to appear.
 
 	const handleImageSearch = (event) => {
 		const imageSearch = event.target.value;
-		console.log(imageSearch);
+		// console.log(imageSearch);
 		setImageSearch(imageSearch);
 	};
 	const handleAudioSearch = (event) => {
 		const audioSearch = event.target.value;
-		console.log(audioSearch);
+		// console.log(audioSearch);
 		setAudioSearch(audioSearch);
 	};
 
@@ -52,7 +52,7 @@ Click "Search Media" for results to appear.
 				}
 			})
 			.then((data) => {
-				console.log("from pixabay", data);
+				// console.log("from pixabay", data);
 				setSearchResults(data);
 			});
 	};
@@ -62,7 +62,7 @@ Click "Search Media" for results to appear.
 		fetch(`${API}/mw?query=${audioSearch}`)
 			.then((response) => response.json())
 			.then((audio) => {
-				console.log(audio, "from mw");
+				// console.log(audio, "from mw");
 				if (!audio.data || !audio.data[0].hwi || !audio.data[0].hwi.prs) {
 					// Handle case where pronunciation data is not available
 					alert("No pronunciation available for this word.");
@@ -89,11 +89,11 @@ Click "Search Media" for results to appear.
 				} else {
 					subdirectory += audioString[0];
 				}
-				console.log(subdirectory, "subdirectory");
+				// console.log(subdirectory, "subdirectory");
 				let audiourl = `https://media.merriam-webster.com/audio/prons/${language_code}/${country_code}/${format}/${subdirectory}/${audioString}.${format}`;
 				setAudioUrl(audiourl);
 
-				console.log(audiourl);
+				// console.log(audiourl);
 			})
 			.catch((error) => console.error(error));
 	};

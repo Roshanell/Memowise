@@ -97,11 +97,6 @@ button.btn.btn-primary {
 	margin-top: 1em;
 }
 
-.card-body {
-	margin-left: 2em;
-	margin-right: 2em;
-}
-
 /* footer */
 
 ul {
@@ -158,10 +153,6 @@ ul {
 	flex-direction: column;
 }
 
-footer {
-	z-index: 100;
-	position: absolute;
-}
 .footer-day-time ul li {
 	position: absolute;
 	display: inline;
@@ -185,7 +176,7 @@ footer {
 	border-bottom: 5px solid black;
 	/* position: fixed; */
 	/* bottom: 0; */
-	width: 70vw;
+	width: 100%;
 	margin-right: 10% !important;
 }
 .footer-top h4 {
@@ -205,6 +196,13 @@ footer p {
 .footer-logo {
 	display: block;
 	margin-bottom: 32px;
+}
+
+.logo {
+	height: 100px;
+	opacity: 1;
+
+	/* margin-top: -46%; */
 }
 .address1 li {
 	list-style: none;
@@ -244,12 +242,12 @@ footer .social-icon li i:hover {
 }
 
 .footer-bottom {
-	background: rgb(55, 65, 61);
-	opacity: 0.5;
+	background: #808080;
+	/* opacity: .5; */
 	padding: 10px 0px;
 	/* position: fixed; */
 	bottom: 0;
-	width: 70vw;
+	width: 100%;
 	border-bottom: 4px solid black;
 	display: flex;
 }
@@ -270,6 +268,7 @@ footer .social-icon li i:hover {
 	margin-right: 0;
 }
 .copyright {
+	margin-top: 5%;
 	font-size: 18px;
 	color: white;
 }
@@ -576,6 +575,10 @@ footer .social-icon li i:hover {
 	transform: scaleY(-1);
 }
 /* create card section */
+
+.card-answer {
+	width: 10vw;
+}
 .create-card-content-container {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -669,9 +672,9 @@ footer .social-icon li i:hover {
 	transition: transform 1s;
 	transform-style: preserve-3d;
 	perspective: 1000px;
-	border: solid 2px black !important;
+	/* border: solid 2px black !important;
 	margin-top: 3%;
-	margin-bottom: 3%;
+	margin-bottom: 3%; */
 }
 
 .front,
@@ -685,13 +688,15 @@ footer .social-icon li i:hover {
 }
 
 .front {
-	background-color: #fff;
+	/* background-color: #fff; */
 	color: #333;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	border-radius: 10%;
+	justify-content: space-between;
+	/* align-items: flex-start; */
+	/* border-radius: 10%; */
+	/* flex-wrap: wrap; */
+	/* align-content: center; */
 }
 
 .back {
@@ -856,7 +861,7 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 900;
-	font-size: 550%;
+	font-size: 5vw;
 	line-height: 100px;
 	color: #000000;
 	text-transform: uppercase;
@@ -1021,7 +1026,13 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 .player-info {
 	margin-top: 3%;
 }
+/* generate tab */
 
+.generate-tab {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 /* Students Data */
 
 .dropdown {
@@ -1036,6 +1047,54 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
+
+/* 404 page */
+.page_404 {
+	padding: 40px 0;
+	background: #fff;
+	font-family: "Arvo", serif;
+}
+
+.page_404 img {
+	width: 100%;
+}
+
+.four_zero_four_bg {
+	background-image: url(https://cdn.dribbble.com/users/722246/screenshots/3066818/404-page.gif);
+	height: 650px;
+	background-position: center;
+}
+
+.four_zero_four_bg h1 {
+	font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+	font-size: 80px;
+}
+
+.link_404 {
+	color: #fff !important;
+	padding: 10px 20px;
+	background: #39ac31;
+	margin: 20px 0;
+	display: inline-block;
+}
+.contant_box_404 {
+	margin-top: -50px;
+}
+/* client errors */
+
+.error-message {
+	color: #ff0000; /* Red color for error messages */
+	background-color: #ffecec; /* Light red background color */
+	padding: 10px; /* Add padding to provide some space around the message */
+	border: 1px solid #ff0000; /* Add a border around the message */
+	border-radius: 4px; /* Round the corners of the message */
+	font-size: 16px; /* Adjust the font size as needed */
+	font-weight: bold; /* Make the text bold for emphasis */
+}
+
 /* Loading Icon */
 
 * {
