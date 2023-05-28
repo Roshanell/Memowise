@@ -377,7 +377,7 @@ app.put("/api/students/:studentId", async (req, res) => {
 	// 	updatedStudent
 	// );
 	// UPDATE students SET lastname = "something" WHERE id="16";
-	const query = `UPDATE students SET firstname=$1, lastname=$2, is_current=$3 parentfirstname=$4, parentlastname=$5, parentemail=$6 WHERE id=${studentId} RETURNING *`;
+	const query = `UPDATE students SET firstname=$1, lastname=$2, is_current=$3, parentfirstname=$4, parentlastname=$5, parentemail=$6 WHERE id=${studentId} RETURNING *`;
 	const values = [
 		updatedStudent.firstname,
 		updatedStudent.lastname,

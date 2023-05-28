@@ -60,6 +60,7 @@ const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
 			parentfirstname: "",
 			parentlastname: "",
 			parentemail: "",
+			studentid: "", 
 		});
 	};
 
