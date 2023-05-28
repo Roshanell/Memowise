@@ -1015,7 +1015,14 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 .player-info {
 	margin-top: 3%;
 }
+/* generate tab */
 
+.generate-tab{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
 /* Students Data */
 
 .dropdown {

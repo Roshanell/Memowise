@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Instructions from "./Instructions";
 import Flashcard from "./Flashcard";
 
-function Generate({ loadCards }) {
+function Generate() {
 	const API = import.meta.env.VITE_APP_API_SERVER_URL;
 	const [generatedCards, setGeneratedCards] = useState([]);
 	const [cardTopic, setCardTopic] = useState("");
@@ -23,6 +23,11 @@ Enter Grade Level: Provide the grade level for the flashcards. If not in school,
 Enter Number of Cards: Specify the desired number of flashcards to generate.
 Click "Generate Flashcards" or a similar button to create the flashcards using AI.`;
 
+	const clearForm = () => {
+		setCardTopic("");
+		setNumberOfCards(0);
+		setGradeLevel(0);
+	};
 	const handlegradeLevel = (event) => {
 		const gradeLevel = event.target.value;
 		console.log(gradeLevel);
@@ -43,9 +48,8 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 		const cards = await generateCards();
 		console.log(cards);
 		setGeneratedCards(cards);
-		// clearForm();
+		clearForm();
 	};
-
 	const handleSetSubmit = () => {
 		console.log("submitted");
 		setSubmit(true);
@@ -82,10 +86,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 				gradeLevel,
 			}),
 		};
-		const response = await fetch(
-			`${API}/cards-generate`,
-			requestOptions
-		);
+		const response = await fetch(`${API}/cards-generate`, requestOptions);
 		if (response.ok) {
 			console.log("from openai", response);
 			setLoading(false);
@@ -102,7 +103,7 @@ Click "Generate Flashcards" or a similar button to create the flashcards using A
 	);
 
 	return (
-		<div>
+		<div className="generate-tab">
 			<Instructions personalizedInstructions={personalizedMessage} />
 			<form onSubmit={handleSubmit} className="create-card-form">
 				<Form.Label className="create-card-inputs">Enter a topic </Form.Label>
