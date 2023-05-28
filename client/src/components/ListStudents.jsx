@@ -64,7 +64,6 @@ const ListStudents = () => {
 					{students.map((student) => {
 						return (
 							<li key={student.id}>
-								{" "}
 								<Student
 									student={student}
 									toDelete={onDelete}

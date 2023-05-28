@@ -203,9 +203,10 @@ app.post("/api/user", cors(), async (req, res) => {
 	}
 });
 
-// create the POST request
+// This is an HTTP POST endpoint to create a student resource
 app.post("/api/students", async (req, res) => {
 	try {
+		// Create a new student object using request body fields
 		const newStudent = {
 			firstname: req.body.firstname,
 			lastname: req.body.lastname,
@@ -213,8 +214,23 @@ app.post("/api/students", async (req, res) => {
 			parentfirstname: req.body.parentfirstname,
 			parentlastname: req.body.parentlastname,
 			parentemail: req.body.parentemail,
-			studentid: req.body.studentid,
+			studentid: req.body.studentid || null, // Set student ID to null if it does not exist in the request
 		};
+
+		// Check if the student ID exists in the users table
+		if (newStudent.studentid) {
+			const userExists = await db.query("SELECT * FROM users WHERE id = $1", [
+				newStudent.studentid,
+			]);
+
+			// If no user is found, remove the invalid student ID from the new student object
+			if (userExists.rows.length === 0) {
+				console.log("Invalid student ID: " + newStudent.studentid);
+				delete newStudent.studentid;
+			}
+		}
+
+		// Insert the new student into the students table and return the newly created resource
 		const result = await db.query(
 			"INSERT INTO students(firstname, lastname, is_current, parentfirstname, parentlastname, parentemail, studentid) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
 			[
@@ -227,11 +243,10 @@ app.post("/api/students", async (req, res) => {
 				newStudent.studentid,
 			]
 		);
-		// console.log(result.rows[0]);
-		res.json(result.rows[0]);
+
+		res.json(result.rows[0]); // Respond with the newly created resource
 	} catch (e) {
-		// console.log(e);
-		return res.status(400).json({ e });
+		return res.status(400).json({ error: e.message }); // Respond with an error message if there was any error during the process
 	}
 });
 
