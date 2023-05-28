@@ -57,9 +57,9 @@ function StudentsData() {
 					Select a student
 				</Dropdown.Toggle>
 				<Dropdown.Menu style={{ overflowY: "scroll", height: "200px" }}>
-					{students.map((student) => (
+					{students.map((student, index) => (
 						<Dropdown.Item
-							key={`Student+${student.firstname}`}
+							key={index}
 							eventKey={student.studentid}
 						>
 							{student.firstname}
