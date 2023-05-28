@@ -25,6 +25,16 @@ Memowise is an application that aims to streamline the learning process for stud
 ## Project Link
 You can access the Memowise application by visiting the following link: [Memowise](https://memowise.web.app/)
 
+
+### Logging in
+
+**Demo Teacher Account:** <br>
+<img width="464" alt="Screen Shot 2023-05-28 at 4 00 19 PM" src="https://github.com/Roshanell/Memowise/assets/96213223/fcd6e990-4b65-4fbf-b39e-eb98b12eb173">
+
+
+**Demo Student Account:** <br>
+<img width="415" alt="Screen Shot 2023-05-28 at 3 55 27 PM" src="https://github.com/Roshanell/Memowise/assets/96213223/bb1b5d0c-6c60-404c-9d84-a8a48ddf163c">
+
 ## Technologies Used
  The project utilizes a variety of languages and tools, including: <br><br>
 
