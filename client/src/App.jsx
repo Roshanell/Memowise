@@ -11,7 +11,7 @@ import AboutMe from "./Pages/AboutMe";
 import FAQs from "./Pages/FAQs";
 import Profile from "./components/Profile";
 import CreateCardPage from "./Pages/CreateCardPage";
-
+import NotFound from "./Pages/NotFound";
 import StudentsData from "./Pages/StudentsData";
 
 import {
@@ -54,6 +54,7 @@ const router = createBrowserRouter(
 			<Route path="/" element={<Home />} />
 			<Route path="/user-profile" element={<Profile />} />
 			<Route path="/students-data" element={<StudentsData />} />
+			<Route path="*" element={<NotFound />} />
 		</Route>
 	)
 );
