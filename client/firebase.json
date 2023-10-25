@@ -10,7 +10,7 @@
       {
         "source": "/api{,/**}",
         "run": {
-          "serviceId": "memowise-backend",
+          "serviceId": "memowise",
           "region": "us-central1"
         }
       },
