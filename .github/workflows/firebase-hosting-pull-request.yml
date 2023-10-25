@@ -2,7 +2,7 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on PR
-'on': pull_request
+"on": pull_request
 jobs:
   build_and_preview:
     env:
@@ -11,15 +11,15 @@ jobs:
       VITE_APP_AUTH0_CLIENT_ID: ${{ secrets.VITE_APP_AUTH0_CLIENT_ID }}
       VITE_APP_CLIENTSECRET: ${{ secrets.VITE_APP_CLIENTSECRET }}
       VITE_APP_AUTH0_CALLBACK_URL: ${{ secrets.VITE_APP_AUTH0_CALLBACK_URL }}
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm i && npm run build
+      - run: npm ci && npm run build
         working-directory: ./client
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MEMOWISE }}'
-          projectId: memowise
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_MEMOWISE_402915 }}"
+          projectId: memowise-402915
           entryPoint: ./client
